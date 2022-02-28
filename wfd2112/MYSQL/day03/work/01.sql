@@ -16,17 +16,20 @@ insert into family values('10','联想');
 insert into family values('20','戴尔');
 insert into family values('30','小米');
 insert into family values('40','华为');
+#没有出现的列自动应用默认值
 insert into family(fid) values(50);
+#插入的值中出现了default关键字，会调用这个列的默认值
+insert into family values(60,default);
 #创建部门表
 create table laptop(
-  fid int primary key,
+  fid int primary key check(fid>=0 and fid<=20),
   title varchar(128) unique not null,
-  price decimal(8,2) default '3000',
-  is_onsale boolean default '1'
+  price decimal(8,2) default 3000,
+  is_onsale boolean default 0
 );
 #插入数据
 #insert into laptop values(10,'研发部',default,default);
 insert into laptop(fid,title) values(10,'研发部');
 #insert into laptop values(20,'市场部');
-#insert into laptop values(30,'运营部');
+insert into laptop values(30,'运营部');
 #insert into laptop values(40,'测试部');
