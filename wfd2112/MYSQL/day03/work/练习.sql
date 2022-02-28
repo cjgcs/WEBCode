@@ -63,8 +63,8 @@ or / ||  或者
   select * from emp where salary>5000 or salary<8000;
   select * from emp where salary>5000 || salary<8000;
   练习：查询出8000以上的女员工
-  select * from emp where salary>=8000 and sex=0;
-  select * from emp where salary>=8000 && sex=0;
+  select * from emp where salary>8000 and sex=0;
+  select * from emp where salary>8000 && sex=0;
   练习：查询出20号部门或者30号部门的员工有哪些
   select * from emp where deptid=20 or deptid=30;
   select * from emp where deptid=20 || deptid=30;
