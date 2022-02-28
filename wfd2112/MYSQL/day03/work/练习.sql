@@ -60,8 +60,8 @@ or / ||  或者
   select * from emp where salary>=5000 and salary<=8000;
   select * from emp where salary>=5000 && salary<=8000;
   练习：查询出工资在5000以下或者8000以上的员工有哪些
-  select * from emp where salary>=5000 or salary<=8000;
-  select * from emp where salary>=5000 || salary<=8000;
+  select * from emp where salary>5000 or salary<8000;
+  select * from emp where salary>5000 || salary<8000;
   练习：查询出8000以上的女员工
   select * from emp where salary>=8000 and sex=0;
   select * from emp where salary>=8000 && sex=0;
