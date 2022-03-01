@@ -9,7 +9,7 @@ use tedu;
 #创建部门表dept
 create table dept(
   did int primary key auto_increment,
-  dname varchar(16) unique
+  dname varchar(5) unique
 );
 #插入数据
 insert into dept values('10','研发部');
@@ -37,4 +37,4 @@ insert into emp values(null,'zhao',default,'1988-5-21',2345.22,30);
 insert into emp values(null,'qian',1,'1989-6-4',80000.23,40);
 insert into emp values(null,'sun',default,'1999-10-12',65468.28,20);
 insert into emp values(null,'lv',1,'1982-3-9',24805.05,30);
-#insert into emp values(null,'xu',default,'1993-9-6',15236.22,10);
+insert into emp values(null,'xu',default,'1993-9-6',15236.22,10);
