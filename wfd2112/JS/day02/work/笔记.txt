@@ -1,3 +1,83 @@
 一、常量
 常量用来存储数据的容器
 常量声明后必须赋值，不允许重新赋值
+ const  a=1;
+ 使用const关键字声明常量
+
+二.数据类型
+ 分为原始类型和引用类型
+ 原始类型分为数值型、字符串型、布尔型、未定义型、空
+ 1.数值型     
+  10进制
+  1  2   3   ..    7   8   9   10  ..   15   16 
+  8进制：以0开头的数字，例如：012
+  1  2   3   ..    7  10  11  12
+  16进制：以0X开头的数字，不区分大小写，例如：0XA
+  1  2   3   ..    7   8   9    a   ~   f    10
+  浮点型
+  3141.5e-1
+  314.15
+  31.415e1
+  3.1415e2
+typeof   检测数据类型  
+number/string/boolean/undefined/object
+ 2.字符串型
+  所有被引号包裹的数据就是字符串型
+  查看任意一个字符的Unicode码
+  'a'.charCodeAt()
+ 3.布尔型
+  只有两个值,分别是true和false,代表真和假
+  用于保存只有两个值的数据,例如:是否为会员,是否登录,是否已婚
+ 4.未定义型
+  只有一个值undefined,声明变量未赋值则值为undefined
+  表示空值
+ 5.空
+  只有一个值null,常用于对象中
+
+ 三.数据类型转换
+  分为隐式转换和强制转换
+  1.隐式转换
+   在运算过程中自动发生的转换
+   (1)数字+字符串 数字转换为字符串
+     2+'3' //'23'
+   (2)数字+布尔型 布尔型转换为数字，true->1 false->0
+     2+true //3
+     2+false //2
+   (3)字符串+布尔型 布尔型转换为字符串
+     '3'+true //'3true'
+     加号（+）的作用
+     数值之间的加法运算
+     字符串之间的拼接
+    练习：查看以下程序的输出结果
+     var a=1,b=true,c='tedu';
+     console.log(a+b+c);//'2tedu'
+     console.log(b+c+a);//'truetedu1'
+     console.log(c+a+b);//'tedu1true'
+   NaN:Not a Number,不是一个数字，将一个值转换为数字的时候，没有成功的到数字结果就是NaN
+   NaN和任何数字执行数字运算，结果还是NaN
+   所有的隐式转换为数字自动调用函数Number
+  2.强制转换
+   (1)强制转为数字
+    Number()
+    Number('1')  //1
+    Number('1a')  //NaN
+    Number(true)  //1
+    Number(false)  //0
+    Number(undefined)  //NaN
+    Number(null)  //0
+   (2)强制转整形
+    parseInt()
+    用于将字符串和小数点位整形，其他转换的结果为NaN
+     parseInt(1,9)	//1
+     parseInt('3.14')  //3
+     parseInt('6a6')  //6
+     parseInt('a66')  //NaN
+
+   (3)强制转换为浮点型
+    parseFloat()
+    用于将字符串强制转换为浮点型
+    parseFloat('3.14')  //3.14
+    parseFloat('6a')  //6
+    parseFloat('a6.18')  //NaN
+
+

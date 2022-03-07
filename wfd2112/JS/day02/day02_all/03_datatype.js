@@ -20,19 +20,19 @@ var str3='str1';
 
 //查看任意一个字符的Unicode码
 console.log( '新涛'.charCodeAt() );
-
+*/
 //布尔型
 var vip=false;
 var a=3>1;//true
 console.log(a,typeof a);
 
 //未定义型
-var user;//undefined
-console.log(user,typeof user);
-*/
+//var user;//undefined
+//console.log(user,typeof user);
+
 //空
-var p=null;
-console.log(p,typeof p);
+//var p=null;
+//console.log(p,typeof p);
 
 
 
