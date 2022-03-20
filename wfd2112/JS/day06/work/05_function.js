@@ -12,10 +12,10 @@
   console.log(i);
 })();
 //轮播图3
-(function(){
+(function fn(n){
   var i=4;
-  console.log(i);
-})();
+  //console.log(i,n);//fn是局部变量
+})(5);
 
 
 
