@@ -24,7 +24,7 @@ console.log(typeof n4);
 */
 //字符串型
 var str1='tao';
-var str2='3';
+var str2='';
 var str3=str1;
 //console.log(str2,typeof str2);
 //console.log(str3);

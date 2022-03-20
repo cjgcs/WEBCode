@@ -37,6 +37,7 @@ function fun(){
   //m2=m3 //全局
   //var m1=m2 //局部
   var m1=m2=m3=5;
+  console.log(m1);
 }
 fun();
 console.log(m3);//5
