@@ -20,8 +20,11 @@ function foo(){
 
 
 
-
-
+var fn1=function(){
+ console.log(1);
+}
+fn1();
+console.log(typeof fn1);
 
 
 

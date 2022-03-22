@@ -13,10 +13,26 @@ console.log(zong);
 console.log(zong/count);
 
 
+//创建一个电脑对象，有颜色，重量，型号，标题属性，看电影，听音乐，打游戏是方法，调用时分别打印“那个电脑能看电影，听音乐，打游戏”
 
-
-
-
+var computer={
+  color:'红色',
+  weight:'2kg',
+  model:'Y7000P',
+  title:'联想',
+  kdy:function(){
+    return '看电影';
+  },
+  tyy:function(){
+    return '听音乐';
+  },
+  dyx:function(){
+    return '打游戏';
+  }
+}
+console.log('那个电脑能'+computer.kdy());
+console.log('那个电脑能'+computer.tyy());
+console.log('那个电脑能'+computer.dyx());
 
 
 
