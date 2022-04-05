@@ -10,7 +10,7 @@ console.log(circle);
 //console.log(circle.myArea(5).toFixed(2));
 
 //局部变量
-console.log(__dirname);
-console.log(__filename);
+console.log(__dirname);//两个下斜杠
+console.log(__filename);//两个下斜杠
 
 
