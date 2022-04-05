@@ -1,0 +1,17 @@
+console.log('这是我的眼睛');
+var a=1;
+
+function fn(){
+  return 2;
+}
+function add(a,b){
+  return a+b;
+}
+
+//暴露的对象，默认是空对象
+//如果想让外部使用哪部分，就需要添加到暴露的对象中
+module.exports={
+  itA:a,
+  itfn:fn,
+  itadd:add
+}
