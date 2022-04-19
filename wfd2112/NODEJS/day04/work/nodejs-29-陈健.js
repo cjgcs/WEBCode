@@ -14,8 +14,13 @@ app.get('/mylogin',(req,res)=>{
 });
 
 
-
-
+//login.html
+<h1>用户登录</h1>
+<form method='get' action='mylogin'>
+  用户<input type='text' name='yh'><br>
+  密码<input type='text' name='mm'><br>
+  <input type='submit' >
+</form>
 
 
 
