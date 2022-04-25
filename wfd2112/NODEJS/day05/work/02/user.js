@@ -1,5 +1,5 @@
 //引入express模块
-const express=require('require');
+const express=require('express');
 //创建路由器对象
 const x=express.Router();
 //添加路由
