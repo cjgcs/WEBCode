@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<table border="1px"  width="100%">
+			<thead>
+				<tr>
+					<th>编号</th>
+					<th>名称</th>
+					<th>单价</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody id='tb'>
+				<tr>
+					<td colspan="4" id='productlist' align="center">加载更多内容</td>
+				</tr>
+			</tbody>
+		</table>
+		<input type="button" value="加载更多数据" id="btn"/>
+		<select id='page'>
+			<option value='5'>每页显示5条数据</option>
+			<option value='10'>每页显示10条数据</option>
+		</select>
+	</body>
+	<script>
+		//点击删除按钮时，触发该方法，并将lid传入进来，以便于传参使用
+		function delById(lid){
+			let xhr = new XMLHttpRequest()
+			xhr.open('GET','/v2/product/del?lid='+lid)
+			xhr.onload =function(){
+				console.log(xhr.responseText)
+			}
+			xhr.send()
+		}
+		
+		window.onload = function(){
+			let xhr = new XMLHttpRequest()
+			xhr.open('GET','/v2/product/list')
+			xhr.onload = function(){
+				let data = JSON.parse(xhr.responseText)
+				let html = ``
+				for(var i=0;i<data.length;i++){
+					//删除按钮 运动简单方式直接在标签内部添加 onclick点击事件 点击执行delById方法
+					//因为删除是根据id进行删除，因此在方法调用的同时，将lid作为参数传递进去
+					//onclick 点击    delById()方法名    ${data[i].lid}将本条数据的id传参
+					html += `<tr>
+										<td>${data[i].lid}</td>
+										<td>${data[i].title}</td>
+										<td>${data[i].price}</td>
+										<td><input type='button' value="删除" onclick="delById(${data[i].lid})"></td>
+									</tr>`
+				}
+				tb.innerHTML = html
+			}
+			xhr.send()                   
+		}
+	</script>
+</html>

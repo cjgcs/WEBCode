@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		用户名<input type="text" id="username"/><br />
+		密码  <input type="password" id="password"/><br />
+		<input id="b_login" type="button" value="登录" />
+		<h4 id="msg">登录中...</h4>
+	</body>
+	<script>
+		// b_login是按钮的id   onclick是点击事件  连起来就是  点击按钮会触发如下方法
+		b_login.onclick = function(){
+			//获取文本框输入的内容
+			let un = username.value
+			let pwd = password.value
+			let url = 'http://127.0.0.1:8080/v2/user/login?username='+un+'&password='+pwd
+			//获取对象   规定请求方式和路径   发送请求
+			console.log(url)   //  若出现验证一直错或者一对可以输出地址查看地址和变量是否正确
+			let xhr = new XMLHttpRequest()
+			xhr.open('GET',url)
+			xhr.send()
+			xhr.onload = function(){
+				//往标题h4中 因此h4中增加id msg   将内容修改成对应的结果
+				if(xhr.responseText === "登录成功"){
+					msg.innerHTML = '登录成功'
+				}else{
+					msg.innerHTML = '登录失败'
+				}
+			}
+		}
+	
+	</script>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<table border="1px" width="100%">
+			<thead>
+				<th>编号</th>
+				<th>名称</th>
+				<th>价格</th>
+				<th>操作</th>
+			</thead>
+			<!-- id作用，为了获取<tbody>，在tbody里面增加新的行，因此设置id -->
+			<tbody id='tb'>
+				<tr>
+					<!-- 为了将td里面文字内容进行改变 -->
+					<td id='productlist' colspan="4" align="center">加载数据</td>
+				</tr>
+			</tbody>
+		</table>
+		<!-- 将 id=productlist的td内容更换成，“已经加在更多了” 的文本 -->
+		<input type='button' id='btn1' value="按钮1"/><br />
+		<!-- tbody中的原一行一列表格，换成新的一行四列表格 -->
+		<input type='button' id='btn2' value="按钮2"/><br />
+		<!-- tbody中的原一行一列表格，换成新的多行四列表格 -->
+		<input type='button' id='btn3' value="按钮3"/><br />
+		<!-- 将自定义的js对象插入表格 -->
+		<input type='button' id='btn4' value="按钮4"/><br />
+		<!-- 将json字符串转换js对象，插入表格 -->
+		<input type='button' id='btn5' value="按钮5"/><br />
+		
+	</body>
+	<script>
+		//<!-- 将 id=productlist的td内容更换成，“已经加在更多了” 的文本 -->
+		btn1.onclick = function(){
+			productlist.innerHTML = '已经加载更多了'
+		}
+		//<!-- tbody中的原一行一列表格，换成新的一行四列表格,通过id操作-->
+		btn2.onclick = function(){
+			let html = `<tr>
+										<td>1</td>
+										<td>华为</td>
+										<td>888</td>
+										<td><input type='button' value='删除'></td>
+								</tr>`
+			tb.innerHTML = html
+		}
+		//运用循环，增加多行表格
+		btn3.onclick = function(){
+			//因为innerHTML会替换原来的内容，因此将多行进行字符串拼接10次后，再进行替换
+			let html = ``
+			for(var i=0;i<10;i++){
+				html += `<tr>
+											<td>1</td>
+											<td>华为</td>
+											<td>9999</td>
+											<td><input type='button' value='删除'></td>
+									</tr>`
+			}
+			console.log(html)
+			tb.innerHTML = html
+		}
+		
+		let data = [
+			{lid:1,title:'华为',price:8888},   
+			{lid:2,title:'苹果',price:3333},   
+			{lid:3,title:'OPPO',price:7777}    
+		]
+		//通过data[下标].属性名  来得到对应的值，将值写入表格
+		btn4.onclick = function(){
+			let html = ``
+			for(var i=0;i<data.length;i++){
+				//  ${} 作用，以js的方式读取数据  ，不加的话就是字符串
+ 				html += `<tr>
+										<td>${data[i].lid}</td>
+										<td>${data[i].title}</td>
+										<td>${data[i].price}</td>
+										<td><input type='button' value='删除'></td>
+								</tr>`
+			}
+			tb.innerHTML = html
+		}
+		
+		//JSON类型的字符串
+		let jsonString = '[{"lid":1,"title":"苹果","price":13000}]'
+		//反序列化，将JSON类型的字符串转换成js数组对象
+		let jsdata = JSON.parse(jsonString)
+		//通过data[下标].属性名  来得到对应的值，将值写入表格
+		btn5.onclick = function(){
+			//console.log(jsdata)
+			let html = ``
+			for(var i=0;i<jsdata.length;i++){
+				//  ${} 作用，以js的方式读取数据  ，不加的话就是字符串
+				html += `<tr>
+										<td>${jsdata[i].lid}</td>
+										<td>${jsdata[i].title}</td>
+										<td>${jsdata[i].price}</td>
+										<td><input type='button' value='删除'></td>
+								</tr>`
+			}
+			tb.innerHTML = html
+		}
+		
+		
+		
+	</script>
+</html>

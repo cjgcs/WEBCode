@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 测试文本框id和value的用法 -->
+		商品名称<input type="text" id="title" /><br />
+		<!-- 测试下拉框id和value的用法 -->
+		下拉框<select id='page'>
+							<option >每页显示10条数据</option>
+							<option value='5'>每页显示5条数据</option>
+					</select><br />
+		<!-- 测试按钮的用法 -->
+		<input type="button" id='btn1' value='按钮1'/><br />
+		<!-- onclick 写在标签内部  以属性的形式存在  onclick='js的一个方法名' -->
+		<input type="button" id='btn' value='按钮2' onclick='btn2()'/><br>
+	</body>
+	<script>
+	//当页面加载(图片，样式)完成之后，要执行的内容
+		window.onload = function(){
+			console.log('页面加载完成')
+			//document获取id为btn1的标签
+			let e = document.getElementById('btn1')
+			//通过document获取value值
+			console.log(e.value)
+			//HTML5之后，可以直接通过id获取value值
+			console.log(btn2.value)
+			//获取文本输入框的value
+			console.log(title.value)
+			//获取下拉框的value
+			console.log(page.value)
+		}
+		
+		//输入框的光标移除事件，也叫失去焦点事件
+		title.onblur = function(){
+			console.log('光标移除了')
+			console.log(title.value)
+		}
+		//下拉框的内容改变事件，也叫域改变事件,如果未改变，则不会触发
+		page.onchange = function(){
+			console.log('内容改变了')
+			console.log(page.value)
+		}
+		//按钮的点击事件
+		btn1.onclick = function(){
+			console.log('按钮1 按下了')
+			console.log(btn1.value)
+		}
+		
+		//此案例中，会被按钮2点击调用，因为在input里面有个  onclick='btn2()' 
+		function btn2(){
+			console.log('按钮2 按下了')
+			//当id与方法名重复时，会产生冲突，最好换个id或者方法名，通常是换方法名
+			console.log(btn.value)
+		}
+	</script>                
+</html>

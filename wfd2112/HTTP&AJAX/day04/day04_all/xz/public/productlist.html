@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<h4>商品列表</h4>
+		<hr>   <!-- 分割线 -->
+		<table border="1px" width="100%">
+			<thead>
+				<tr>
+					<th>编号</th><th>名称</th><th>单价</th><th>操作</th>
+				</tr>
+			</thead>
+			<tbody id="tb">
+				<tr>
+					<td id="productlist" colspan="4" align="center">点击下方按钮以加载数据...</td>
+				</tr>
+			</tbody>
+		</table>		
+		<br />
+		<!-- 跟input的type="button" 功能一致-->
+		<button id="load_data">加载商品数据</button>
+		&nbsp;&nbsp;&nbsp;
+		<select id="choose_page">
+			<option value="5">每页显示5条数据</option>
+			<option value="10" selected>每页显示10条数据</option>
+			<option value="15">每页显示15条数据</option>
+			<option value="20">每页显示20条数据</option>
+			<option value="50">每页显示50条数据</option>
+		</select>
+	</body>     
+		<script>
+		//为 "选择每页显示的条数" 下拉菜单的 "选项改变事件" 指定处理方法
+			choose_page.onchange = function(){
+				//读取下拉菜单当前选中option的value值
+				let ps = choose_page.value
+				//发送AJAX请求
+				//1 创建对象
+				let xhr = new XMLHttpRequest()
+				//2 打开链接
+				xhr.open('GET','/v2/product/list?pageSize='+ps)
+				//3 准备处理
+				xhr.onload = function(){
+					//将相应的JSON字符串转换成JS对象
+					let data = JSON.parse(xhr.responseText)
+					console.log(typeof(data))  //查看data类型
+					console.log(data)					//查看data值
+					
+					let html =  `
+				  <tr>
+					<td>${data[0].lid}</td>
+					<td>${data[0].title}</td>
+					<td>${data[0].price}</td>
+					<td>删除</td>
+				  </tr>
+				`
+					tb.innerHTML = html
+				}
+				//4  发送请求
+				xhr.send()
+				
+				
+			}
+		
+		
+		
+		
+		
+		
+		
+		
+		//当点击id为load_data的按钮时，会触发事件指定处理方法
+			load_data.onclick = function(){
+				//发送异步请求，获取服务器接口提供的数据
+				//1创建异步请求对象
+				let xhr = new XMLHttpRequest();
+				//2 打开服务器连接
+				//xhr.open('GET','http://127.0.0.1:8080/v2/product/list')
+				//因为html文件的访问时 http://127.0.0.1:8080，因此发送请求时，可以省略不写
+				xhr.open('GET','/v2/product/list')
+				//3 提前准好：如果加载到了响应数据，该如何处理
+				xhr.onload = function(){
+					//将id为productlist的值修改为  查询到的数据
+					console.log(xhr.getResponseHeader("Content-Type"))
+					productlist.innerHTML = xhr.responseText
+				}
+				//4 正式向服务器发送请求消息
+				xhr.send()
+			}
+			//访问地址  http://127.0.0.1:8080/productlist.html
+			
+			
+			
+			
+		</script>		
+							
+							
+							
+</html>
+																								
