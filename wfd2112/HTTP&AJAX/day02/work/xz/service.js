@@ -11,6 +11,11 @@ app.listen(port,()=>{
 //托管当前项目的静态资源
 app.use(express.static('./public'))
 
-//引入自定义路由器模块
+//引入自定义用户路由器模块
 const userRouter = require('./router/user')
 app.use('/v2/user',userRouter)
+
+
+//引入自定义商品路由器模块
+const productRouter=require('./router/product')
+app.use('/v2/product',productRouter)
