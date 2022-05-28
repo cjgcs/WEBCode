@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+		/* 相邻兄弟选择器 此选择器会选择紧跟着的，若没有跟着，则不选中 */
+			#p1 + .s1{
+				background-color: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<span>我是p元素的大哥</span>
+		<p id="p1">
+			<span>我是p元素的子元素</span>
+		</p>
+		<span class="s1">我是p元素的兄弟1</span>
+		<span>我是p元素的兄弟2</span>
+	</body>
+</html>

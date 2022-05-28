@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<table border="1px" width='100%'>
+		<thead>
+			<th>编号</th>
+			<th>名称</th>
+			<th>价格</th>
+			<th>操作</th>
+		</thead>	
+		<!-- id的作用为了获取tbody，在tbody里面增加新的行，因此设置id -->
+			<tbody id="tb">
+				<tr>
+					<!-- 为了将td里面文字内容进行改变 -->
+					<td id="productlist" colspan="4" align="center">加载数据</td>
+				</tr>
+			</tbody>
+		</table>
+			<!-- 将id=productlist的td内容更换成'已经加载更多了'的文本 -->
+			<input type="button" id='btn1' value='按钮1'><br>
+			<!-- tbody中的源一行一列的表格换成新的一行四列的表格 -->
+			<input type="button" id='btn2' value='按钮2'><br>
+			<!-- tbody中的源一行一列的表格换成新的多行四列的表格 -->
+			<input type="button" id='btn3' value='按钮3'><br>
+			<!-- 将自定义的js对象插入表格 -->
+			<input type="button" id='btn4' value='按钮4'><br>
+			<!-- 将json字符串转换js对象，插入表格 -->
+			<input type="button" id='btn5' value='按钮5'><br>
+	</body>
+
+	<script>
+		//将id=productlist的td内容更换成'已经加载更多了'的文本
+		btn1.onclick=function(){
+			productlist.innerHTML='已经加载更多了'
+		}
+		//tbody中的源一行一列的表格换成新的一行四列的表格
+		btn2.onclick=function(){
+			let html=`
+			<tr>
+				<td>1</td>
+				<td>小米</td>
+				<td>999</td>
+				<td><input type='button' value='删除'></td>
+			</tr>
+			`
+			tb.innerHTML=html
+		}
+		
+		//tbody中的源一行一列的表格换成新的多行四列的表格(运用循环增加多行表格)
+		btn3.onclick=function(){
+			let html=``	
+			for(var i=0;i<9;i++){
+				 html+=`
+						<tr>
+							<td>1</td>
+							<td>小米</td>
+							<td>999</td>
+							<td><input type='button' value='删除'></td>
+						</tr>`
+				tb.innerHTML=html
+			}
+		}
+		
+		//将自定义的js对象插入表格 
+		let data=[
+			{lid:1,title:'华为',price:8888},
+			{lid:2,title:'小米',price:9999},
+			{lid:3,title:'一加',price:7777}
+			]
+		//通过data[下标].属性名  来得到对应的值 将值写入表格
+		btn4.onclick=function(){
+			let html=``	
+			for(var i=0;i<data.length;i++){
+				//${} 作用,以js的方式读取数据,不加的话就是字符串
+				html+=`
+				<tr>
+					<td>${data[i].lid}</td>
+					<td>${data[i].title}</td>
+					<td>${data[i].price}</td>
+					<td><input type='button' value='删除'></td>
+				</tr>`
+				
+				tb.innerHTML=html
+			}
+		}
+		
+		// 将json字符串转换js对象，插入表格
+		let jsonString='[{"lid":1,"title":"华为","price":8888}]'
+		//反序列化 将JSON类型的字符串转换成js数据对象
+		let jsdata=JSON.parse(jsonString)
+		
+		btn5.onclick=function(){
+			let html=``	
+			for(var i=0;i<jsdata.length;i++){
+				//${} 作用,以js的方式读取数据,不加的话就是字符串
+				html+=`
+				<tr>
+					<td>${jsdata[i].lid}</td>
+					<td>${jsdata[i].title}</td>
+					<td>${jsdata[i].price}</td>
+					<td><input type='button' value='删除'></td>
+				</tr>`
+				
+				tb.innerHTML=html
+			}
+		}
+		
+		
+		
+		
+		
+		
+		
+	</script>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			/* 会选择d1的直接子元素，不考虑孙子元素等元素 */
+			.d1>span{
+				background-color: yellow;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class="d1">
+			<span>我是d1的子元素</span>
+			<div class="d2">
+				<span>我是d2的子元素</span>
+				<div>
+					<span>我是d1的重孙子</span>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+</html>

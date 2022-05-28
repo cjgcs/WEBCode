@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<h2>成绩列表</h2>
+		<table border="1px" width="500px">
+			<thead>
+				<tr>
+					<th><input type="checkbox" id="ck">全选</th>
+					<th>ID</th>
+					<th>姓名</th>
+					<th>成绩</th>
+				</tr>
+				<tbody id='xx'>
+			 <!-- <tr> -->
+						<!-- <td align="center"><input type="checkbox" id='ck1'></td>
+					</tr> -->
+				 	<!-- <tr>
+						<td align="center"><input type="checkbox" id='ck2'></td>
+					</tr>
+					<tr>
+						<td align="center"><input type="checkbox" id='ck3'></td>
+					</tr>
+					<tr>
+						<td align="center"><input type="checkbox" id='ck4'></td>
+					</tr> -->
+				</tbody>
+			</thead>
+		</table>
+		<script>
+			var data=[
+			{
+			id:1,
+			name:'tom',
+			score:70
+			},
+			{
+			id:2,
+			name:'tom2',
+			score:90
+			},
+			{
+			id:3,
+			name:'tom3',
+			score:85
+			},
+			{
+			id:4,
+			name:'tom4',
+			score:76
+			}
+			]
+			
+		
+			
+			// console.log(typeof(data))  //查看类型
+			// console.log(data[0].id)					 //查看data值
+			window.onload=function(){
+				for(let i=0;i<data.length;i++){
+					xx.innerHTML+=`
+					<tr align='center'>
+						<td align="center"><input type="checkbox" id='ck1'></td>
+						<td>${data[i].id}</td>
+						<td>${data[i].name}</td>
+						<td>${data[i].score}</td>
+					</tr>
+					`
+				}
+			}
+			
+			
+			
+			
+			
+			// // window.onload=function(){
+			// 	let xhr =new XMLHttpRequest()
+			// // 	//打开连接
+			// // 	// xhr.open('get','/v2/product/list?pageSize='+ps)
+			// // 	//准备处理
+			// 	xhr.onload= function(){
+			// // 		//将响应的JSON字符串转换成JS对象
+			// 	let	 data=JSON.parse(xhr.responseText)
+			// 		console.log(typeof(data))  //查看类型
+			// 		console.log(data)					 //查看data值
+			// // 		let html=''
+			// // 		for(let i=0;i<ps;i++){
+			// // 		html+=`
+			// // 		<tr>
+			// // 			<td>${data[i].id}</td>
+			// // 			<td>${data[i].name}</td>
+			// // 			<td>${data[i].score}</td>
+			// // 		</tr>
+			// // 		`
+			// // 		xx.innerHTML=html
+			// // 		}
+			// // 	}
+			// // 	xhr.send()	
+			// }
+			
+		</script>
+	</body>
+</html>

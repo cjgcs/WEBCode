@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+		/* 兄弟选择器，选择元素后面的兄弟 */
+			p ~ span{
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<span>我是p元素上面的span</span>
+		<p>
+			<span>我是p元素的子元素span</span>
+		</p>
+		<span>我是p元素下面的兄弟span</span>
+		<span>我是p元素下面的兄弟span</span>
+		<span>我是p元素下面的兄弟span</span>
+		<span>我是p元素下面的兄弟span</span>
+	</body>
+</html>

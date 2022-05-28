@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>register</title>
+	</head>
+	<body>
+			用户名<input type="text" name="uname" id="un">
+			<span id="uname">需要输入用户名</span><br>
+			密码<input type="password" name="pwd"><br>
+	</body>
+	<script>
+		un.onblur=function(){
+			//通过id来获取输入的内容
+			let n=un.value
+			//获取xhr对象
+			let url='http://127.0.0.1:8080/v2/user/check_uname?uname='+n
+			let xhr=new XMLHttpRequest()
+			xhr.open('get',url)
+			xhr.send()
+			xhr.onload=function(){
+				console.log(xhr.responseText)
+				if(xhr.responseText==='exists'){
+					uname.innerHTML='抱歉，用户名已经存在'
+				}else{
+					uname.innerHTML='恭喜你，注册成功'
+				}
+			}
+						
+		}
+		un.onclick=function(){
+			uname.innerHTML='正在输入。。。'
+		}
+	</script>
+</html>
