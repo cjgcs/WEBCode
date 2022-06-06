@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.d1{
+				width: 200px;
+				height: 200px;
+				border: 5px dashed red;
+			}
+			.d2{
+				width: 200px;
+				height: 200px;
+				border-top: 2px solid #F00;
+				border-right: 5px dashed #00F;
+				border-bottom: 3px dotted #F0F;
+				border-left: 4px double #0FF;
+			}
+			.d3{
+				/* 长宽0px 20px 颜色  #f5f5f5   下左右  transparent 透明  */
+				width: 0px;
+				height: 0px;
+				border-top: 20px solid red;   /* 此处要听客户的,不要以自己的眼光为准 */
+				border-right: 20px solid transparent;
+				border-bottom: 20px solid transparent;
+				border-left: 20px solid transparent;
+			}
+			.d4{
+				width: 200px;
+				height: 200px;
+				border: solid ;
+				border-width: 30px;
+				border-color: #FFA500;
+				border-style: dotted;
+			}		
+			.d5{
+				width: 200px;
+				height: 200px;
+				border: solid;
+/* 				 //上边线 top     宽度3px  实线        颜色红色
+				 //右边线 right   宽度4px  短线虚线     颜色黄色
+				 //下边线 bottom  宽度5px  双实线      颜色蓝色
+				 //左边线 left    宽度6px  圆点虚线    颜色绿色 */
+				 border-top-width: 3px;
+				 border-top-style: solid;
+				 border-top-color: #F00;
+				 border-right-width: 4px;
+				 border-right-style: dashed;
+				 border-right-color: #FF0;
+				 border-bottom-width: 5px;
+				 border-bottom-style: double;
+				 border-bottom-color: #00F;
+				 border-left-width: 6px;
+				 border-left-style: dotted;
+				 border-left-color: #0F0;
+			}																
+		</style>
+	</head>
+	<body>
+		<div class="d1"></div><br><hr><br>
+		<div class="d2"></div><br><hr><br>
+		<div class="d3"></div><br><hr><br>
+		<div class="d4"></div><br><hr><br>
+		<div class="d5"></div>
+	</body>
+</html>
