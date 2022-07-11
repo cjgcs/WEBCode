@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/bootstrap.css">
+  <link rel="stylesheet" href="../css/bootstrap-icons.css">
+  <script src="../js/bootstrap.bundle.js"></script>
+  <title>03progress进度条</title>
+  <style></style>
+</head>
+<body>
+  <div class="zdy-skill">
+    <div class="container">
+      <!-- 从结构上分成两块 -->
+      <div class="text-center">
+        <h2>关于我们</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque possimus sit saepe officia dolorem perspiciatis corrupti tempore quos recusandae, dolores aliquid voluptate voluptas, veritatis maxime assumenda veniam suscipit quod voluptatum?</p>
+      </div>
+      <!-- 下面这块是栅格布局 md的时候切换成上下布局 -->
+      <div class="row">
+        <!-- 左侧是图的列 lg以上5份col-lg-5 lg以下12份col-12-->
+        <div class="col-lg-5 col-12 bg-black">
+          <!-- .d-block 把图片变成块级可以去掉随身的幽灵空白节点-->
+          <img src="../img/leftpic.jpg" class="d-block w-100">
+        </div>
+        <!-- 右侧是进度条 lg以上7份 lg以下12份-->
+        <div class="col-lg-7 col-12">
+          <h2>Skills</h2>
+          <!-- 
+            .list-unstyled 去掉列表标签的标识符和左内间距
+           -->
+          <ul class="list-unstyled">
+            <li class="my-lg-3 my-1">
+              <h5>html</h5>
+              <!-- 进度条
+                .progress 进度条的父级样式
+                .progress-bar 进度条内部颜色是flex
+                .progress-bar-striped 进度bar的条形纹
+                .progress-bar-animated 动画效果
+                style属性中可以设置外层进度条高度,内层进度bar的宽度
+               -->
+               <div class="progress" style="height: 30px;">
+                 <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 98%;"></div>
+               </div>
+            </li>
+            <li class="my-lg-3 my-1">
+              <h5>css</h5>
+               <div class="progress" style="height: 30px;">
+                 <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 80%;"></div>
+               </div>
+            </li>
+            <li class="my-lg-3 my-1">
+              <h5>JavaScript</h5>
+               <div class="progress" style="height: 30px;">
+                 <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 70%;"></div>
+               </div>
+            </li>
+            <li class="my-lg-3 my-1">
+              <h5>bootstrap</h5>
+               <div class="progress" style="height: 30px;">
+                 <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 48%;"></div>
+               </div>
+            </li>
+            <li class="my-lg-3 my-1">
+              <h5>nodejs</h5>
+               <div class="progress" style="height: 30px;">
+                 <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 58%;"></div>
+               </div>
+            </li>
+          </ul>
+          <!-- 图标部分
+            使用boot提供的官方图标库需要引用bootstrap-icons.css文件
+            根据文档https://icons.bootcss.com/#usage 选择需要的图标
+            图标就是文字可以使用文字的属性进行样式修改
+          -->
+          <div class="d-flex justify-content-evenly">
+            <span class="bi-github display-6 text-primary"></span>
+            <span class="bi-bootstrap display-6 text-primary"></span>
+            <span class="bi-facebook display-6 text-primary"></span>
+            <span class="bi-google display-6 text-primary"></span>
+            <span class="bi-twitter display-6 text-primary"></span>
+            <span class="bi-xbox display-6 text-primary"></span>
+          </div>
+          <!-- 按钮 -->
+          <button class="btn btn-primary w-50 mt-3">look look</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</body>
+</html>

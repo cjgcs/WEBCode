@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			/* div{
+				width: 200px;
+				height: 200px;
+				border: 1px solid red;
+				position: relative;
+				top:50px;
+				left:50px;
+			} */
+			.d1{
+				width: 400px;
+				height: 400px;
+				border: 1px solid red;
+				margin: 50px;
+				position: relative;
+				
+			}
+			.d1 div{
+				width: 200px;
+				height: 200px;
+				border: 1px solid black;
+				position: absolute;
+				top: 20px;
+				left: 20px;
+			}
+			body{
+				height: 2000px;
+			}
+			.d2{
+				width: 30px;
+				height: 30px;
+				border: 1px solid red;
+				position: fixed;
+				top: 50%;
+				right: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 定位：相对定位，固定定位，绝对定位 
+		相对定位：1.元素没有脱离正常的文档流
+		2.相对自己原来的位置进行偏移
+		3.不会影响周围元素
+		4.配合偏移量：top，bottom，left，right
+		偏移量：上下冲突 以上为准，左右冲突，以左为准
+		如果一个元素只设置position：relative；不设置偏移量，
+		这个元素标记为已定位元素
+		主要作用：充当绝对定位的祖先元素
+		绝对定位：position：absolute
+		1.脱离正常文档流
+		2.配合偏移量：top，bottom，left，right
+		2.1如果没有已定位的祖先元素，则相对于body定位
+		2.2如果有已定位的祖先元素，相对于最近的已定位的祖先元素
+		左上角进行偏移
+		固定定位
+		1.相对于body偏移
+		2.配合偏移量：top，bottom，left，right
+		-->
+		<div class="d1">
+			<div></div>
+		</div>
+		<div class="d2">
+			
+		</div>
+	</body>
+</html>

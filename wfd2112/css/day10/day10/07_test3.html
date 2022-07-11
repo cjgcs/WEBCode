@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .center {
+      width: 95vw;
+      margin: auto;
+    }
+
+    /* 以上是公共基础样式 */
+    /* 以下只写移动端不需要媒体查询 */
+    .header {
+      background-color: #003271;
+      color: #fff;
+      height: 10vh;
+    }
+
+    .header .my-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header h2 {
+      /* 需要垂直居中 */
+      line-height: 10vh;
+    }
+
+    .header img {
+      width: 10vw;
+      height: 10vw;
+    }
+
+    /* 第二块 */
+    .list {
+      background-color: #010d59;
+      color: #fff;
+      height: 45vh;
+    }
+    .list h1 {
+      text-align: center;
+      line-height: 10vh;
+    }
+    .list ul {
+      height: 35vh;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      /* 多轴线对齐(交叉轴) */
+      align-content: space-around;
+    }
+    .list li {
+      width: 30vw;
+      height: 30vw;
+      /* background-color: #0b1d65; */
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 第一块10vh -->
+  <div class="header">
+    <div class="center">
+      <div class="my-flex">
+        <h2>logo</h2>
+        <img src="./24gl-gear.png" alt="">
+      </div>
+    </div>
+  </div>
+  <!-- 第二块45vh -->
+  <div class="list">
+    <!-- 版心要补上 -->
+    <div class="center">
+      <h1>WELCOME HOME</h1>
+      <ul class="my-flex">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+  </div>
+</body>
+
+</html>

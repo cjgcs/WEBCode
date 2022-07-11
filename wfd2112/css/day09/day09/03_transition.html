@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.d1 {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				border:black solid 10px;
+				/* 简写 */
+				transition:linear all 1s 2s;
+				/* 过渡的样式 默认all*/
+				/* transition-property: background-color; */
+				/* 过渡时间 */
+				/* transition-duration: 2s; */
+				/* 过渡方式 */
+			/* 默认值 ease先慢再快最后慢 常用值匀速linear */
+				/* transition-timing-function: linear; */
+				/* 延迟时间 时间单位*/
+				/* transition-delay: 3s; */
+			}
+			.d1:hover {
+				background-color: blue;
+				width: 600px;
+				opacity: 0;
+			}
+			.d2{
+				width: 100px;
+				height: 100px;
+				background-color: green;
+				transition: 1s background-color ease,1s 1s height ease,1s opacity 2s;
+			}
+			.d2:hover {
+				background-color: #800080;
+				height: 200px;
+				opacity: 0;
+			}
+			/* .d3 100*100 红方块 先放大一倍,然后变圆,最后边透明 所有变化都是1s完成*/
+			.d3 {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				transition: 1s width,1s height,1s 1s border-radius,1s 2s opacity;
+			}
+			.d3:hover {
+				width: 200px;
+				height: 200px;
+				border-radius: 50%;
+				opacity: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="d1"></div>
+		<div class="d2"></div>
+		<div class="d3"></div>
+	</body>
+</html>

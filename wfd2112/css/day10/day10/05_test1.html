@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .baba {
+      /* 2.爸爸需要让a和b横过来 */
+      display: flex;
+    }
+    /* 3.发现a和b会变,所以写媒体查询,看到了两个变化写两个媒体查询  横着的预估600以上*/
+    @media (min-width:600px) {
+      .a {
+        width: 100%;/* 指父级的百分百 */
+        background-color: red;
+        height: 100vh;
+      }
+      .b {
+        /* 不放大 不缩小 重置宽度 */
+        flex: 0 0 300px;
+        background-color: blue;
+        height: 100vh;
+      }
+    }
+    /* 4.第二个媒体查询 600px以下的 */
+    @media (max-width:600px) {
+      .baba {
+        /* 允许换行 */
+        flex-wrap: wrap;
+      }
+      .a {
+        width: 100%;
+        background-color: red;
+        height: 70vh;
+      }
+      .b {
+        width: 100%;
+        height: 30vh;
+        background-color: blue;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 1.写结构 是直接写两个div还是拿一个div包着两个div -->
+  <div class="baba">
+    <div class="a"></div>
+    <div class="b"></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    ul {
+      list-style: none;
+      display: flex;
+      /* 必须要换行 */
+      flex-wrap: wrap;
+    }
+    li img {
+      width: 100%;
+    }
+   @media (min-width:1100px) {
+     li {width: 10%;}
+   }
+   @media (max-width:1100px) and (min-width:900px) {
+     li{width: 12.5%;}
+   }
+   @media (max-width:900px) and (min-width:600px) {
+     li{width: 20%;}
+   }
+   @media (max-width:600px) and (min-width:400px) {
+     li{width: 25%;}
+   }
+   @media (max-width:400px) {
+     li{width: 50%;}
+   }
+  </style>
+</head>
+<body>
+  <!-- 大于1100 一行10个 10% -->
+  <!-- 900-1100 一行8个 12.5%-->
+  <!-- 900-600 一行5个 20% -->
+  <!-- 400-600 一行4个 25%-->
+  <!-- 400 以下 一行2个 50% -->
+  <ul>
+    <li><img src="./poke/001.png"></li>
+    <li><img src="./poke/002.png"></li>
+    <li><img src="./poke/003.png"></li>
+    <li><img src="./poke/004.png"></li>
+    <li><img src="./poke/005.png"></li>
+    <li><img src="./poke/006.png"></li>
+    <li><img src="./poke/007.png"></li>
+    <li><img src="./poke/008.png"></li>
+    <li><img src="./poke/009.png"></li>
+    <li><img src="./poke/010.png"></li>
+    <li><img src="./poke/011.png"></li>
+    <li><img src="./poke/012.png"></li>
+    <li><img src="./poke/013.png"></li>
+    <li><img src="./poke/014.png"></li>
+    <li><img src="./poke/015.png"></li>
+    <li><img src="./poke/016.png"></li>
+  </ul>
+  
+</body>
+</html>

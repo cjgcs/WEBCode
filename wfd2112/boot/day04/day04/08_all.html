@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/bootstrap.css">
+  <link rel="stylesheet" href="../css/bootstrap-icons.css">
+  <script src="../js/bootstrap.bundle.js"></script>
+  <title>Document</title>
+  <style>
+    .zdy-card .zdy-mark {
+      transition: 2s;
+    }
+    .zdy-card:hover .zdy-mark {
+      top:0 !important;
+    }
+  </style>
+</head>
+<body>
+<!-- 01 -->
+<div class="zdy-navber bg-primary">
+  <div class="container">
+    <!-- 把navbar包在container里了 -->
+    <!-- navbar响应式导航条
+    .navbar 基础类flex布局
+    .navbar-expand-sm 大小菜单切换的断点,指在什么范围以下小菜单出现,在什么范围以上大菜单显示
+    .navbar-dark 深色背景浅色字 .navbar-light 浅色背景深色字
+    -->
+    <div class="navbar navbar-expand-md navbar-dark">
+      <!--logo
+      标签要求:logo一般点击会回到首页,所以"尽量"使用a标签
+      .navbar-brand 专门渲染a标签的logo
+      -->
+      <a href="#" class="navbar-brand">Logo</a>
+      <!-- 小菜单(菜单隐藏显示的按钮)
+      .navbar-toggler小菜单样式
+      .border-2 .border-light 可加可不加的样式,美化小菜单
+      [data-="" data-* data是自定义属性*可自己写如:data-aa]
+      data-bs-toggle="collapse" 负责折叠的属性
+      data-bs-target="#menu" 目标是大菜单的id
+      -->
+      <button class="navbar-toggler border-2 border-light" data-bs-toggle="collapse" data-bs-target="#menu">
+        <!-- navbar-toggler-icon 小菜单的横线 -->
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- 大菜单 [大小菜单的位置不能更换,因为js用小菜单控制的它的下一个兄弟元素]
+        .collapse 负责消失(重要)
+        .navbar-collapse 导航条中的项目样式
+        id属性:让小菜单的按钮关联大菜单
+      -->
+      <div class="collapse navbar-collapse justify-content-end" id="menu">
+        <!-- 我想在大菜单里放一个导航 nav
+        .navbar-nav navbar里的导航 flex布局
+        .nav-item 导航项
+        .nav-link 导航中的连接标签颜色和格式
+        -->
+        <ul class="navbar-nav">
+          <li class="nav-item"><a href="#" class="nav-link">首页</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">关于我们</a></li>
+          <li class="nav-item">
+            <div class="dropdown">
+              <button class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">服务项目</button>
+              <ul class="dropdown-menu">
+                <li><a href="#" class="dropdown-item">游戏代练</a></li>
+                <li><a href="#" class="dropdown-item">图鉴大全</a></li>
+                <li><a href="#" class="dropdown-item">精灵属性</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item"><a href="#" class="nav-link">热门推荐</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">联系我们</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 02 -->
+<div class="zdy-jumu bg-primary text-white text-center py-lg-5 py-md-4 py-sm-3 py-2">
+  <div class="container">
+    <!-- 最大字部分
+    .display-* 1-6 比标题字还大但没有加粗的字体
+    .btn 按钮组件的基础类必写
+    .btn-outline-light 镂空按钮
+    .mb-* 下外间距 .mt上外间距 .ms左外 .me右外
+    -->
+    <div class="display-3 mb-3">Kevin Petter</div>
+    <h2>I am UI/UX Des</h2>
+    <!-- 
+      .w-* 25,50,75,100 父元素宽度的百分之多少
+      .mx-auto 外间距x轴左右自动居中
+      .my-* 上下外间距0-5
+     -->
+    <p class="w-75 mx-auto my-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit alias quam magnam dolores eos, saepe iure modi ipsam esse suscipit labore est enim, dolore quos soluta. Libero atque eos enim?</p>
+    <button class="btn btn-outline-light">VIEW MY WORK</button>
+  </div>
+</div>
+<!-- 03 -->
+<div class="zdy-skill">
+  <div class="container">
+    <!-- 从结构上分成两块 -->
+    <div class="text-center">
+      <h2>关于我们</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque possimus sit saepe officia dolorem perspiciatis corrupti tempore quos recusandae, dolores aliquid voluptate voluptas, veritatis maxime assumenda veniam suscipit quod voluptatum?</p>
+    </div>
+    <!-- 下面这块是栅格布局 md的时候切换成上下布局 -->
+    <div class="row">
+      <!-- 左侧是图的列 lg以上5份col-lg-5 lg以下12份col-12-->
+      <div class="col-lg-5 col-12 bg-black">
+        <!-- .d-block 把图片变成块级可以去掉随身的幽灵空白节点-->
+        <img src="../img/leftpic.jpg" class="d-block w-100">
+      </div>
+      <!-- 右侧是进度条 lg以上7份 lg以下12份-->
+      <div class="col-lg-7 col-12">
+        <h2>Skills</h2>
+        <!-- 
+          .list-unstyled 去掉列表标签的标识符和左内间距
+         -->
+        <ul class="list-unstyled">
+          <li class="my-lg-3 my-1">
+            <h5>html</h5>
+            <!-- 进度条
+              .progress 进度条的父级样式
+              .progress-bar 进度条内部颜色是flex
+              .progress-bar-striped 进度bar的条形纹
+              .progress-bar-animated 动画效果
+              style属性中可以设置外层进度条高度,内层进度bar的宽度
+             -->
+             <div class="progress" style="height: 30px;">
+               <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 98%;"></div>
+             </div>
+          </li>
+          <li class="my-lg-3 my-1">
+            <h5>css</h5>
+             <div class="progress" style="height: 30px;">
+               <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 80%;"></div>
+             </div>
+          </li>
+          <li class="my-lg-3 my-1">
+            <h5>JavaScript</h5>
+             <div class="progress" style="height: 30px;">
+               <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 70%;"></div>
+             </div>
+          </li>
+          <li class="my-lg-3 my-1">
+            <h5>bootstrap</h5>
+             <div class="progress" style="height: 30px;">
+               <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 48%;"></div>
+             </div>
+          </li>
+          <li class="my-lg-3 my-1">
+            <h5>nodejs</h5>
+             <div class="progress" style="height: 30px;">
+               <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 58%;"></div>
+             </div>
+          </li>
+        </ul>
+        <!-- 图标部分
+          使用boot提供的官方图标库需要引用bootstrap-icons.css文件
+          根据文档https://icons.bootcss.com/#usage 选择需要的图标
+          图标就是文字可以使用文字的属性进行样式修改
+        -->
+        <div class="d-flex justify-content-evenly">
+          <span class="bi-github display-6 text-primary"></span>
+          <span class="bi-bootstrap display-6 text-primary"></span>
+          <span class="bi-facebook display-6 text-primary"></span>
+          <span class="bi-google display-6 text-primary"></span>
+          <span class="bi-twitter display-6 text-primary"></span>
+          <span class="bi-xbox display-6 text-primary"></span>
+        </div>
+        <!-- 按钮 -->
+        <button class="btn btn-primary w-50 mt-3">look look</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 04 -->
+<div class="zdy-grid">
+  <div class="container">
+    <div class="text-center">
+      <h2>服务项目</h2>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime fugit quidem culpa animi. Labore, reiciendis esse ex velit magnam minima delectus corporis commodi repellat magni voluptatum laboriosam, molestiae nesciunt cupiditate?</p>
+    </div>
+    <div class="row">
+      <!-- 
+      .col-md-4 md以上一行3块一块四份 
+      .col-sm-6 sm以上一行2块一块六份
+      .col-12 sm以下一行1块一块十二份
+      .py-4 上下内间距4
+      -->
+      <div class="col-md-4 col-sm-6 col-12 text-center py-4">
+        <span class="bi-archive-fill display-6 text-primary"></span>
+        <h4 class="my-3">UI/UX Design</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem saepe adipisci.</p>
+      </div>
+      <div class="col-md-4 col-sm-6 col-12 text-center py-4">
+        <span class="bi-view-list display-6 text-primary"></span>
+        <h4 class="my-3">Web Development</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem saepe adipisci.</p>
+      </div>
+      <div class="col-md-4 col-sm-6 col-12 text-center py-4">
+        <span class="bi-hammer display-6 text-primary"></span>
+        <h4 class="my-3">Branding</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem saepe adipisci.</p>
+      </div>
+      <div class="col-md-4 col-sm-6 col-12 text-center py-4">
+        <span class="bi-x-diamond display-6 text-primary"></span>
+        <h4 class="my-3">Photography</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem saepe adipisci.</p>
+      </div>
+      <div class="col-md-4 col-sm-6 col-12 text-center py-4">
+        <span class="bi-ladder display-6 text-primary"></span>
+        <h4 class="my-3">Apps Development</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem saepe adipisci.</p>
+      </div>
+      <div class="col-md-4 col-sm-6 col-12 text-center py-4">
+        <span class="bi-gear-wide display-6 text-primary"></span>
+        <h4 class="my-3">Digital Marketing</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem saepe adipisci.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 05 -->
+<div class="zdy-navtab">
+  <div class="container">
+    <h2 class="text-center">热门推荐</h2>
+    <!-- navtab tab切换面板
+    .nav 导航的基础类 flex布局
+    .nav-tabs 只有一个样式边框,但还是要写为了里面的样式
+    .nav-link 导航中可点击的项目,有样式的
+    .justify-content-evenly元素间距,左右两侧距离都相等
+    data-bs-toggle="tab" 这个属性是关联js的动作,动作是什么就在值里写,如tab指的是tab面板的切换
+    data-bs-target="#a"使用js控制的对应的目标元素的id
+    -->
+    <ul class="nav nav-tabs justify-content-evenly">
+      <li class="nav-item">
+        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#a">第1-6个</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#b">第7-12个</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link" data-bs-toggle="tab"  data-bs-target="#c">第13-18个</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link" data-bs-toggle="tab"  data-bs-target="#d">第19-24个</button>
+      </li>
+    </ul>
+    <!-- 展示区 
+    .tab-content 基础类没样式,主要作用于祖先选择器使用
+    .tab-pane 隐藏元素
+    .active 显示元素
+    id属性关联控制区域的按钮
+    .fade 和 .show 是一个透明度的过渡效果可以加可不加
+    -->
+    <div class="tab-content">
+      <div class="tab-pane active" id="a">
+        <div class="row">
+          <div class="col-md-4 col-6 mb-3">
+            <div class="card zdy-card position-relative overflow-hidden">
+              <!-- 卡的遮罩
+              必须要定位---绝对定位,上层父级相对定位
+              .opacity-50 元素半透明
+              .bg-opacity-50 背景色半透明
+              .overflow-hidden 溢出隐藏
+              -->
+              <div class="position-absolute bg-primary top-100 w-100 h-100 rounded-2 bg-opacity-50 text-light zdy-mark">11111</div>
+              <!-- 卡里的图 -->
+              <div class="card-img-top text-center bg-secondary py-3">
+                <img src="../img/poke/001.png" class="w-50 d-block mx-auto">
+              </div>
+              <!-- 卡里的文 -->
+              <div class="card-body">
+                <h5>妙蛙种子</h5>
+                <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <button class="btn btn-primary">GO GO GO</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-6">
+            <div class="card">
+              <div class="card-img-top text-center bg-secondary py-3">
+                <img src="../img/poke/002.png" class="w-50 d-block mx-auto">
+              </div>
+              <div class="card-body">
+                <h5>妙蛙草</h5>
+                <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <button class="btn btn-primary">GO GO GO</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-6">
+            <div class="card">
+              <div class="card-img-top text-center bg-secondary py-3">
+                <img src="../img/poke/003.png" class="w-50 d-block mx-auto">
+              </div>
+              <div class="card-body">
+                <h5>妙蛙花</h5>
+                <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <button class="btn btn-primary">GO GO GO</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-6">
+            <div class="card">
+              <div class="card-img-top text-center bg-secondary py-3">
+                <img src="../img/poke/004.png" class="w-50 d-block mx-auto">
+              </div>
+              <div class="card-body">
+                <h5>小火龙</h5>
+                <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <button class="btn btn-primary">GO GO GO</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-6">
+            <div class="card">
+              <div class="card-img-top text-center bg-secondary py-3">
+                <img src="../img/poke/005.png" class="w-50 d-block mx-auto">
+              </div>
+              <div class="card-body">
+                <h5>火恐龙</h5>
+                <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <button class="btn btn-primary">GO GO GO</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-6">
+            <div class="card">
+              <div class="card-img-top text-center bg-secondary py-3">
+                <img src="../img/poke/006.png" class="w-50 d-block mx-auto">
+              </div>
+              <div class="card-body">
+                <h5>喷火龙</h5>
+                <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <button class="btn btn-primary">GO GO GO</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane" id="b">
+        <div class="row">
+          <div class="col-md-4 col-6">
+            <div class="card">
+              <div class="card-img-top text-center bg-secondary py-3">
+                <img src="../img/poke/007.png" class="w-50 d-block mx-auto">
+              </div>
+              <div class="card-body">
+                <h5>杰尼龟</h5>
+                <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <button class="btn btn-primary">GO GO GO</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-6">
+            <div class="card">
+              <div class="card-img-top text-center bg-secondary py-3">
+                <img src="../img/poke/008.png" class="w-50 d-block mx-auto">
+              </div>
+              <div class="card-body">
+                <h5>卡咪龟</h5>
+                <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <button class="btn btn-primary">GO GO GO</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-6">
+            <div class="card">
+              <div class="card-img-top text-center bg-secondary py-3">
+                <img src="../img/poke/009.png" class="w-50 d-block mx-auto">
+              </div>
+              <div class="card-body">
+                <h5>水箭龟</h5>
+                <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <button class="btn btn-primary">GO GO GO</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-6">
+            <div class="card">
+              <div class="card-img-top text-center bg-secondary py-3">
+                <img src="../img/poke/010.png" class="w-50 d-block mx-auto">
+              </div>
+              <div class="card-body">
+                <h5>绿毛虫</h5>
+                <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <button class="btn btn-primary">GO GO GO</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-6">
+            <div class="card">
+              <div class="card-img-top text-center bg-secondary py-3">
+                <img src="../img/poke/011.png" class="w-50 d-block mx-auto">
+              </div>
+              <div class="card-body">
+                <h5>铁甲蛹</h5>
+                <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <button class="btn btn-primary">GO GO GO</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-6">
+            <div class="card">
+              <div class="card-img-top text-center bg-secondary py-3">
+                <img src="../img/poke/012.png" class="w-50 d-block mx-auto">
+              </div>
+              <div class="card-body">
+                <h5>巴大蝴</h5>
+                <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <button class="btn btn-primary">GO GO GO</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane" id="c">
+        <div class="row">
+          <div class="col-md-4 col-6">
+            <div class="card">
+              <div class="card-img-top text-center bg-secondary py-3">
+                <img src="../img/poke/013.png" class="w-50 d-block mx-auto">
+              </div>
+              <div class="card-body">
+                <h5>毛虫</h5>
+                <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <button class="btn btn-primary">GO GO GO</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-6">
+            <div class="card">
+              <div class="card-img-top text-center bg-secondary py-3">
+                <img src="../img/poke/014.png" class="w-50 d-block mx-auto">
+              </div>
+              <div class="card-body">
+                <h5>什么蛹</h5>
+                <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <button class="btn btn-primary">GO GO GO</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-6">
+            <div class="card">
+              <div class="card-img-top text-center bg-secondary py-3">
+                <img src="../img/poke/015.png" class="w-50 d-block mx-auto">
+              </div>
+              <div class="card-body">
+                <h5>大针蜂</h5>
+                <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <button class="btn btn-primary">GO GO GO</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-6">
+            <div class="card">
+              <div class="card-img-top text-center bg-secondary py-3">
+                <img src="../img/poke/016.png" class="w-50 d-block mx-auto">
+              </div>
+              <div class="card-body">
+                <h5>波波</h5>
+                <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <button class="btn btn-primary">GO GO GO</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-6">
+            <div class="card">
+              <div class="card-img-top text-center bg-secondary py-3">
+                <img src="../img/poke/017.png" class="w-50 d-block mx-auto">
+              </div>
+              <div class="card-body">
+                <h5>比比鸟</h5>
+                <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <button class="btn btn-primary">GO GO GO</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-6">
+            <div class="card">
+              <div class="card-img-top text-center bg-secondary py-3">
+                <img src="../img/poke/018.png" class="w-50 d-block mx-auto">
+              </div>
+              <div class="card-body">
+                <h5>什么鸟</h5>
+                <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <button class="btn btn-primary">GO GO GO</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane" id="d">
+        <div class="row">
+          <div class="col-md-4 col-6 mb-2">
+            <div class="card">
+              <div class="card-img-top text-center bg-secondary py-3">
+                <img src="../img/poke/019.png" class="w-50 d-block mx-auto">
+              </div>
+              <div class="card-body">
+                <h5>妙蛙种子</h5>
+                <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <button class="btn btn-primary">GO GO GO</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-6 mb-2">
+            <div class="card">
+              <div class="card-img-top text-center bg-secondary py-3">
+                <img src="../img/poke/020.png" class="w-50 d-block mx-auto">
+              </div>
+              <div class="card-body">
+                <h5>妙蛙草</h5>
+                <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <button class="btn btn-primary">GO GO GO</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-6 mb-2">
+            <div class="card">
+              <div class="card-img-top text-center bg-secondary py-3">
+                <img src="../img/poke/021.png" class="w-50 d-block mx-auto">
+              </div>
+              <div class="card-body">
+                <h5>妙蛙花</h5>
+                <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <button class="btn btn-primary">GO GO GO</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-6 mb-2">
+            <div class="card">
+              <div class="card-img-top text-center bg-secondary py-3">
+                <img src="../img/poke/022.png" class="w-50 d-block mx-auto">
+              </div>
+              <div class="card-body">
+                <h5>小火龙</h5>
+                <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <button class="btn btn-primary">GO GO GO</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-6 mb-2">
+            <div class="card">
+              <div class="card-img-top text-center bg-secondary py-3">
+                <img src="../img/poke/023.png" class="w-50 d-block mx-auto">
+              </div>
+              <div class="card-body">
+                <h5>火恐龙</h5>
+                <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <button class="btn btn-primary">GO GO GO</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-6 mb-2">
+            <div class="card">
+              <div class="card-img-top text-center bg-secondary py-3">
+                <img src="../img/poke/024.png" class="w-50 d-block mx-auto">
+              </div>
+              <div class="card-body">
+                <h5>喷火龙</h5>
+                <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <button class="btn btn-primary">GO GO GO</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 06 -->
+<div class="zdy-carousel">
+  <!-- 轮播图
+    .carousel 轮播图的父级基础类 相对定位
+    data-bs-ride="carousel" 轮播图的自动定时器
+    .slide 平滑的位移展示图片
+    data-bs-interval="1000" 设置定时器轮播时间,时间不要低于10毫秒
+  -->
+  <div class="carousel slide" id="baba" data-bs-ride="carousel" data-bs-interval="1000">
+    <!-- 图片展示区
+      .carousel-inner 轮播图片展示区的外层 相对定位和溢出隐藏
+      .carousel-item 图片组 有消失样式
+      .active 显示图片组
+    -->
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="../img/banner1.jpg" class="d-block w-100">
+      </div>
+      <div class="carousel-item">
+        <img src="../img/banner2.jpg" class="d-block w-100">
+      </div>
+      <div class="carousel-item">
+        <img src="../img/banner3.jpg" class="d-block w-100">
+      </div>
+      <div class="carousel-item">
+        <img src="../img/banner4.jpg" class="d-block w-100">
+      </div>
+    </div>
+    <!-- 控制符区
+      .carousel-indicators 控制符区的样式 flex 定位...
+     -->
+     <div class="carousel-indicators">
+      <!-- 每个控制符
+        data-bs-slide-to="0" 控制符控制切换到当前图片 从0位开始
+        .active 默认当前相[boot5里必须加]控制符的active,没有特殊说明必须加,但是轮播图的控制符中还是要求必须加入默认控制符
+        注意事项,如果一个css类没加但控制台报错,该类一定是js控制的
+        data-bs-target="#baba" 关联整个轮播图的最顶级元素的id
+      -->
+      <button data-bs-slide-to="0" data-bs-target="#baba" class="active"></button>
+      <button data-bs-slide-to="1" data-bs-target="#baba"></button>
+      <button data-bs-slide-to="2" data-bs-target="#baba"></button>
+      <button data-bs-slide-to="3" data-bs-target="#baba"></button>
+    </div>
+    <!-- 左右按钮 -->
+    <!-- 左按钮
+    .carousel-control-prev 上一个只有一个left定位的位置
+    .carousel-control-prev-icon 向左的小箭头
+    data-bs-target="#baba" 关联外层父级
+    data-bs-slide="prev" js关联定位上一个图片位置
+   -->
+    <button class="carousel-control-prev" data-bs-target="#baba" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <!-- 右按钮
+      .carousel-control-next 下一个只有一个right的定位位置
+      .carousel-control-next-icon 向右的小箭头
+      data-bs-slide="next" js关联下一个图片位置
+     -->
+    <button class="carousel-control-next" data-bs-target="#baba" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+</div>
+<!-- 07 -->
+<div class="my-form">
+  <div class="container">
+    <h2 class="text-center">联系我们</h2>
+    <p class="text-center">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur maiores eveniet aperiam, impedit commodi ut aliquam temporibus accusantium architecto deserunt! Vitae deleniti sapiente dignissimos quo. Molestias natus saepe fugit et?</p>
+    <ul class="list-unstyled row text-center">
+      <li class="col-4">
+        <!-- 蓝圈 -->
+        <div style="width: 80px;height: 80px;" class="bg-primary rounded-circle position-relative mx-auto">
+          <img src="../img/icon/dingwei.png" class="d-block w-75 position-absolute top-50 start-50 translate-middle">
+        </div>
+        <p class="mt-3">Dooley Branch Rd Millen, GA 30442, USA</p>
+      </li>
+      <li class="col-4">
+        <!-- 蓝圈 -->
+        <div style="width: 80px;height: 80px;" class="bg-primary rounded-circle position-relative mx-auto">
+          <img src="../img/icon/31dianhua.png" class="d-block w-75 position-absolute top-50 start-50 translate-middle">
+        </div>
+        <p class="mt-3">Dooley Branch Rd Millen, GA 30442, USA</p>
+      </li>
+      <li class="col-4">
+        <!-- 蓝圈 -->
+        <div style="width: 80px;height: 80px;" class="bg-primary rounded-circle position-relative mx-auto">
+          <img src="../img/icon/youjian.png" class="d-block w-75 position-absolute top-50 start-50 translate-middle">
+        </div>
+        <p class="mt-3">Dooley Branch Rd Millen, GA 30442, USA</p>
+      </li>
+    </ul>
+    <!-- 表单区 -->
+    <div class="text-center">
+      <input type="text" placeholder="name" class="form-control">
+      <input type="email" placeholder="email" class="form-control my-4">
+      <textarea class="form-control" rows="10"></textarea>
+      <button class="btn btn-outline-secondary mt-4">submit</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>

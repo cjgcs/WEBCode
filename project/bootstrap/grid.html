@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <script src="./js/bootstrap.js"></script>
+    <style>
+      .xz{
+        width: 200px;
+        height: 200px;
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+      <div class="row">
+        <!-- 行 -->
+        <div class="col-lg-2 col-md-3 col-sm-6 bg-success">1</div>
+        <div class="col-lg-2 col-md-3 col-sm-6 bg-info">2</div>
+        <div class="col-lg-2 col-md-3 col-sm-6 bg-success">3</div>
+        <div class="col-lg-2 col-md-3 col-sm-6 bg-info">3</div>
+        <div class="col-lg-2 col-md-3 col-sm-6 bg-success">5</div>
+        <div class="col-lg-2 col-md-3 col-sm-6 bg-info">6</div>
+      </div>
+    </div>
+     <div class="container">
+      <div class="row">
+        <!-- 大屏一行显示4个 中屏一行显示3个 小屏一行显示1个 -->
+        <div class="col-lg-3 col-md-4 col-sm-12 bg-danger">1</div>
+        <div class="col-lg-3 col-md-4 col-sm-12 bg-success">2</div>
+        <div class="col-lg-3 col-md-4 col-sm-12 bg-danger">3</div>
+        <div class="col-lg-3 col-md-4 col-sm-12 bg-success">4</div>
+        <div class="col-lg-3 col-md-4 col-sm-12 bg-danger">5</div>
+        <div class="col-lg-3 col-md-4 col-sm-12 bg-success">6</div>
+      </div>
+    </div>
+<!--    
+    内外边距：p 0-5 单边设置pt pb ps pe px:左右
+    py:上下 p-md-5
+    m 0-5 dan单边设置  mt mb ms me mx:左右  my:上下
+    宽高：w-0/25/50/75/100 百分比  参照父元素w-50 
+    h-0/25/50/75/100  百分比  父元素要有高度
+    定位：
+-->
+    <!-- <div class="position-absolute"></div>
+    <div class="position-relative"></div>
+    <div class="position-fixed"></div>
+    <div class="fixed-top">固定在顶部</div>
+    <div class="fixed-bottom">固定在底部</div> -->
+    <!-- 偏移列 -->
+    <div class="container">
+      <!-- offset值是1-11 -->
+      <div class="row">
+        <div class="col-2 bg-info xz offset-1">1</div>
+        <div class="col-2 bg-danger xz">2</div>
+        <div class="col-2 bg-success xz offset-1">3</div>
+      </div>
+    </div>
+
+</body>
+</html>

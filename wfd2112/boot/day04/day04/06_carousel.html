@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/bootstrap.css">
+  <script src="../js/bootstrap.bundle.js"></script>
+  <title>Document</title>
+  <style></style>
+</head>
+<body>
+<div class="zdy-carousel">
+  <!-- 轮播图
+    .carousel 轮播图的父级基础类 相对定位
+    data-bs-ride="carousel" 轮播图的自动定时器
+    .slide 平滑的位移展示图片
+    data-bs-interval="1000" 设置定时器轮播时间,时间不要低于10毫秒
+  -->
+  <div class="carousel slide" id="baba" data-bs-ride="carousel" data-bs-interval="1000">
+    <!-- 图片展示区
+      .carousel-inner 轮播图片展示区的外层 相对定位和溢出隐藏
+      .carousel-item 图片组 有消失样式
+      .active 显示图片组
+    -->
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="../img/banner1.jpg" class="d-block w-100">
+      </div>
+      <div class="carousel-item">
+        <img src="../img/banner2.jpg" class="d-block w-100">
+      </div>
+      <div class="carousel-item">
+        <img src="../img/banner3.jpg" class="d-block w-100">
+      </div>
+      <div class="carousel-item">
+        <img src="../img/banner4.jpg" class="d-block w-100">
+      </div>
+    </div>
+    <!-- 控制符区
+      .carousel-indicators 控制符区的样式 flex 定位...
+     -->
+     <div class="carousel-indicators">
+      <!-- 每个控制符
+        data-bs-slide-to="0" 控制符控制切换到当前图片 从0位开始
+        .active 默认当前相[boot5里必须加]控制符的active,没有特殊说明必须加,但是轮播图的控制符中还是要求必须加入默认控制符
+        注意事项,如果一个css类没加但控制台报错,该类一定是js控制的
+        data-bs-target="#baba" 关联整个轮播图的最顶级元素的id
+      -->
+      <button data-bs-slide-to="0" data-bs-target="#baba" class="active"></button>
+      <button data-bs-slide-to="1" data-bs-target="#baba"></button>
+      <button data-bs-slide-to="2" data-bs-target="#baba"></button>
+      <button data-bs-slide-to="3" data-bs-target="#baba"></button>
+    </div>
+    <!-- 左右按钮 -->
+    <!-- 左按钮
+    .carousel-control-prev 上一个只有一个left定位的位置
+    .carousel-control-prev-icon 向左的小箭头
+    data-bs-target="#baba" 关联外层父级
+    data-bs-slide="prev" js关联定位上一个图片位置
+   -->
+    <button class="carousel-control-prev" data-bs-target="#baba" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <!-- 右按钮
+      .carousel-control-next 下一个只有一个right的定位位置
+      .carousel-control-next-icon 向右的小箭头
+      data-bs-slide="next" js关联下一个图片位置
+     -->
+    <button class="carousel-control-next" data-bs-target="#baba" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+</div>
+</body>
+</html>

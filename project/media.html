@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Document</title>
+		<style>
+			@media screen and (min-width:920px){
+				d1{
+					width: 1000px;
+					border: 1px solid red;
+					
+				}
+				.d1 div{
+					width: 200px;
+					height: 200px;
+					border: 1px solid green;
+					float: left;
+				}
+			}
+			.d1{
+				width: 1000px;
+				border: 1px solid red;
+				
+			}
+			.d1 div{
+				width: 200px;
+				height: 200px;
+				border: 1px solid green;
+				float: left;
+			}
+			.clearFloat::after{
+				content: "";
+				display: block;
+				visibility: hidden;
+				height: 0;
+				clear: both;
+			}
+			.clearFloat{
+				zoom: 1;
+			}
+			/* 屏幕宽度760-920之间的	 */
+			@media screen and (min-width:760px)
+			and (max-width:920px){
+				.d1 div{
+					width: 48%;
+					height: 200px;
+					border: 1px solid green;
+					float: left;
+				}
+			}
+			/* 小于760px */
+			@media screen and (max-width:760px){
+				.d1 div{
+					width: 99%;
+					height: 200px;
+					border: 1px solid green;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 媒体查询：根据不同的电子显示设备设置不一样的
+		 css样式
+		 -->
+		 
+		 <div class="d1 clearFloat">
+			 <div>商品1</div>
+			 <div>商品2</div>
+			 <div>商品3</div>
+			 <div>商品4</div>
+		 </div>
+	</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    body{background-color: #000;}
+    .box,
+    .fish {
+      width: 300px;
+      height: 120px;
+    }
+    .box {
+      transform: rotate(45deg);
+      animation: 3s linear move;
+    }
+
+    .fish {
+      background-image: url(./fish.png);
+      /* 背景图定位要发生改变 */
+      /* background-position-y:-360px; */
+      /* steps(8) 阶梯方式运动 数字是分几次完成 */
+      animation:1s bian steps(8) infinite;
+    }
+
+    @keyframes bian {
+      0% {}
+      100% {
+        /* -960px就全部动完一套姿势 */
+        background-position-y: -960px;
+      }
+    }
+    @keyframes move {
+      0%{transform:rotate(45deg) translateX(0);}
+      100%{
+        transform:rotate(45deg) translateX(400px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 一条鱼300*120 -->
+  <div class="box">
+    <div class="fish"></div>
+  </div>
+</body>
+
+</html>

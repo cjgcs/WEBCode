@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.d1{
+				width: 500px;
+				height: 500px;
+				border: 1px solid red;
+				display: flex;
+				flex-direction: row;
+				/* 默认（row） x轴从左往右排列 */
+				/* flex-direction: row-reverse; */
+				/* row-reverse x轴从右往左排列 */
+				/* flex-direction: column; */
+				/* column y轴从上往下排列 */
+				/* flex-direction: column-reverse; */
+				/* column-reverse y轴从下往上排列 */
+				flex-wrap: nowrap;
+				/* 默认不换行 */
+				flex-wrap: wrap;
+				/* 设置换行 */
+				flex-wrap: wrap-reverse;
+				/* 设置反向换行 */
+				flex-flow:row wrap;
+				/* x轴从左往右排列 换行 */
+				justify-content: flex-start;
+				/* 主轴上排序方向的开始点 默认 起点对齐 起点指的是
+				 主轴排序方向的起始点 */
+				justify-content: flex-end;
+				/* 终点对齐 */
+				justify-content: center;
+				/* 居中对齐 */
+				justify-content:space-between;
+				/* 两端对齐 左右两端贴着起始和结束 其他
+				项目间距相等 */
+				justify-content: space-around;
+				/* 平均对齐 左右两侧的间距是中间间距的一半 */
+				justify-content: space-around;
+			}
+			.d1 div{
+				width: 100px;
+				height: 100px;
+				border: 1px solid black;
+			}
+			.d2{
+				width: 500px;
+				height: 800px;
+				border: 1px solid pink;
+				display: flex;
+				align-items: flex-start;
+				/* 起点对齐 */
+				align-items: flex-end;
+				/* 终点对齐 */
+				align-items: center;
+				/* 居中对齐 */
+			}
+			.d2 div{
+				width: 100px;
+				height: 100px;background-color: blue;
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- flex布局：弹性布局
+		给父元素增加一个display：flex属性，让这个元素变成弹性盒子，从而使 
+		这个元素和他的子元素能够使用弹性布局的一些属性
+		1.容器属性必须具备display：flex；属性，意味着这个元素变成弹性布局的容器，
+		他的直接子元素会默认使用项目的相关属性，容器和项目不能混用
+		2.主轴和交叉轴
+		主轴：项目再容器中的排列方向
+		交叉轴：垂直于主轴的方向
+		注意事项：一但元素使用flex布局，那么float和clearfloat
+		等属性全部失效
+		容器的属性：
+		1.主轴的方向：容器中项目的排列方向有四个
+		2.设置项目换行：默认不换行
+		3.排列和换行的简写
+		4.主轴上项目的对齐方式
+		交叉轴的对齐方式：
+		注意点：容器高度有剩余空间
+		-->
+			<!-- 容器 -->
+		<div class="d1">
+			<!-- 项目 -->
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+			<div>6</div>
+			<div>7</div>
+		</div>
+		<div class="d2">
+			<!-- 项目 -->
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<!-- <div>5</div>
+			<div>6</div>
+			<div>7</div> -->
+		</div>
+	</body>
+</html>
