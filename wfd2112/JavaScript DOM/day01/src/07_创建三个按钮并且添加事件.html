@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="k3">小亮</button>
+    <button id="k4">小小亮</button>
+    <button id="k5">亮小小</button>
+    <script>
+        //第二种方法练习：思路一次性查找多个按钮，分别给每个按钮绑定点击事件
+        //1：谁 查找所有按钮标签 button
+        var buttons  = document.querySelectorAll("button");
+        //2: 类型 创建循环遍历每个元素
+        for(var i=0;i<buttons.length;i++){
+          //3：为每个按钮绑定点击事件
+          buttons[i].onclick = function(){
+            alert("疼");
+          }
+        }
+        //总结：第二种方案比第一种代码上精简一些 优
+        //      使用此种方案绑定事件            缺（为多个元素添加事件占内存）
+        //      第三种方案：事件代理机制
+    </script>
+</body>
+</html>

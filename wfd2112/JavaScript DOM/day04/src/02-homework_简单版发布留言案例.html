@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            padding: 100px;
+        }
+        
+        textarea {
+            width: 200px;
+            height: 100px;
+            border: 1px solid pink;
+            outline: none;
+            resize: none;
+        }
+        
+        ul {
+            margin-top: 50px;
+        }
+        
+        li {
+            width: 300px;
+            padding: 5px;
+            background-color: rgb(245, 209, 243);
+            color: red;
+            font-size: 14px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <textarea name="" id=""></textarea>
+    <button>发布</button>
+    <ul>
+
+    </ul>
+    <script>
+       //任务：发表留言并且保存LI列表中  10：00
+       //1:获取三个元素 按钮 多行文本框  UL
+       var button = document.querySelector("button");
+       var ul = document.querySelector("ul");
+       var txt = document.querySelector("textarea");
+       //2：为按钮加点击事件
+       button.onclick = function(){
+          //2.1： 判断用户输入是否为空字符
+          //2.2： 如果是 提示，请填写内容 trim 去除字符串两端空格
+          if(txt.value.trim()==""){
+            alert("请输入内容");
+            return;  //1：返回 2：停止函数运行  
+          }
+          //console.log(111)
+          //2.3： 创建字符串 LI  10:15 完成任务
+          var li = `<li>${txt.value}</li>`;
+          //2.4： 追加拼接UL  
+          ul.innerHTML += li;
+       }
+        
+    </script>
+</body>
+
+</html>

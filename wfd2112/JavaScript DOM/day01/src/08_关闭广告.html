@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #pic{
+            width:1200px;
+            height:200px;
+            position: relative;
+        }
+        #pic button{
+            position: absolute;
+            right:460px;
+            bottom:58px;
+        }
+    </style>
+</head>
+<body>
+    <div style="text-align:center;" id="pic">
+        <img src="1.png" alt="" style="width:288px;">
+        <button id="btn">X</button>
+    </div>
+    <script>
+        //事件三要素：1事件源 X  2：事件类型 onclick 3:隐藏div
+        //1:获取事件源   14:31 完成示例
+        var btn = document.getElementById("btn");
+        //2:指定事件类型
+        btn.onclick = function(){
+         //3:隐藏div
+         //3.1:获取div
+         var pic = document.getElementById("pic");
+         //3.2:隐藏div
+         pic.style.display = "none";
+        }
+    </script>
+</body>
+</html>

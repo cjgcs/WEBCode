@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 600px;
+            margin: 100px auto;
+        }
+
+        .message {
+            display: inline-block;
+            font-size: 12px;
+            color: #999;
+            background: url(images/mess.png) no-repeat left center;
+            padding-left: 20px;
+        }
+
+        .wrong {
+            color: red;
+            background-image: url(images/wrong.png);
+        }
+
+        .right {
+            color: green;
+            background-image: url(images/right.png);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="register">
+        <input type="password" class="ipt">
+        <p class="message">请输入6~16位密码</p>
+    </div>
+    <script>
+        //1:验证用户输入密码不是6~16 字母数字
+        var reg = /^[a-zA-Z0-9]{6,16}$/;
+        //2:获取用户名输入框
+        var ipt = document.querySelector(".ipt");
+        //3:获取提示信息p标签
+        var message = document.querySelector(".message");
+        //3.1:输入添加事件 onblue
+        ipt.onblur = function () {
+            //4:验证用户输入value是否与正则表达式相同
+            if (!reg.test(ipt.value)) {
+                //5:不同
+                //5.1:p 您输入格式有误 将class wrong     15:04
+                message.innerHTML = "你输入有密码格式有误.";
+                message.className = "message wrong";
+            } else {
+                message.innerHTML = "输入正确";
+                message.className = "message right";
+            }
+            //6:相同
+            //6.1:p 输入正确       将class right
+        }
+    </script>
+</body>
+
+</html>

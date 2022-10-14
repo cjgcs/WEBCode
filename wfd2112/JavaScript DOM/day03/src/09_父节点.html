@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>父节点</h2>
+    <ul>
+        <li>css</li>
+        <li>js</li>
+        <li id="dom">dom/bom</li>
+    </ul>
+    <script>
+        //1:获取DOM节点   16:05 完成任务
+        var dom  = document.getElementById("dom");
+        //2:获取父元素 UL
+        var ul = dom.parentNode;
+        console.log(ul);
+        var body = ul.parentNode;
+        console.log(body)
+    </script>
+</body>
+</html>

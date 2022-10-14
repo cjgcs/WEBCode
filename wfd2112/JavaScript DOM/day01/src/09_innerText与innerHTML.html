@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>修改元素内容 innerHTML innerText</h3>
+    <h4>标签开始与结束中间部分</h4>
+    <div id="time">2022-10-07</div>
+    <div id="time2">2022-10-06</div>
+    <script>
+        //1:innerText不识别html标签 非标准  去除空格和换行
+        //任务赋值新的日期给div元素标签中间
+        //1.1获取元素
+        var time = document.getElementById("time");
+        //1.2修改元素内容 innerText
+        time.innerText = "<b>今天日期是:</b>  2022-10-08";
+        //15:06 完成示例
+        //2:innerHTML 识别html标签
+        //2.1:获取time2
+        var time2 = document.getElementById("time2");
+        //2.2:修改time2标签中间内容
+        time2.innerHTML = "<b>今天日期是：</b>2022-10-8";
+    </script>
+</body>
+</html>

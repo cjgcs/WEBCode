@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="checkbox" value="1" id="pg">苹果
+    <input type="checkbox" value="2" id="li">梨
+    <script>
+        //1:状态 checked true 选中 false 取消选中
+        // 10:27 完成任务
+        var pg = document.getElementById("pg");
+        pg.checked = true;
+        //2:事件 onchange 修改【选中、取消】事件
+        var li = document.getElementById("li");
+        //true->false   false->true
+        li.onchange = function(){
+              console.log(this.checked?"选中":"取消")
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>子节点</h2>
+    <ul id="ul">
+        <li>css</li>
+        <li>js</li>
+        <li id="dom">dom/bom</li>
+    </ul>
+    <script>
+        var ul = document.getElementById("ul");
+        //alert(ul.childNodes.length)
+        //for(var i=0;i<ul.childNodes.length;i++){
+            //nodeType==1 标准节点
+            //if(ul.childNodes[i].nodeType===1){
+            //    alert(i);
+            //}
+        //}
+        //非标准 
+        alert(ul.children.length);
+    </script>
+</body>
+</html>
