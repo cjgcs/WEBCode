@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*禁止超链接按下时出现蓝框*/
+        a{
+            -webkit-tap-highlight-color: transparent;
+        }
+        /*去除苹果手机按钮外观*/
+        input{
+            -webkit-appearance: none;
+        }
+        /*长按不要出现菜单*/
+        img,a { -webkit-touch-callout: none; }
+    </style>
+</head>
+<body>
+    <a href="#">达达外卖</a>
+    <input type="button" value="发送">
+</body>
+</html>

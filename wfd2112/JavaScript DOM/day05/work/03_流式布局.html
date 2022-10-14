@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      /* 一行两个DIV,各占50%
+    支持缩放功能 最小320 最大970 */
+      section {
+        width: 100%;
+        /* 1:元素会随着用户拖动浏览器窗口进行缩放
+      2:如果窗口小于320不再缩
+      2:如果窗口大于970不再涨 */
+        min-width: 320px;
+        max-width: 970px;
+        margin: 0 auto;
+      }
+      section div {
+        float: left;
+        width: 50%;
+        height: 400px;
+      }
+      section div:nth-child(1) {
+        background-color: pink;
+      }
+      section div:nth-child(2) {
+        background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div></div>
+      <div></div>
+    </section>
+  </body>
+</html>
