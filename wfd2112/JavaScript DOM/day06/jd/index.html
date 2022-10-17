@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, 
+    initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <title>仿京东移动端首页</title>
+    <link rel="stylesheet" href="css/normalize.css" />
+    <style>
+      /*1:公共样式*/
+      /*1.1:body*/
+      body {
+        margin: 0 auto;
+        /*块元素水平居中*/
+        max-width: 640px;
+        /*最大缩放宽度640px*/
+        min-width: 320px;
+        /*最小缩放宽度320px*/
+        width: 100%;
+        /*子元素占父元素100% html*/
+        font-size: 14px;
+        /*使用手机默认字体  苹果   安卓*/
+        font-family: -apple-system, Helvetica, sans-serif;
+        background-color: #fff;
+        color: #666;
+        /*行高 14*1.5      13：51 完成任务*/
+        line-height: 1.5;
+      }
+
+      /*1.2:手机公共样式*/
+      /*点击高亮我们需要清除清除  设置为transparent 完成透明*/
+      * {
+        -webkit-tap-highlight-color: transparent;
+      }
+      /*在移动端浏览器默认的外观在iOS上加上这个属性才能给按钮和输入框自定义样式*/
+      input {
+        -webkit-appearance: none;
+      }
+      /*禁用长按页面时的弹出菜单*/
+      img,
+      a {
+        -webkit-touch-callout: none;
+      }
+      /*1.3:通用(PC端和移动端都需要)公共样工*/
+      a {
+        color: #666;
+        text-decoration: none;
+      }
+      /*ul常用 内置外边距 内边距 黑*/
+      ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+      img {
+        /*display: block;  去除图片下方白色边线*/
+        vertical-align: middle;
+      }
+      /*将所有div使用css3盒子*/
+      div {
+        box-sizing: border-box;
+      }
+      /*清除浮动*/
+      .clearfix:after {
+        content: "";
+        display: block;
+        line-height: 0;
+        visibility: hidden;
+        height: 0;
+        clear: both;
+      }
+      /*2:从上向下从外向里一层一层完成各项功能*/
+      /*2.1: 第一层父元素*/
+      .app {
+        height: 45px;
+      }
+      /*2.2: li  15:00*/
+      .app li {
+        float: left;
+        height: 45px; /*高*/
+        line-height: 45px; /*行高==中间文字垂直居中*/
+        text-align: center; /*中间文字水平居中*/
+        background-color: #333333;
+        color: #fff;
+      }
+      /*2.3: 分别指定四个LI宽度  15:07 完成任务*/
+      .app li:nth-child(1) {
+        width: 8%;
+      }
+      .app li:nth-child(1) img {
+        width: 10px;
+      }
+      .app li:nth-child(2) {
+        width: 10%;
+      }
+      .app li:nth-child(2) img {
+        width: 30px;
+      }
+      .app li:nth-child(3) {
+        width: 57%;
+      }
+      .app li:nth-child(4) {
+        width: 25%;
+        background-color: #f63515;
+      }
+
+      /*第二行*/
+      .search-wrap {
+        position: fixed; /*固定定位 脱标*/
+        width: 100%;
+        height: 44px;
+        min-width: 320px; /*body样式对它不生效*/
+        max-width: 640px;
+        overflow: hidden;
+      }
+      /*左侧按钮定位实现 15:55*/
+      .search-btn {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 40px;
+        height: 44px;
+        /* background-color: pink; */
+      }
+      .search-btn::after {
+        /*伪元素  16:03 完成任务*/
+        content: "";
+        display: block;
+        width: 20px;
+        height: 18px;
+        background: url(images/s-btn.png) no-repeat;
+        background-size: 20px 18px;
+        margin: 14px 0 0 15px;
+      }
+      /*搜索框右侧按钮   16：10*/
+      .search-login {
+        position: absolute;
+        top: 0; /*靠右侧定位*/
+        right: 0;
+        width: 40px;
+        height: 44px;
+        line-height: 44px;
+        color: #fff;
+        /* background-color: pink; */
+      }
+      /*中间搜索框  */
+      .search {
+        position: relative;
+        height: 30px;
+        background-color: #fff;
+        border-radius: 15px;
+        margin: 0 50px;
+        margin-top: 7px;
+      }
+      /*二个图标一个竖线 16：36 完成任务*/
+      .jd-ico {
+        position: absolute;
+        top: 8px;
+        left: 13px;
+        width: 20px;
+        height: 15px;
+        background: url(images/jd.png) no-repeat;
+        background-size: 20px 15px;
+      }
+      .jd-ico::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        right: -8px;
+        width: 1px; /*灰色细线*/
+        height: 15px;
+        background-color: #ccc;
+      }
+      /**/
+      .sou {
+        /*1:定位 宽度 背景 文字大小*/
+        position: absolute;
+        top: 8px;
+        left: 50px;
+        width: 18px;
+        height: 15px;
+        /*下节课 安装软件firework*/
+        background: url(./images/jd-sprites.png) no-repeat -81px 0;
+        background-size: 200px auto;
+      }
+      /*input 搜索框中间文字*/
+      .input {
+        position: absolute;
+        top: 6px;
+        left: 70px;
+        width: 320px;
+        height: 15px;
+        /* background-color: aquamarine; */
+        font-size: 13px;
+        color: #ccc;
+      }
+      .slider img {
+        width: 100%;
+      }
+      /*今日品牌一行三个图片*/
+      .brand {
+        /*原先意思:子元素超过父元素就隐藏*/
+        /*父元素没有高度,子元素浮动,解决高度塌陷*/
+        overflow: hidden;
+        border-radius: 10px 10px 0 0;
+      }
+      .brand div {
+        float: left;
+        width: 33.3333%;
+      }
+      .brand div img {
+        width: 100%;
+      }
+      nav {
+        padding-top: 5px;
+      }
+      nav a {
+        float: left;
+        width: 20%;
+        text-align: center;
+      }
+      nav a img {
+        width: 40px;
+        margin: 10px 0;
+      }
+      nav a span {
+        display: block;
+      }
+      /*新闻 1 50%  2 25%  3 25%*/
+      .news {
+        margin-top: 20px;
+      }
+      .news a {
+        float: left;
+        box-sizing: border-box;
+      }
+      .news a:nth-child(1) {
+        width: 50%;
+      }
+      .news a:nth-child(2),
+      .news a:nth-child(3) {
+        width: 25%;
+      }
+      .new a img {
+        width: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!--第一行   start    15:15 完成任务 -->
+    <div class="app">
+      <ul>
+        <li><img src="images/close.png" /></li>
+        <li><img src="images/logo.png" /></li>
+        <li>打开京东App，购物更轻松</li>
+        <li>立即打开</li>
+      </ul>
+    </div>
+    <!--第一行   end-->
+    <!--第二行 搜索    15:27完成任务  start-->
+    <div class="search-wrap">
+      <div class="search-btn"></div>
+      <div class="search">
+        <div class="jd-ico"></div>
+        <div class="sou"></div>
+        <div class="input">笔记本内存条</div>
+      </div>
+      <div class="search-login">登陆</div>
+    </div>
+    <!--第二行 搜索   end-->
+    <!-- 第三行 banner  start -->
+    <div class="main-content">
+      <!-- 滑动图  一张大图片-->
+      <div class="slider">
+        <img src="upload/banner.dpg" />
+      </div>
+      <!-- 小家电广告 1行3个图片各占 33.33333% -->
+      <div class="brand">
+        <div>
+          <a href="#">
+            <img src="upload/pic11.dpg" alt="" />
+          </a>
+        </div>
+        <div>
+          <a href="#">
+            <img src="upload/pic22.dpg" alt="" />
+          </a>
+        </div>
+        <div>
+          <a href="#">
+            <img src="upload/pic33.dpg" alt="" />
+          </a>
+        </div>
+      </div>
+      <!-- 京东广告 1行5个广告 各占20% -->
+      <!-- clearfix 父元素没有高度 子元素浮动 高度塌陷 -->
+      <!-- 问题:父元素高度丢失 清除浮动 -->
+      <nav class="clearfix">
+        <a href="#">
+          <img src="upload/nav1.webp" alt="" />
+          <span>京东超市</span>
+        </a>
+        <a href="#">
+          <img src="upload/nav1.webp" alt="" />
+          <span>京东超市</span>
+        </a>
+        <a href="#">
+          <img src="upload/nav1.webp" alt="" />
+          <span>京东超市</span>
+        </a>
+        <a href="#">
+          <img src="upload/nav1.webp" alt="" />
+          <span>京东超市</span>
+        </a>
+        <a href="#">
+          <img src="upload/nav1.webp" alt="" />
+          <span>京东超市</span>
+        </a>
+        <a href="#">
+          <img src="upload/nav1.webp" alt="" />
+          <span>京东超市</span>
+        </a>
+        <a href="#">
+          <img src="upload/nav1.webp" alt="" />
+          <span>京东超市</span>
+        </a>
+        <a href="#">
+          <img src="upload/nav1.webp" alt="" />
+          <span>京东超市</span>
+        </a>
+        <a href="#">
+          <img src="upload/nav1.webp" alt="" />
+          <span>京东超市</span>
+        </a>
+        <a href="#">
+          <img src="upload/nav1.webp" alt="" />
+          <span>京东超市</span>
+        </a>
+      </nav>
+      <!-- 京东新闻模块 -->
+      <div class="news">
+        <a href="#"><img src="upload/new1.dpg" alt="" /></a>
+        <a href="#"><img src="upload/new2.dpg" alt="" /></a>
+        <a href="#"><img src="upload/new3.dpg" alt="" /></a>
+      </div>
+    </div>
+    <!-- 第三行 banner  end -->
+  </body>
+</html>

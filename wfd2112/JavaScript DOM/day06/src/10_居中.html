@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .text {
+        text-align: center; /*水平居中*/
+        height: 30px;
+        line-height: 30px; /*垂直居中*/
+        border: 1px solid red;
+      }
+      .pic {
+        height: 100px;
+        border: 1px solid pink;
+        text-align: center; /*图片水平居中*/
+        line-height: 120px; /*图片垂直居中*/
+      }
+      .box2,
+      .box3,
+      .box4 {
+        width: 150px;
+        height: 150px;
+        background-color: pink;
+        border: 1px solid red;
+        margin: 2px;
+      }
+      .box2 > div {
+        width: 50px;
+        height: 50px;
+        background-color: green;
+      }
+      .box3 > div {
+        width: 50px;
+        height: 50px;
+        background-color: green;
+      }
+      .box4 > div {
+        width: 50px;
+        height: 50px;
+        background-color: green;
+      }
+      /*1:第一种:margin 外边距*/
+      .box2 > div {
+        margin: 50px auto; /*小盒子水平居中 auto 水平居中*/
+        /* margin-top: 50px; */
+      }
+      /*第二种:定位*/
+      .box3 {
+        position: relative;
+      }
+      .box3 > div {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -25px;
+        margin-top: -25px;
+      }
+      /*第三种:定位*/
+      .box4 {
+        position: relative;
+      }
+      .box4 > div {
+        position: absolute;
+        top: 50%;
+        left: 50%; /*减去:子元素高度/宽度减一半*/
+        transform: translate(-50%, -50%);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 1:文字居中(水平,垂直)  -->
+    <div class="text">片儿川</div>
+    <!-- 2:行内块,图片居中 -->
+    <div class="pic">
+      <img src="../jd/images/jd.png" />
+    </div>
+    <!-- 3:块元素居中 父:300*300 子:50*50-->
+    <div class="box2">
+      <div class="son">11</div>
+    </div>
+    <div class="box3">
+      <div class="son">22</div>
+    </div>
+    <div class="box4">
+      <div class="son">33</div>
+    </div>
+  </body>
+</html>
