@@ -54,7 +54,435 @@
         display: block; /*去除图片下方白色边线*/
       }
       /*2:分功能一块完成 从上向下从外向里*/
+
+      /*第一层:顶部搜索*/
+      .search-index {
+        /*启动FLEX布局*/
+        display: flex;
+        /*固定定位,水平居中*/
+        position: fixed;
+        top: 0;
+        left: 50%;
+        /*下面transform css 3.0 新属性有移动端浏览器*/
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+        width: 100%;
+        min-width: 320px;
+        max-width: 540px;
+        background-color: #f6f6f6;
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+      }
+      /*第一层:左侧输入框*/
+      .search {
+        flex: 1;
+        position: relative;
+        height: 26px;
+        line-height: 26px;
+        border: 1px solid #ccc;
+        font-size: 12px;
+        color: #666;
+        margin: 7px 10px;
+        padding-left: 25px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+      /*左侧放大镜*/
+      .search::before {
+        content: "";
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        width: 15px;
+        height: 15px;
+        background: url(image/sprite.png) no-repeat -59px -279px;
+        background-size: 104px auto;
+      }
+      /*第一层:右侧我的*/
+      .user {
+        width: 44px;
+        height: 44px;
+        /* background-color: pink; */
+        font-size: 12px;
+        text-align: center;
+        color: #2eaae0;
+      }
+      .user::before {
+        content: "";
+        display: block;
+        width: 23px;
+        height: 23px;
+        background: url(image/sprite.png) no-repeat -59px -194px;
+        background-size: 104px auto;
+        margin: 4px auto -2px;
+      }
+      /*第二层:焦点图*/
+      .focus {
+        padding-top: 44px;
+      }
+      .focus img {
+        width: 100%;
+      }
+      /*第三层:导航栏*/
+      .local-nav {
+        display: flex;
+        height: 64px;
+        margin: 3px 4px;
+        background-color: #fff;
+        border-radius: 8px;
+      }
+      .local-nav li {
+        flex: 1; /*1行5g个元素:一个蛋糕分5块,一人一块*/
+      }
+      .local-nav li a {
+        display: flex;
+        flex-direction: column; /*将主轴改垂直*/
+        /*测轴居中对齐 因为单行*/
+        align-items: center;
+        font-size: 12px;
+      }
+      .local-nav-icon1 {
+        width: 32px;
+        height: 32px;
+        background: url(image/localnav_bg.png) no-repeat;
+        background-position: 0 0;
+        background-size: 32px auto;
+        margin-top: 8px;
+      }
+      .local-nav-icon2 {
+        width: 32px;
+        height: 32px;
+        background: url(image/localnav_bg.png) no-repeat;
+        background-position: 0 -32px;
+        background-size: 32px auto;
+        margin-top: 8px;
+      }
+      .local-nav-icon3 {
+        width: 32px;
+        height: 32px;
+        background: url(image/localnav_bg.png) no-repeat;
+        background-position: 0 -64px;
+        background-size: 32px auto;
+        margin-top: 8px;
+      }
+      .local-nav-icon4 {
+        width: 32px;
+        height: 32px;
+        background: url(image/localnav_bg.png) no-repeat;
+        background-position: 0 -96px;
+        background-size: 32px auto;
+        margin-top: 8px;
+      }
+      .local-nav-icon5 {
+        width: 32px;
+        height: 32px;
+        background: url(image/localnav_bg.png) no-repeat;
+        background-position: 0 -128px;
+        background-size: 32px auto;
+        margin-top: 8px;
+      }
+
+      /*第四层:nav*/
+      nav {
+        overflow: hidden;
+        border-radius: 8px;
+        margin: 0 4px 3px;
+        background-color: #f2f2f2;
+      }
+      /*一行*/
+      .nav-common {
+        display: flex; /*子元素水平 三个*/
+        height: 88px;
+        background-color: #ccc;
+      }
+      /*空白间隙*/
+      .nav-common:nth-child(2) {
+        margin: 4px 0;
+      }
+      .nav-items {
+        display: flex;
+        flex-direction: column; /*子元素垂直排列*/
+        flex: 1; /*在他父元素,占满整个剩余空间*/
+        /* background-color: #ccc; */
+      }
+      .nav-items a {
+        flex: 1;
+        text-align: center;
+        line-height: 44px;
+        color: #fff;
+        font-size: 14px;
+        /*文字阴影*/
+        text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
+      }
+      /*第一个A添加底部边线*/
+      .nav-items a:nth-child(1) {
+        border-bottom: 1px solid #fff;
+      }
+      .nav-items:nth-child(1) a {
+        border: 0; /*边框宽度为0 清除边框*/
+        background: url(image/hotel.png) no-repeat;
+        background-position: bottom center;
+        background-size: 121px auto;
+      }
+      /*前二个元素添加右侧边框*/
+      .nav-items:nth-child(-n + 2) {
+        border-right: 1px solid #fff;
+      }
+      .nav-common:nth-child(1) {
+        background: -webkit-linear-gradient(left, #fa5a55, #fa994d);
+      }
+      .nav-common:nth-child(2) {
+        background: -webkit-linear-gradient(left, #4b90ed, #53bced);
+      }
+      .nav-common:nth-child(3) {
+        background: -webkit-linear-gradient(left, #34c3a9, #6cd559);
+      }
+      /*最后一行*/
+      .subnav-entry {
+        display: flex;
+        flex-wrap: wrap;
+        border-radius: 8px;
+        background-color: #fff;
+        margin: 0 4px;
+        padding: 5px 0;
+      }
+      .subnav-entry li {
+        flex: 20%;
+      }
+      .subnav-entry a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .subnav-entry-icon1 {
+        width: 28px;
+        height: 28px;
+        margin-top: 4px;
+        background: url(image/subnav-bg.png) no-repeat;
+        background-position: 0 0;
+        background-size: 28px auto;
+      }
+      .subnav-entry-icon2 {
+        width: 28px;
+        height: 28px;
+        margin-top: 4px;
+        background: url(image/subnav-bg.png) no-repeat;
+        background-position: 2px -30px;
+        background-size: 28px auto;
+      }
+      .subnav-entry-icon3 {
+        width: 28px;
+        height: 28px;
+        margin-top: 4px;
+        background: url(image/subnav-bg.png) no-repeat;
+        background-position: 0 -64px;
+        background-size: 28px auto;
+      }
+      .subnav-entry-icon4 {
+        width: 28px;
+        height: 28px;
+        margin-top: 4px;
+        background: url(image/subnav-bg.png) no-repeat;
+        background-position: 0 -100px;
+        background-size: 28px auto;
+      }
+      .subnav-entry-icon5 {
+        width: 28px;
+        height: 28px;
+        margin-top: 4px;
+        background: url(image/subnav-bg.png) no-repeat;
+        background-position: 0 -130px;
+        background-size: 28px auto;
+      }
+      .subnav-entry-icon6 {
+        width: 28px;
+        height: 28px;
+        margin-top: 4px;
+        background: url(image/subnav-bg.png) no-repeat;
+        background-position: 4px -164px;
+        background-size: 28px auto;
+      }
+      .subnav-entry-icon7 {
+        width: 28px;
+        height: 28px;
+        margin-top: 4px;
+        background: url(image/subnav-bg.png) no-repeat;
+        background-position: 0 -198px;
+        background-size: 28px auto;
+      }
+      .subnav-entry-icon8 {
+        width: 28px;
+        height: 28px;
+        margin-top: 4px;
+        background: url(image/subnav-bg.png) no-repeat;
+        background-position: 0 -230px;
+        background-size: 28px auto;
+      }
+      .subnav-entry-icon9 {
+        width: 28px;
+        height: 28px;
+        margin-top: 4px;
+        background: url(image/subnav-bg.png) no-repeat;
+        background-position: 0 -260px;
+        background-size: 28px auto;
+      }
+      .subnav-entry-icon10 {
+        width: 28px;
+        height: 28px;
+        margin-top: 4px;
+        background: url(image/subnav-bg.png) no-repeat;
+        background-position: 0 -322px;
+        background-size: 28px auto;
+      }
     </style>
   </head>
-  <body></body>
+  <body>
+    <!-- 第一层:顶部搜索 -->
+    <dic class="search-index">
+      <div class="search">搜索:目的地/酒店/景点/航班号</div>
+      <a href="#" class="user">我 的</a>
+    </dic>
+    <!-- 第二层:焦点图 -->
+    <div class="focus">
+      <img src="upload/focus.jpg" alt="" />
+    </div>
+    <!-- 第三层:局部导航栏 -->
+    <ul class="local-nav">
+      <li>
+        <a href="#" title="景点.玩乐">
+          <span class="local-nav-icon1"></span>
+          <span>景点.玩乐</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" title="景点.玩乐">
+          <span class="local-nav-icon2"></span>
+          <span>景点.玩乐</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" title="景点.玩乐">
+          <span class="local-nav-icon3"></span>
+          <span>景点.玩乐</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" title="景点.玩乐">
+          <span class="local-nav-icon4"></span>
+          <span>景点.玩乐</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" title="景点.玩乐">
+          <span class="local-nav-icon4"></span>
+          <span>景点.玩乐</span>
+        </a>
+      </li>
+    </ul>
+    <!-- 第四层:主导航栏 -->
+    <nav>
+      <div class="nav-common">
+        <div class="nav-items">
+          <a href="#">海外酒店</a>
+        </div>
+        <div class="nav-items">
+          <a href="#">海外酒店</a>
+          <a href="#">特价酒店</a>
+        </div>
+        <div class="nav-items">
+          <a href="#">海外酒店</a>
+          <a href="#">特价酒店</a>
+        </div>
+      </div>
+      <div class="nav-common">
+        <div class="nav-items">
+          <a href="#">海外酒店</a>
+        </div>
+        <div class="nav-items">
+          <a href="#">海外酒店</a>
+          <a href="#">特价酒店</a>
+        </div>
+        <div class="nav-items">
+          <a href="#">海外酒店</a>
+          <a href="#">特价酒店</a>
+        </div>
+      </div>
+      <div class="nav-common">
+        <div class="nav-items">
+          <a href="#">海外酒店</a>
+        </div>
+        <div class="nav-items">
+          <a href="#">海外酒店</a>
+          <a href="#">特价酒店</a>
+        </div>
+        <div class="nav-items">
+          <a href="#">海外酒店</a>
+          <a href="#">特价酒店</a>
+        </div>
+      </div>
+    </nav>
+    <!-- 导航栏 -->
+    <ul class="subnav-entry">
+      <li>
+        <a href="#">
+          <span class="subnav-entry-icon1"></span>
+          <span>电话费</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="subnav-entry-icon2"></span>
+          <span>电话费</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="subnav-entry-icon3"></span>
+          <span>电话费</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="subnav-entry-icon4"></span>
+          <span>电话费</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="subnav-entry-icon5"></span>
+          <span>电话费</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="subnav-entry-icon6"></span>
+          <span>电话费</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="subnav-entry-icon7"></span>
+          <span>电话费</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="subnav-entry-icon8"></span>
+          <span>电话费</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="subnav-entry-icon9"></span>
+          <span>电话费</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="subnav-entry-icon10"></span>
+          <span>电话费</span>
+        </a>
+      </li>
+    </ul>
+  </body>
 </html>
