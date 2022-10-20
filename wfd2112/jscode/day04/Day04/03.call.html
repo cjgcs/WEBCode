@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function show() {
+        console.log('this:', this)
+      }
+      // 函数是对象类型, 其原型中拥有 call 方法
+      console.dir(show)
+      var emp = { name: 'gege' }
+      // call有什么用: 触发show函数的同时, 指定其中的this指向参数1; 一次性操作,临时性的.
+
+      // call是怎么设置this的指向:  不用你管, 作者实现的
+      show.call(emp)
+      console.log('emp:', emp)
+
+      var obj = { name: '非凡' }
+      show.call(obj)
+
+      show.call({ name: 'mike' })
+    </script>
+
+    <script>
+      // 函数触发时, 才知道this是什么
+      function abb(a, b) {
+        console.log(a + b + this.c)
+      }
+
+      var x = { c: 100 }
+      abb.call(x, 10, 20)
+
+      var y = { c: 200 }
+      abb.call(y, 20, 20)
+    </script>
+
+    <script>
+      function add() {
+        // 类数组: 原型非数组, 用不了数组的方法
+        console.log(arguments)
+        // arguments.__proto__ = Array.prototype
+        var nums = [1, 2, 3]
+        nums.push(4) // push的this是谁?  nums!
+        // push的this如果换成 arguments 呢?
+        Array.prototype.push.call(arguments, 4)
+        // 调用数组原型的push方法, 指定其this指向 arguments 对象, push就会把 4 添加到 arguments 里
+      }
+
+      add(1, 2, 3)
+    </script>
+  </body>
+</html>

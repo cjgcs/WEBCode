@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            position: relative;
+            width: 74px;
+            height: 88px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            font-size: 12px;
+            text-align: center;
+            color: #f40;
+            /*如果子元素超过父元素 就隐藏*/
+            overflow: hidden;/*溢出就隐藏*/
+        }
+        
+        .box img {
+            width: 60px;
+            margin-top: 5px;
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 1px;
+            left: 1px;
+            width: 14px;
+            height: 14px;
+            border: 1px solid #ccc;
+            line-height: 14px;
+            font-family: Arial, Helvetica, sans-serif;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        淘宝二维码
+        <img src="images/tao.png" alt="">
+        <i class="close-btn">×</i>
+    </div>
+    <script>
+        //任务：慢慢隐藏起来小米  10：32 
+        //1:获取 box  关闭按钮
+        var box = document.querySelector(".box");
+        var close = document.querySelector(".close-btn");
+        //2:为关闭按钮添加onclick事件
+        close.onclick = function(){
+         //3:隐藏box box.style.height 83==0 停止定时器
+         //box.style.display = "none";
+         //3.1:创建变量h值88表示 box 高度
+         var h = 88;
+         //3.2:创建定时器 1000/60 毫秒执行一次 高度减1
+         var timer = setInterval(function(){
+           //3.3:将h赋值box
+           h--;
+           box.style.height = h + "px";
+           //3.4:如果h<0 停止定时器         11:06 完成任务
+           if(h<0){clearInterval(timer)}
+         },1000/60);
+    
+
+        }
+
+    </script>
+</body>
+
+</html>

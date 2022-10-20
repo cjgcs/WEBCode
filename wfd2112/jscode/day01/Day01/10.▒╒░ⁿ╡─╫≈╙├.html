@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>闭包的作用</title>
+  </head>
+  <body>
+    <script>
+      // 闭包的作用: 函数把函数体中所有使用的变量, 保存到自身的scopes 属性中,  保障后期无论在哪里运行, 都可以正常执行
+      var a = 10
+      let k = 100 //let 在全局中声明 -- 脚本作用域
+
+      function b() {
+        var b = 20
+
+        function c() {
+          var c = 30
+          {
+            let y = 200
+
+            // 把函数存放到 全局区
+            window.d = function () {
+              var d = 40
+              console.log(a + b + c + d + k + y)
+            }
+          }
+        }
+        c()
+      }
+      b()
+
+      console.log(window) //全局中有 d 函数
+      d() //全局区内容调用时, 省略window前缀
+      // d函数的函数体, 只有 var d = 40,  其他用到的 a , b , c 哪来的?
+      // 答案: 闭包被动技能 - 在(声明/书写)时把用到的属于其他作用域的变量存储到自身的是scopes 属性里
+      console.dir(d)
+
+      // 总结:
+      // 函数 scopes: 保存函数体中, 非函数自身声明的变量
+      // 为什么: 函数在使用时, 为了保障正常运行, 需要到 scopes 中找到使用的非自身的变量
+      // 分类: 保存在scopes中的变量, 按照所在的作用域进行分类存储: Block块, Script脚本, Global全局, Closure函数(称为闭包)
+    </script>
+  </body>
+</html>

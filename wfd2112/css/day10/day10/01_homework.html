@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    img {
+      width: 100px;
+      /* 执行时间 动画名称 匀速 无限次 */
+      animation: 0.1s move linear infinite;
+    }
+    @keyframes move {
+      0%{}
+      50%{transform: translateY(50px);}
+      100%{transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+  <img src="./sz.jpg" alt="">
+</body>
+</html>

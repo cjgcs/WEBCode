@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>保护对象的方式</title>
+  </head>
+  <body>
+    <script>
+      'use strict'
+
+      var emp = { ename: 'mike', age: 19 }
+
+      // 属性有4个操作: 增删改查
+      // prevent: 阻止  extension: 扩展 -- 增加属性
+      // Object.preventExtensions(emp)
+
+      // seal: 密封  -- 不允许 增 删
+      // Object.seal(emp)
+
+      // freeze: 冻结 -- 不允许 增 删 改
+      Object.freeze(emp)
+
+      // Cannot add property phone, object is not extensible
+      // 无法添加属性 phone, 对象是一个不可扩展的
+      // emp.phone = '10086'
+
+      // Cannot delete property 'age'
+      // 不能删除属性 age
+      // delete emp.age
+
+      // Cannot assign to read only property 'age'
+      // 不能赋值给 只读属性 age
+      emp.age = 99
+
+      console.log(emp)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>闭包的作用</title>
+  </head>
+  <body>
+    <!-- 主要在 ES6 出现 块级作用域之前, 用闭包来形成局部作用域 -->
+
+    <script>
+      // 需求: 记录show函数被调用次数
+      // 问题: 全局变量污染, num存储在全局区
+      // var num = 0
+      // 新的方案: num是专为 show 函数准备的, 能不能就放在show函数上存储?
+
+      // 前提 ES6 之前: 只有两种作用域 -- 全局 + 局部|函数
+      function a() {
+        var num = 0
+        // 可以省略window.
+        window.show = function () {
+          num++
+          console.log('您是世界上最漂亮的女人', num)
+        }
+      }
+      a()
+      console.dir(window.show)
+      show()
+      show()
+      show()
+      show()
+    </script>
+
+    <script>
+      // 现在: ES6 有了块级作用域
+      {
+        let num = 0
+        window.show1 = function () {
+          num++
+          console.log('num:', num)
+        }
+      }
+      show1()
+      show1()
+      show1()
+      show1()
+      console.dir(show1)
+    </script>
+  </body>
+</html>

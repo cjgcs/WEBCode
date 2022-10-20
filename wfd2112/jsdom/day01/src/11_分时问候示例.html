@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--1:创建img 标签，用于显示问候图片 id="pic"-->
+    <img src="images/s.gif" id="pic">
+    <!--2:创建div标签，用于显示问候用语-->
+    <div id="msg">早上好</div>
+    <script>
+       //3: 创建日期对象
+       var now = new Date();
+       //4：获取当前日期对象小时属性
+       var h = now.getHours();
+       //4.1 4.2 提前获取 图片与div标签 
+       var pic = document.getElementById("pic");
+       var msg = document.getElementById("msg");
+       //5：判断如果小时数0~12      
+       if(h<12){
+         //5.1 图片路径    pic.src = s.gif 
+         pic.src = "images/s.gif"
+         //5.2 问候用语赋值 div.innerHTML 早上好
+         msg.innerHTML = "早上好"
+       }else if(h<20){
+         //6:判断如果小时数12~20
+         //6.1 图片路径     pic.src = "x.gif"    16：54 完成示例
+         pic.src = "images/x.gif"
+         //6.2 问候用语赋值 div.innHTML  下午好
+         msg.innerHTML = "下午好"
+       }else{
+          //7：否则
+         //7.1 图片路径     pic.src = "w.gif"
+         pic.src = "images/w.gif"
+         //7.2 问候用语赋值 div.innerHTML 晚上好
+         msg.innerHTML = "晚上好"
+       }
+
+      
+    </script>
+</body>
+</html>

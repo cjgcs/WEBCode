@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>事件 11:32</title>
+    <style>
+      #box {
+        width: 200px;
+        height: 200px;
+        border: 1px solid gray;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 绑定方式1: 利用HTML 添加 onclick 属性 -->
+    <button onclick="clickMe()">点我</button>
+
+    <div id="box"></div>
+
+    <script>
+      function clickMe() {
+        console.log('啊啊啊')
+      }
+
+      const box = document.getElementById('box')
+      console.dir(box) // 属性中查看 on 开头的
+
+      // 所有事件都是on开头的:  on 当...时
+      box.onclick = function () {
+        console.log('盒子被点击')
+      }
+      // mouse: 鼠标  enter:进入  leave:离开
+      let count = 0
+      box.onmouseenter = function () {
+        console.log('我进来了')
+        count++
+        if (count == 10) alert('打我呀, 笨蛋!')
+      }
+      box.onmouseleave = function () {
+        console.log('我又出来了')
+      }
+    </script>
+  </body>
+</html>

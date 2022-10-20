@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>严格模式</title>
+  </head>
+  <body>
+    <script>
+      // 严格模式: 构造函数如果直接调用, this指向undefined 代替window, 防止全局变量污染
+      'use strict'
+
+      // 构造函数的名字 都是大驼峰 -- 为了明显区分与普通函数
+      function Rect(w, h) {
+        // 直接调用 Rect(),  默认前缀是 window.Rect
+        // 所以这里的this 就是 window,
+        // window.w = w ; 导致全局中新增w 属性 -- 污染
+        this.aw = w
+        this.ah = h
+      }
+
+      // 家栋: 不会用构造函数, 不知道需要new
+      Rect(100, 4)
+      console.log(window)
+
+      var r1 = new Rect(10, 5)
+      console.log(r1)
+    </script>
+  </body>
+</html>

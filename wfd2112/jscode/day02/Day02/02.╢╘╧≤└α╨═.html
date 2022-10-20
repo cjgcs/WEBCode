@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>对象类型</title>
+  </head>
+  <body>
+    <script>
+      // 声明方式1: 字面量
+      var a = { name: 'mike', age: 33 }
+      console.log(a)
+
+      // 声明方式2: 构造方式
+      var b = new Object()
+
+      // 添加属性
+      b.name = 'lucy'
+
+      var x = 'age'
+      // 对象.属性名 : 固定语法,  属性名 不是变量
+      b.x = '999' // 添加 属性名是 x , 值是 999
+      // 对象[变量]
+      b[x] = '1001' // x的值是age, 所以添加了 age:1001
+
+      console.log(b)
+    </script>
+  </body>
+</html>

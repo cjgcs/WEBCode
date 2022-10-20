@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>计数器: 14:08</title>
+  </head>
+  <body>
+    <button>5</button>
+
+    <script>
+      // 点击时, 按钮的数字+1
+      const btn = document.querySelector('button')
+
+      btn.onclick = function () {
+        const n = this.innerHTML // 从标签中读取的内容,都是字符串类型
+        console.log('n:', n)
+        // +: 有拼接字符串作用. 做数学运算, 要转数字
+        // 问题: +   方案1: 把n转数字 *1 parseInt
+        // 方案1: 用 - 代替+, 负负得正  +1  == - -1
+        // this.innerHTML = n - -1  // 通用性, 适合累加任意数字
+
+        // 如果仅+1, 可以用自增运算符
+        this.innerHTML++
+      }
+    </script>
+  </body>
+</html>

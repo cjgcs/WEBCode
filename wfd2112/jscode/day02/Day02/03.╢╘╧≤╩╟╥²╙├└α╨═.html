@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>对象是引用类型</title>
+  </head>
+  <body>
+    <script>
+      // JS数据类型有哪些?
+      // 基础类型: number string boolean null undefined + bigInt symbol
+      // 引用类型: object
+
+      var a = 5
+      var b = a
+      a = 10
+      console.log(b) // 5
+
+      /////////////////////////////
+      var c = { num: 10 }
+      var d = c
+      c.num = 20
+      console.log(d.num) // 20
+    </script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>对象的精确配置</title>
+  </head>
+  <body>
+    <script>
+      // 计算属性:  total是属性, 但是结果是通过计算得到的, 本质是个函数
+      var p = {
+        pname: '苹果',
+        price: 18,
+        count: 33,
+        // 总价格
+        // 语法糖: 省略 :function 变短
+        // 语法糖: get 前缀, 代表这是个计算属性, 用的时候默认自动调用, 不需要额外加()
+        get total() {
+          return this.price * this.count
+        },
+      }
+      console.log(p.price)
+      console.log(p.total)
+
+      p.price = 100
+      console.log(p.total)
+      console.log(p.total)
+      console.log(p.total)
+      console.log(p.total)
+    </script>
+
+    <script>
+      // 练习:
+      var r1 = {
+        width: 100,
+        height: 50,
+        // 增加一个 area 属性, 计算出面积  width*height
+        get area() {
+          return this.width * this.height
+        },
+      }
+
+      console.log(r1.area) // 5000
+    </script>
+  </body>
+</html>

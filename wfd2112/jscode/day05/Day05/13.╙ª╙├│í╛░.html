@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>应用场景 16:31</title>
+  </head>
+  <body>
+    <script>
+      // 让用户输入一句话, 判断是否有中文
+      // prompt: 一个弹窗, 用于收集信息
+      var words = prompt('请输入内容:')
+      console.log('words:', words)
+
+      var a = words.match(/[\u4e00-\u9fa5]/)
+      console.log(a)
+
+      if (a) {
+        console.log('含有中文')
+      } else {
+        console.log('不含中文')
+      }
+    </script>
+  </body>
+</html>

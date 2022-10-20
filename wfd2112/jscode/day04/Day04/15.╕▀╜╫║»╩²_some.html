@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>高阶函数_some</title>
+  </head>
+  <body>
+    <script>
+      // some: 一些
+      // 判断数组中是否有满足条件的元素
+      var nums = [1, 31, 43, 65, 13]
+      // 判断数组中是否有 偶数:  即 有一个就算有
+
+      // some: 自动遍历每个元素, 返回判断的结果, 如果有真的, 就是真, 没有真的, 就是假
+      var a = nums.some((value, index, array) => {
+        // 对2 取余0, 代表偶数
+        return value % 2 == 0
+      })
+
+      var a = nums.some(value => value % 2 == 0)
+
+      console.log(a ? '有偶数' : '没有偶数')
+    </script>
+  </body>
+</html>

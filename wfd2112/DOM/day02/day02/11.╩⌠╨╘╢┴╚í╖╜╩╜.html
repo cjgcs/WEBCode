@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>属性读取方式 17:40</title>
+  </head>
+  <body>
+    <a href="http://tmooc.cn" id="a1" title="Tmooc" data-y="666">Tmooc</a>
+
+    <script>
+      // 属性的操作方式 分 新 旧两种
+      const a = document.getElementById('a1')
+      console.dir(a)
+
+      // 新方案: 直接操作属性即可
+      a.title = '百度一下' //修改操作
+      // 旧方案: setAttribute(属性名, 值)
+      a.setAttribute('href', 'http://www.baidu.com')
+
+      // 读
+      console.log(a.title)
+      console.log(a.getAttribute('href'))
+
+      // 自定义属性读
+      console.log(a.dataset.y) //新写法中: 从dataset读取
+      console.log(a.getAttribute('data-y')) //旧语法 直接读
+
+      // 判断是否设置了某个属性
+      console.log(a.title != '') // 默认值是空字符串, 不是空就是设置了
+      console.log(a.target != '')
+      // has: 有   Attribute:属性
+      console.log(a.hasAttribute('title'))
+      console.log(a.hasAttribute('target'))
+    </script>
+  </body>
+</html>

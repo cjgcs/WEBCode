@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>作业 09:20</title>
+    <style>
+      #tags {
+        user-select: none;
+        width: 600px;
+      }
+      #tags > span {
+        display: inline-block;
+        padding: 10px;
+        border: 2px solid gray;
+        margin-bottom: 4px;
+      }
+      #tags > span:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+      #tags > span.cur {
+        border-color: #0aa1ed;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="tags">
+      <span class="cur">[E470C-2017新] i5 4G 500G</span>
+      <span>[E470C-2017新] i5 8G 500G</span>
+      <span>[E470C-2017新] i5 4G 1TB</span>
+      <span>[E470C-2017新] i5 4G 256G SSD</span>
+      <span>[E470C-2017新] i5 8G 256G SSD</span>
+    </div>
+
+    <script>
+      // 1. 查找到所有的 标签
+      const tags = document.querySelectorAll('#tags span')
+      // 2. 遍历: 挨个绑定点击事件
+      tags.forEach(tag => {
+        tag.onclick = function () {
+          // 3. 点击后: 简单粗暴 遍历删除每个标签的cur样式
+          tags.forEach(v => v.classList.remove('cur'))
+          // 4. 为点击项添加cur样式
+          this.classList.add('cur')
+        }
+      })
+    </script>
+  </body>
+</html>

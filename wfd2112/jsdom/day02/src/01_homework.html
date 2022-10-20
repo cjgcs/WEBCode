@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            position: relative;
+            width: 400px;
+            border-bottom: 1px solid #ccc;
+            margin: 100px auto;
+        }
+        
+        .box input {
+            width: 370px;
+            height: 30px;
+            border: 0;
+            outline: none;
+        }
+        
+        .box img {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            width: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <label for="">
+            <img src="images/close.png" alt="" id="eye">
+        </label>
+        <input type="password" name="" id="pwd">
+    </div>
+    <script>
+        //作业，仿京东密码切换功能    9：24 
+        //1：获取图片元素
+        var eye = document.getElementById("eye");
+        //2：获取输入框元素
+        var pwd = document.getElementById("pwd");
+        //3: 创建变量 flag 表单图片状态 true 睁眼 false 闭眼
+        var flag = false;
+        //4：为图片添加点击事件
+        eye.onclick = function(){
+           //4.1 判断如果当前flag等于TRUE （现在睁眼）
+           if(flag){
+           //4.2 图片close.png
+           eye.src = "images/close.png"
+           //4.3 输入框类型 password
+           pwd.type="password"
+           //4.4 flag=false 可闭上了
+           flag=false;
+           }else{
+           //4.5 判断如果当前flag等于false （现在闭眼）
+           //4.6 图片open.png
+           eye.src = "images/open.png";
+           //4.7 输入框类型 text
+           pwd.type="text"
+           //4.8 flag=true  可睁上 
+           flag=true
+           }
+        }//注意 ！！！！！！！！ 9：27
+    </script>
+</body>
+
+</html>

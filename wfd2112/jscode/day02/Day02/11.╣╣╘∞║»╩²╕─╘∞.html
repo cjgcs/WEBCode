@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>构造函数改造</title>
+  </head>
+  <body>
+    <script>
+      function Rect(w, h) {
+        this.w = w
+        this.h = h
+        // 对象的area属性, 值是外部的 x 函数
+        this.area = x
+      }
+
+      // 如果构造函数中, 对象的属性是函数, 一定要放到外部书写 -- 省内存
+
+      // 函数放到外部书写:
+      var x = function () {
+        console.log(this.w * this.h)
+      }
+
+      var r1 = new Rect(10, 5)
+      var r2 = new Rect(100, 51)
+      var r3 = new Rect(107, 15)
+      console.log(r1)
+      r1.area()
+
+      console.log(r2)
+      r2.area()
+
+      console.log(r3)
+      r3.area()
+      // 并非同一个函数
+      console.log('r1.area == r2.area:', r1.area == r2.area) //false
+    </script>
+  </body>
+</html>

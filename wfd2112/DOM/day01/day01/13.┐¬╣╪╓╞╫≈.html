@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>开关制作 14:00</title>
+    <style>
+      .switch {
+        display: inline-block;
+        border: 1px solid silver;
+        width: 120px;
+        height: 60px;
+        border-radius: 30px;
+        padding: 1px;
+        /* 补间动画,过度 */
+        transition: 0.3s;
+      }
+      .switch > span {
+        transition: 0.3s;
+
+        /* 行内块: 支持宽高内边距等 */
+        display: inline-block;
+        width: 58px;
+        height: 57px;
+        border: 1px solid silver;
+        box-shadow: 1px 1px 2px 1px silver;
+        border-radius: 50%;
+        background-color: white;
+      }
+      .switch.on {
+        background-color: blue;
+      }
+      .switch.on > span {
+        margin-left: 59px;
+      }
+      .g1 {
+        margin-left: 80px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 制作顺序 HTML -> CSS -> JS -->
+    <div class="switch">
+      <span></span>
+    </div>
+    <br />
+    <span>关</span>
+    <span class="g1">开</span>
+
+    <script>
+      // 利用css选择器: 找到要操作的元素
+      var s = document.querySelector(".switch");
+
+      s.onclick = function () {
+        // this: 调用时所在对象, 即当前元素
+        console.dir(this);
+        // 操作class 有两种方案:
+        // className属性: 简单的字符串, 就是class的值
+        // classList属性: 专业的管理class的对象, 拥有各种操作class的方法
+
+        // toggle: 自动判断, 有则删除,无则添加
+        this.classList.toggle("on"); //toggle:切换
+
+        // if (this.className == 'switch') {
+        //   this.className = 'switch on'
+        // } else {
+        //   this.className = 'switch'
+        // }
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>严格模式</title>
+  </head>
+  <body>
+    <script>
+      // 严格模式下: 匿名函数自调用时, 递归中 禁用callee
+      // 推荐使用 命名函数自调用 代替
+      'use strict'
+
+      // 阶乘: 5! = 5 * 4 * 3 * 2 * 1
+      // 递归
+      function jie(n) {
+        if (n > 1) {
+          return n * jie(n - 1)
+        } else {
+          return 1
+        }
+      }
+      console.log(jie(5))
+
+      function jie(n) {
+        return n > 1 ? n * jie(n - 1) : 1
+      }
+      jie(5)
+
+      // ES5提供了 命名函数自调用写法
+      // 强制推广新特性: 代替 callee
+      var a = (function fn(n) {
+        return n > 1 ? n * fn(n - 1) : 1
+      })(5)
+      console.log('a:', a)
+
+      // 修改为自调用写法
+      var a = (function (n) {
+        // 匿名函数自调用时, 用什么来代表当前函数?
+        console.log(arguments)
+        // 属性 callee 代表当前函数
+        // 严格模式下: 禁用了 callee
+        // 递归需要大量的循环操作, 查找callee 消耗系统资源, 被禁用了
+        return n > 1 ? n * arguments.callee(n - 1) : 1
+      })(5)
+
+      console.log(a)
+    </script>
+  </body>
+</html>

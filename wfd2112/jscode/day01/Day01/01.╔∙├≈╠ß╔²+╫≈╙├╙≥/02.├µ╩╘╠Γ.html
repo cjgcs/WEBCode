@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>面试题</title>
+  </head>
+  <body>
+    <script>
+      // JS先把所有的声明(var/let/const/function)操作找出来, 提升到作用域顶部
+      // 然后再执行整个代码
+      // 此操作是JS引擎隐式完成
+      function a() {
+        console.log(1111)
+      }
+      a()
+
+      function a() {
+        console.log(2222)
+      }
+      a()
+    </script>
+  </body>
+</html>

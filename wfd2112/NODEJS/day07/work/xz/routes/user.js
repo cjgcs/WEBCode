@@ -187,9 +187,4 @@ r.put('/info',(req,res,next)=>{
 });
 
 
-
-
-
-
-
 module.exports=r;

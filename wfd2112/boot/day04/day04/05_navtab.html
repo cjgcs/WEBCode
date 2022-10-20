@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/bootstrap.css">
+  <script src="../js/bootstrap.bundle.js"></script>
+  <title>Document</title>
+  <style>
+    .zdy-card .zdy-mark {
+      transition: 2s;
+    }
+    .zdy-card:hover .zdy-mark {
+      top:0 !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="zdy-navtab">
+    <div class="container">
+      <h2 class="text-center">热门推荐</h2>
+      <!-- navtab tab切换面板
+      .nav 导航的基础类 flex布局
+      .nav-tabs 只有一个样式边框,但还是要写为了里面的样式
+      .nav-link 导航中可点击的项目,有样式的
+      .justify-content-evenly元素间距,左右两侧距离都相等
+      data-bs-toggle="tab" 这个属性是关联js的动作,动作是什么就在值里写,如tab指的是tab面板的切换
+      data-bs-target="#a"使用js控制的对应的目标元素的id
+      -->
+      <ul class="nav nav-tabs justify-content-evenly">
+        <li class="nav-item">
+          <button class="nav-link" data-bs-toggle="tab" data-bs-target="#a">第1-6个</button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" data-bs-toggle="tab" data-bs-target="#b">第7-12个</button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" data-bs-toggle="tab"  data-bs-target="#c">第13-18个</button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" data-bs-toggle="tab"  data-bs-target="#d">第19-24个</button>
+        </li>
+      </ul>
+      <!-- 展示区 
+      .tab-content 基础类没样式,主要作用于祖先选择器使用
+      .tab-pane 隐藏元素
+      .active 显示元素
+      id属性关联控制区域的按钮
+      .fade 和 .show 是一个透明度的过渡效果可以加可不加
+      -->
+      <div class="tab-content">
+        <div class="tab-pane active" id="a">
+          <div class="row">
+            <div class="col-md-4 col-6 mb-3">
+              <div class="card zdy-card position-relative overflow-hidden">
+                <!-- 卡的遮罩
+                必须要定位---绝对定位,上层父级相对定位
+                .opacity-50 元素半透明
+                .bg-opacity-50 背景色半透明
+                .overflow-hidden 溢出隐藏
+                -->
+                <div class="position-absolute bg-primary top-100 w-100 h-100 rounded-2 bg-opacity-50 text-light zdy-mark">11111</div>
+                <!-- 卡里的图 -->
+                <div class="card-img-top text-center bg-secondary py-3">
+                  <img src="../img/poke/001.png" class="w-50 d-block mx-auto">
+                </div>
+                <!-- 卡里的文 -->
+                <div class="card-body">
+                  <h5>妙蛙种子</h5>
+                  <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  <button class="btn btn-primary">GO GO GO</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-6">
+              <div class="card">
+                <div class="card-img-top text-center bg-secondary py-3">
+                  <img src="../img/poke/002.png" class="w-50 d-block mx-auto">
+                </div>
+                <div class="card-body">
+                  <h5>妙蛙草</h5>
+                  <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  <button class="btn btn-primary">GO GO GO</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-6">
+              <div class="card">
+                <div class="card-img-top text-center bg-secondary py-3">
+                  <img src="../img/poke/003.png" class="w-50 d-block mx-auto">
+                </div>
+                <div class="card-body">
+                  <h5>妙蛙花</h5>
+                  <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  <button class="btn btn-primary">GO GO GO</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-6">
+              <div class="card">
+                <div class="card-img-top text-center bg-secondary py-3">
+                  <img src="../img/poke/004.png" class="w-50 d-block mx-auto">
+                </div>
+                <div class="card-body">
+                  <h5>小火龙</h5>
+                  <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  <button class="btn btn-primary">GO GO GO</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-6">
+              <div class="card">
+                <div class="card-img-top text-center bg-secondary py-3">
+                  <img src="../img/poke/005.png" class="w-50 d-block mx-auto">
+                </div>
+                <div class="card-body">
+                  <h5>火恐龙</h5>
+                  <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  <button class="btn btn-primary">GO GO GO</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-6">
+              <div class="card">
+                <div class="card-img-top text-center bg-secondary py-3">
+                  <img src="../img/poke/006.png" class="w-50 d-block mx-auto">
+                </div>
+                <div class="card-body">
+                  <h5>喷火龙</h5>
+                  <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  <button class="btn btn-primary">GO GO GO</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane" id="b">
+          <div class="row">
+            <div class="col-md-4 col-6">
+              <div class="card">
+                <div class="card-img-top text-center bg-secondary py-3">
+                  <img src="../img/poke/007.png" class="w-50 d-block mx-auto">
+                </div>
+                <div class="card-body">
+                  <h5>杰尼龟</h5>
+                  <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  <button class="btn btn-primary">GO GO GO</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-6">
+              <div class="card">
+                <div class="card-img-top text-center bg-secondary py-3">
+                  <img src="../img/poke/008.png" class="w-50 d-block mx-auto">
+                </div>
+                <div class="card-body">
+                  <h5>卡咪龟</h5>
+                  <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  <button class="btn btn-primary">GO GO GO</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-6">
+              <div class="card">
+                <div class="card-img-top text-center bg-secondary py-3">
+                  <img src="../img/poke/009.png" class="w-50 d-block mx-auto">
+                </div>
+                <div class="card-body">
+                  <h5>水箭龟</h5>
+                  <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  <button class="btn btn-primary">GO GO GO</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-6">
+              <div class="card">
+                <div class="card-img-top text-center bg-secondary py-3">
+                  <img src="../img/poke/010.png" class="w-50 d-block mx-auto">
+                </div>
+                <div class="card-body">
+                  <h5>绿毛虫</h5>
+                  <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  <button class="btn btn-primary">GO GO GO</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-6">
+              <div class="card">
+                <div class="card-img-top text-center bg-secondary py-3">
+                  <img src="../img/poke/011.png" class="w-50 d-block mx-auto">
+                </div>
+                <div class="card-body">
+                  <h5>铁甲蛹</h5>
+                  <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  <button class="btn btn-primary">GO GO GO</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-6">
+              <div class="card">
+                <div class="card-img-top text-center bg-secondary py-3">
+                  <img src="../img/poke/012.png" class="w-50 d-block mx-auto">
+                </div>
+                <div class="card-body">
+                  <h5>巴大蝴</h5>
+                  <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  <button class="btn btn-primary">GO GO GO</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane" id="c">
+          <div class="row">
+            <div class="col-md-4 col-6">
+              <div class="card">
+                <div class="card-img-top text-center bg-secondary py-3">
+                  <img src="../img/poke/013.png" class="w-50 d-block mx-auto">
+                </div>
+                <div class="card-body">
+                  <h5>毛虫</h5>
+                  <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  <button class="btn btn-primary">GO GO GO</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-6">
+              <div class="card">
+                <div class="card-img-top text-center bg-secondary py-3">
+                  <img src="../img/poke/014.png" class="w-50 d-block mx-auto">
+                </div>
+                <div class="card-body">
+                  <h5>什么蛹</h5>
+                  <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  <button class="btn btn-primary">GO GO GO</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-6">
+              <div class="card">
+                <div class="card-img-top text-center bg-secondary py-3">
+                  <img src="../img/poke/015.png" class="w-50 d-block mx-auto">
+                </div>
+                <div class="card-body">
+                  <h5>大针蜂</h5>
+                  <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  <button class="btn btn-primary">GO GO GO</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-6">
+              <div class="card">
+                <div class="card-img-top text-center bg-secondary py-3">
+                  <img src="../img/poke/016.png" class="w-50 d-block mx-auto">
+                </div>
+                <div class="card-body">
+                  <h5>波波</h5>
+                  <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  <button class="btn btn-primary">GO GO GO</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-6">
+              <div class="card">
+                <div class="card-img-top text-center bg-secondary py-3">
+                  <img src="../img/poke/017.png" class="w-50 d-block mx-auto">
+                </div>
+                <div class="card-body">
+                  <h5>比比鸟</h5>
+                  <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  <button class="btn btn-primary">GO GO GO</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-6">
+              <div class="card">
+                <div class="card-img-top text-center bg-secondary py-3">
+                  <img src="../img/poke/018.png" class="w-50 d-block mx-auto">
+                </div>
+                <div class="card-body">
+                  <h5>什么鸟</h5>
+                  <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  <button class="btn btn-primary">GO GO GO</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane" id="d">
+          <div class="row">
+            <div class="col-md-4 col-6 mb-2">
+              <div class="card">
+                <div class="card-img-top text-center bg-secondary py-3">
+                  <img src="../img/poke/019.png" class="w-50 d-block mx-auto">
+                </div>
+                <div class="card-body">
+                  <h5>妙蛙种子</h5>
+                  <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  <button class="btn btn-primary">GO GO GO</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-6 mb-2">
+              <div class="card">
+                <div class="card-img-top text-center bg-secondary py-3">
+                  <img src="../img/poke/020.png" class="w-50 d-block mx-auto">
+                </div>
+                <div class="card-body">
+                  <h5>妙蛙草</h5>
+                  <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  <button class="btn btn-primary">GO GO GO</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-6 mb-2">
+              <div class="card">
+                <div class="card-img-top text-center bg-secondary py-3">
+                  <img src="../img/poke/021.png" class="w-50 d-block mx-auto">
+                </div>
+                <div class="card-body">
+                  <h5>妙蛙花</h5>
+                  <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  <button class="btn btn-primary">GO GO GO</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-6 mb-2">
+              <div class="card">
+                <div class="card-img-top text-center bg-secondary py-3">
+                  <img src="../img/poke/022.png" class="w-50 d-block mx-auto">
+                </div>
+                <div class="card-body">
+                  <h5>小火龙</h5>
+                  <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  <button class="btn btn-primary">GO GO GO</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-6 mb-2">
+              <div class="card">
+                <div class="card-img-top text-center bg-secondary py-3">
+                  <img src="../img/poke/023.png" class="w-50 d-block mx-auto">
+                </div>
+                <div class="card-body">
+                  <h5>火恐龙</h5>
+                  <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  <button class="btn btn-primary">GO GO GO</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-6 mb-2">
+              <div class="card">
+                <div class="card-img-top text-center bg-secondary py-3">
+                  <img src="../img/poke/024.png" class="w-50 d-block mx-auto">
+                </div>
+                <div class="card-body">
+                  <h5>喷火龙</h5>
+                  <p style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  <button class="btn btn-primary">GO GO GO</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

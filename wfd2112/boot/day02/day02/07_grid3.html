@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/bootstrap.css">
+  <script src="../js/bootstrap.bundle.js"></script>
+  <title>Document</title>
+  <style>
+    .abc{height: 100px;}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <!-- 没写任何响应式代表全部断点情况 -->
+      <!-- lg以上一行6个 相当于一个div分2份
+        md以上一行4个   相当于一个div分3份
+        sm以上一行2个   相当于一个div分6份
+        sm以下一行一个1  相当于一个div分12份 -->
+      <div class="abc col-lg-2 col-md-3 col-sm-6 col-12 bg-info">只有一个div在这一行占几份?</div>
+      <div class="abc col-lg-2 col-md-3 col-sm-6 col-12 bg-danger">只有一个div在这一行占几份?</div>
+      <div class="abc col-lg-2 col-md-3 col-sm-6 col-12 bg-warning">只有一个div在这一行占几份?</div>
+      <div class="abc col-lg-2 col-md-3 col-sm-6 col-12 bg-success">只有一个div在这一行占几份?</div>
+      <div class="abc col-lg-2 col-md-3 col-sm-6 col-12 bg-primary">只有一个div在这一行占几份?</div>
+      <div class="abc col-lg-2 col-md-3 col-sm-6 col-12 bg-secondary">只有一个div在这一行占几份?</div>
+    </div>
+    <!-- 遇到不好拆分的份数 -->
+    <div class="row">
+      <div class="abc bg-info col-lg-2 col-md-2 mx-md-2 mx-lg-0"></div>
+      <div class="abc bg-danger col-lg-2 col-md-2 mx-md-2 mx-lg-0"></div>
+      <div class="abc bg-success col-lg-2 col-md-2 mx-md-2 mx-lg-0"></div>
+      <div class="abc bg-warning col-lg-2 col-md-2 mx-md-2 mx-lg-0"></div>
+      <div class="abc bg-primary col-lg-2 col-md-2 mx-md-2 mx-lg-0"></div>
+      <div class="abc bg-secondary col-lg-2 col-md-2 mx-md-2 mx-lg-0"></div>
+    </div>
+  </div>
+</body>
+</html>

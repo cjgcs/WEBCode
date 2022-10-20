@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>回调地狱 - 11:40</title>
+  </head>
+  <body>
+    <!-- 回调地狱: 回调函数, 常见于异步操作, 例如 网络请求中 -->
+    <!-- 如果要保障多个异步操作同步执行, 则需要在 异步操作的回调函数中, 触发下一个异步操作, 代码层级过深 -->
+    <script>
+      // 提交注册时: 先验证用户名是否重复 -> 手机号重复 -> 邮箱 -> 注册
+      function register() {
+        // 用定时器模拟网络请求: 1S中请求完毕
+        console.log('验证用户名...')
+        setTimeout(() => {
+          // 利用随机数: >0.3 算成功
+          if (Math.random() > 0.3) {
+            console.log('OK: 用户名正确. 验证手机号...')
+            // 模拟请求:
+            setTimeout(() => {
+              if (Math.random() > 0.3) {
+                console.log('OK: 手机号正确; 验证邮箱...')
+                // 模拟请求:
+                setTimeout(() => {
+                  if (Math.random() > 0.3) {
+                    console.log('OK: 邮箱正确; 开始注册')
+                    // 模拟请求:
+                    setTimeout(() => {
+                      if (Math.random() > 0.3) {
+                        console.log('OK: 注册成功')
+                      } else {
+                        console.log('ERR: 注册失败')
+                      }
+                    }, 1000)
+                  } else {
+                    console.log('ERR: 邮箱重复!')
+                  }
+                }, 1000)
+              } else {
+                console.log('ERR: 手机号重复!')
+              }
+            }, 1000)
+          } else {
+            console.log('ERR: 用户名重复')
+          }
+        }, 1000)
+      }
+      register()
+    </script>
+  </body>
+</html>

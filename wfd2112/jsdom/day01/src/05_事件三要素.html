@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>事件三要素</h3>
+    <!--事件源 （谁）         按钮
+    事件类型 （什么事件）  onclick 点击
+    事件处理程序 （做啥）  显示框-->
+    <button id="liangliang">成小亮</button>
+    <script>
+        //1:获取谁    11：19 完成示例
+        var liangliang=document.getElementById('liangliang');
+        //2;指定事件类型
+        liangliang.onclick = function(){
+         //3:事件处理显示框
+         alert("疼");
+        }
+    </script>
+
+
+</body>
+</html>

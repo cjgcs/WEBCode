@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>展开语法</title>
+  </head>
+  <body>
+    <script>
+      // ... 是多用的, 不同位置作用不同, 形参中就是 剩余参数
+      // ... 展开符, 放在数组前, 会去掉数组的[], 暴露其中的内容
+      var nums = [11, 22, 33, 44];
+
+      var a = [...nums, 88, 99];
+
+      console.log(a);
+
+      // 利用 ... 合并数组
+      var a = [11, 22];
+      var b = [33, 44];
+      // 合并 , 以前用 concat   a.concat(b)
+      var c = [...a, ...b];
+      console.log(c);
+
+      // 实参时:
+      // max不接数组类型
+      console.log(Math.max(nums));
+      // ES6之前依赖 函数的apply方法实现: 麻烦
+      console.log(Math.max(...nums));
+    </script>
+  </body>
+</html>

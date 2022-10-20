@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>对象解构</title>
+  </head>
+  <body>
+    <script>
+      var emp = {
+        ename: 'mike',
+        age: 18,
+        phone: '19932321122',
+      };
+
+      // 不完全解构:
+      var { phone } = emp;
+      console.log(phone);
+
+      // ES6后:  先写出解构的格式  var {} = 对象
+      var { ename, age, phone } = emp;
+      console.log(ename, age, phone);
+
+      // ES6前
+      var ename = emp.ename;
+      var age = emp.age;
+      var phone = emp.phone;
+    </script>
+
+    <script>
+      // 别名写法
+      var obj = { price: 999, name: '千足金' };
+
+      const price = 666; //全局中已存在 price 属性
+
+      // 解构出 obj 的price
+      // var { 属性名: 别名 }
+      // 属性名price, 变量名:pprice,  值存在变量名pprice里
+      var { price: pprice } = obj;
+      console.log(pprice);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #box {
+        position: relative;
+
+        height: 90px;
+        font-size: 12px;
+        text-align: center;
+        color: #f40;
+        overflow: hidden;
+        transition: all 1s;
+      }
+      .close-btn {
+        position: absolute;
+        top: 5px;
+        left: 1240px;
+        width: 12px;
+        height: 12px;
+        border: 1px solid #ccc;
+        line-height: 14px;
+        background-color: #ccc;
+        font-family: Arial, Helvetica, sans-serif;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">
+      <img src="1.jpg" alt="" />
+      <i class="close-btn">X</i>
+    </div>
+
+    <script>
+      var box = document.getElementById("box");
+      var close = document.querySelector(".close-btn");
+      close.onclick = function () {
+        box.style.height = "0px";
+      };
+    </script>
+  </body>
+</html>

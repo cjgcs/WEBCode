@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="menu"></ul>
+    <script>
+        var menu = document.getElementById("menu");
+        //1:创建虚拟父元素（文档片段）
+        var mf = document.createDocumentFragment();
+        //2:多创建多个子元素追加虚拟父元素   11:17 完成任务
+        var li = document.createElement("li");
+        li.innerHTML = "豆汁";
+        mf.appendChild(li);
+        var li2 = document.createElement("li");
+        li2.innerHTML = "肠粉";
+        mf.appendChild(li2);        
+        //3:一次性将虚拟父元素追加 MENU  【重排重绘一次】
+        menu.appendChild(mf);
+    </script>
+</body>
+</html>

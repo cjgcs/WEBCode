@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promise解决回调地狱 15:10</title>
+  </head>
+  <body>
+    <script>
+      // 首先: 把每个异步操作封装成单独的函数
+      function checkUname() {
+        return new Promise((resolve, reject) => {
+          console.log('验证用户名...')
+          // 定时器模拟延时效果, 实际开发中要换成AJAX请求:  以后讲
+          setTimeout(() => {
+            const num = Math.random()
+            console.log('num:', num)
+            if (num > 0.3) {
+              console.log('OK: 用户名正确')
+              resolve() //触发then
+            } else {
+              console.log('ERR: 用户名重复')
+              reject() //可以不传参, 触发catch
+            }
+          }, 1000)
+        })
+      }
+
+      function checkEmail() {
+        return new Promise((resolve, reject) => {
+          console.log('验证邮箱...')
+
+          setTimeout(() => {
+            const num = Math.random()
+            console.log('num:', num)
+            if (num > 0.3) {
+              console.log('OK: 邮箱正确')
+              resolve() //触发then
+            } else {
+              console.log('ERR: 邮箱重复')
+              reject() //可以不传参, 触发catch
+            }
+          }, 1000)
+        })
+      }
+
+      function checkPhone() {
+        return new Promise((resolve, reject) => {
+          console.log('验证手机号...')
+
+          setTimeout(() => {
+            const num = Math.random()
+            console.log('num:', num)
+            if (num > 0.3) {
+              console.log('OK: 手机号正确')
+              resolve() //触发then
+            } else {
+              console.log('ERR: 手机号重复')
+              reject() //可以不传参, 触发catch
+            }
+          }, 1000)
+        })
+      }
+
+      function register() {
+        return new Promise((resolve, reject) => {
+          console.log('注册...')
+
+          setTimeout(() => {
+            const num = Math.random()
+            console.log('num:', num)
+            if (num > 0.3) {
+              console.log('OK: 注册成功')
+              resolve() //触发then
+            } else {
+              console.log('ERR: 注册失败')
+              reject() //可以不传参, 触发catch
+            }
+          }, 1000)
+        })
+      }
+      // 测试:
+      // then: 然后
+      checkUname()
+        .then(res => {
+          // 成功时: 触发检查邮箱, 返回值会触发下一个then
+          return checkEmail()
+        })
+        .then(res => checkPhone())
+        .then(res => register())
+        .then(res => console.log('成功'))
+        .catch(err => console.log('失败'))
+    </script>
+  </body>
+</html>

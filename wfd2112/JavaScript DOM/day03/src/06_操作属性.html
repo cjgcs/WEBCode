@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3 id="h3" class="base" index="1">操作元素属性</h3>
+    <button id="btn">点击</button>
+    <script>
+        var btn  = document.getElementById("btn");
+        btn.onclick = function(){
+            var h3 = document.getElementById("h3");
+            //1:通过两种方式获取index class   13:48 完成任务
+            //alert(h3.className+"|"+h3.getAttribute("class"));
+            //index 扩展属性 h3.index undefined
+            alert(h3.index+":"+h3.getAttribute("index"));
+            //2:通过两种方式设置index class
+            h3.setAttribute("index",3);
+            //3:删除属性 index
+            h3.removeAttribute("class");
+        }
+    </script>
+</body>
+</html>

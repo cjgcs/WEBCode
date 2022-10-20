@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <h3>创建元素追加元素</h3>
+      <ul id="menu">
+        <li>水煎包</li>
+        <li id="sf">粉肠</li>
+        <!--？豆汁？-->
+      </ul>
+      <script>
+        //任务一：创建元素并且追加到UL最后一个孩子   10:45  休息一下
+        //1:获取现有元素 #menu
+        var menu = document.getElementById("menu");
+        
+        //2:动态创建元素
+        var li = document.createElement("li");
+        //2.1：将豆汁赋值
+        li.innerHTML = "豆汁";
+
+        //3:将元素追加 #menu 最后一个孩子 
+        //menu.appendChild(li);
+        //4:插入
+        var sf = document.getElementById("sf")
+        menu.insertBefore(li,sf);
+
+        //删除子元素
+        sf.parentNode.removeChild(sf);
+
+      </script>
+
+</body>
+</html>

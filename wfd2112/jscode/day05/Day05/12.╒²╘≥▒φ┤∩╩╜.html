@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>正则表达式 16:21</title>
+  </head>
+  <body>
+    <script>
+      var words = 'How old are you! 怎么老是你'
+
+      // 查询出所有的英文字母 [a-z]
+      // 修饰符: i - ignore 忽略大小写
+      // 修饰符: g - gloabl 全局匹配
+      var r = /[a-z]/gi
+      console.log(words.match(r))
+
+      // 匹配中文, 利用Unicode码 :  [\u4e00-\u9fa5]
+      var r = /[\u4e00-\u9fa5]/g
+      console.log(words.match(r))
+    </script>
+  </body>
+</html>

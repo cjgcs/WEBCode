@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>函数的触发方式</title>
+  </head>
+  <body>
+    <script>
+      function show(a, b) {
+        console.log('this:', this)
+        console.log(a + b)
+      }
+      // 函数的触发方式有很多种: 其中用()是最常见的方式
+      // ()的特点: 自动设定this的指向 -> 运行时所在对象
+      show(11, 22)
+
+      console.dir(show)
+
+      // 函数对象的原型中, 存在 call(调用) 方法
+      var emp = { ename: '楠楠' }
+      // call: 手动指定函数中的this指向, 指向参数1对象
+      show.call(emp, 11, 22)
+    </script>
+  </body>
+</html>

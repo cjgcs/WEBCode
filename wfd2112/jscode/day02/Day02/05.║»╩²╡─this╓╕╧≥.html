@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>函数的this指向</title>
+  </head>
+  <body>
+    <script>
+      // 函数中带有一个 this 关键词:  代表函数运行时所在对象
+      // 函数分两个阶段:
+      // 1. 声明(书写)时:  function a(){}
+      // 2. 运行(调用)时:  a()
+
+      function a() {
+        // this: 函数通过这个关键词 可以知道 自身在哪个对象中触发的
+        console.log('this:', this)
+      }
+      console.log(window)
+      a() // window.a()
+
+      var gege = { name: 'gege', show: a }
+      gege.show()
+
+      var dong = { name: '俊东', show: gege.show }
+      dong.show()
+    </script>
+  </body>
+</html>

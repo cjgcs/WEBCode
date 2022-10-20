@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+		/* 关键帧是剧本 */
+		@keyframes move1{
+			0%{transform: translateX(0);}
+			
+			100%{transform: translateX(500px);}
+		}
+		.d1 {
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			/* 执行剧本的演员要使用剧本和表演时间 */
+			animation: 1s move1;
+			/* 动画结束状态 forwards停留在结束状态*/
+			animation-fill-mode: forwards;
+		}
+		@keyframes bian{
+			0%{}
+			25%{width: 200px;}
+			60%{height: 200px;width: 200px;}
+			100%{background-color: green;}
+		}
+		.d2{
+			width: 100px;
+			height: 100px;
+			background-color: blue;
+			/* animation: 10s bian; */
+		}
+		.d3{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			/* 使用动画的名字,关键帧的名字 */
+			animation-name: move2;
+			/* 动画的执行时间 */
+			animation-duration: 1s;
+			/* 动画的运动方式 ease默认值 */
+			animation-timing-function: linear;
+			/* 动画的延迟时间 */
+			animation-delay: 2s;
+			/* 动画的执行顺序 reverse 反向执行*/
+			animation-direction: reverse;
+			/* 动画的执行次数 直接写整数数字,infinite无限次*/
+			animation-iteration-count: infinite;
+		
+		}
+		@keyframes move2{
+			0%{transform: translate(0,0);}
+			25%{transform: translate(200px,0);}
+			50%{transform: translate(200px,300px);}
+			75%{transform: translate(0,300px);}
+			100%{transform: translate(0,0);}
+		}
+		</style>
+	</head>
+	<body>
+		<div class="d1"></div>
+		<div class="d2"></div>
+		<div class="d3"></div>
+	</body>
+</html>

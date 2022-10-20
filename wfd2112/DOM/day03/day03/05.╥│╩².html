@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>页数 11:33</title>
+
+    <style>
+      #pages {
+        user-select: none;
+        background-color: #f5f5f6;
+        padding: 10px;
+      }
+      #pages > span {
+        display: inline-block;
+        width: 40px;
+        line-height: 40px;
+        text-align: center;
+        background-color: white;
+        border-radius: 4px;
+        color: #4e6ef2;
+      }
+      #pages > span.active {
+        background-color: #4e6ef2;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="pages">
+      <span class="active">1</span>
+      <span>2</span>
+      <span>3</span>
+      <span>4</span>
+      <span>5</span>
+    </div>
+
+    <script>
+      const pages = document.getElementById('pages')
+      // 委托: 给父元素绑定事件
+      pages.onclick = function (e) {
+        // 委托方式: 一定要过滤出 想要处理的元素的事件
+        // e.target: 触发事件的元素
+        console.log('target:', e.target)
+        console.dir(e.target)
+        if (e.target.tagName == 'SPAN') {
+          // 查询到之前激活的元素, 清除样式
+          const c = document.querySelector('#pages .active')
+          c.classList.remove('active')
+
+          e.target.classList.add('active')
+        }
+      }
+
+      // 场景: 动态新增子元素的场景, 只能用委托实现 -- 下午讲
+    </script>
+  </body>
+</html>

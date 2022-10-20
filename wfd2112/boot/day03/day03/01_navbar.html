@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/bootstrap.css">
+  <script src="../js/bootstrap.bundle.js"></script>
+  <title>01navbar部分</title>
+  <style></style>
+</head>
+<body>
+  <!-- 
+    .zdy-navber 自定义的第一部分的最外层包裹元素
+   -->
+  <div class="zdy-navber bg-primary">
+    <div class="container">
+      <!-- 把navbar包在container里了 -->
+      <!-- navbar响应式导航条
+      .navbar 基础类flex布局
+      .navbar-expand-sm 大小菜单切换的断点,指在什么范围以下小菜单出现,在什么范围以上大菜单显示
+      .navbar-dark 深色背景浅色字 .navbar-light 浅色背景深色字
+      -->
+      <div class="navbar navbar-expand-md navbar-dark">
+        <!--logo
+        标签要求:logo一般点击会回到首页,所以"尽量"使用a标签
+        .navbar-brand 专门渲染a标签的logo
+        -->
+        <a href="#" class="navbar-brand">Logo</a>
+        <!-- 小菜单(菜单隐藏显示的按钮)
+        .navbar-toggler小菜单样式
+        .border-2 .border-light 可加可不加的样式,美化小菜单
+        [data-="" data-* data是自定义属性*可自己写如:data-aa]
+        data-bs-toggle="collapse" 负责折叠的属性
+        data-bs-target="#menu" 目标是大菜单的id
+        -->
+        <button class="navbar-toggler border-2 border-light" data-bs-toggle="collapse" data-bs-target="#menu">
+          <!-- navbar-toggler-icon 小菜单的横线 -->
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- 大菜单 [大小菜单的位置不能更换,因为js用小菜单控制的它的下一个兄弟元素]
+          .collapse 负责消失(重要)
+          .navbar-collapse 导航条中的项目样式
+          id属性:让小菜单的按钮关联大菜单
+        -->
+        <div class="collapse navbar-collapse justify-content-end" id="menu">
+          <!-- 我想在大菜单里放一个导航 nav
+          .navbar-nav navbar里的导航 flex布局
+          .nav-item 导航项
+          .nav-link 导航中的连接标签颜色和格式
+          -->
+          <ul class="navbar-nav">
+            <li class="nav-item"><a href="#" class="nav-link">首页</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">关于我们</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">服务项目</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">热门推荐</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">联系我们</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>  
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>对象的浅拷贝</title>
+  </head>
+  <body>
+    <script>
+      // 对象的浅拷贝:  即 复制对象
+
+      var a = { num: 11, name: 'mike' }
+
+      // 赋值为新的 空对象
+      var b = {}
+      // 遍历 a 对象, 把其中的值挨个放到 b 对象里
+      for (let key in a) {
+        console.log('key:', key)
+        // key变量中, 存储了 属性名
+        // 通过属性名获取值:  a[变量]
+        var value = a[key] // 错误写法: a.key 读取名字是key的属性
+
+        // 存储到b对象里  b[key]   key是变量
+        b[key] = value // 错误: b.key  增加名字是key的属性
+      }
+
+      console.log(b)
+      b.num = 20
+      console.log('a.num:', a.num)
+
+      // 深拷贝: 如果对象的属性也是对象类型, 需要利用递归实现
+      // 高端面试题 -- 等 亮哥讲解!
+
+      // 考试使用递归实现
+      // 真正工作: 对象->转JSON->再转对象 就行
+    </script>
+  </body>
+</html>

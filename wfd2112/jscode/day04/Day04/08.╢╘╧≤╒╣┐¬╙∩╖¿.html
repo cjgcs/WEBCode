@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>对象展开语法</title>
+  </head>
+  <body>
+    <script>
+      // ... : 此运算符放在对象前, 可以展开对象
+      var a = { x: 10, y: 20 };
+      // 同名属性, 后写的覆盖先写的
+      var b = { ...a, z: 30, y: 99 };
+      console.log(b);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>class构造函数 - 11: 40</title>
+  </head>
+  <body>
+    <script>
+      // 原生写法:
+      function Rect(w, h) {
+        this.w = w
+        this.h = h
+      }
+      // 相关方法存 原型里
+      Rect.prototype.area = function () {
+        return this.w * this.h
+      }
+
+      var r1 = new Rect(10, 5)
+      console.log(r1)
+      console.log(r1.area())
+
+      //////////////////////////////////////////
+      // 一样的效果: 用JAVA书写
+      // JAVA理念: 整体性更强, 构造函数和其相关方法封装在一起
+      class Rect1 {
+        // 固定名称的方法: 称为 构造方法
+        // constructor
+        // 当利用new关键词触发  new 类名(参数...)
+        // 就会自动触发名字是  constructor 的方法
+        constructor(w, h) {
+          this.w = w
+          this.h = h
+        }
+        // 相关方法: 省略 function 前缀
+        // 自动存储在原型对象里: 根本看不到 prototype关键词
+        area() {
+          return this.w * this.h
+        }
+
+        perimeter() {
+          return (this.w + this.h) * 2
+        }
+      }
+
+      var r2 = new Rect1(10, 5)
+      console.log(r2)
+      console.log(r2.area())
+    </script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>自定义属性 14:00</title>
+  </head>
+  <body>
+    <!-- 每个元素 自带很多官方提供的属性, 例如 title id style... -->
+    <!-- 额外提供了自定义属性的方案: data-属性名 -->
+    <!-- 自定义属性存储在 dataset 属性中 -->
+    <div id="box" data-aa="AA" data-xy="100" data-phone="10086"></div>
+
+    <script>
+      const box = document.getElementById('box')
+      console.dir(box) //展开看属性中的 dataset
+
+      console.log(box.dataset.phone)
+    </script>
+  </body>
+</html>

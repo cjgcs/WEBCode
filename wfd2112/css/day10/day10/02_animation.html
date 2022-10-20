@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    /* 版心确定 */
+    .center {
+      /* 此时的1000是可变值 */
+      width: 1000px;
+      margin: auto;
+      /* 因为ul太长了所以出现了横向拖拽条,所以center
+      需要溢出隐藏掉外面所有的 */
+      overflow: hidden;
+      border: 10px solid black;
+    }
+    /* 让ul带着所有li向左(负)移动 */
+    @keyframes move {
+      0%{}
+      100%{transform: translateX(-50%);}
+    }
+    ul {
+      width: 200%;/*200%就是父元素1000*2=2000*/
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      background-color: yellow;
+      animation: 15s linear move infinite;
+    }
+    ul:hover {
+      /* 触发后让动画停止运行  paused暂停 running运行 */
+      animation-play-state: paused;
+    }
+    ul li {
+      /* 一共8个li要均分父元素的总宽度 原来4个各占25%现在8个各占多少? */
+      width: 12.5%;
+      /* 继承了 img能受用,同时p标签中的文字能受用*/
+      text-align: center;
+    }
+    ul li img {
+      width: 70%;
+    }
+  </style>
+</head>
+<body>
+  <div class="center">
+    <ul>
+      <li>
+        <img src="./roll/img1.png" alt="">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+      </li>
+      <li>
+        <img src="./roll/img2.png" alt="">
+        <p>Lorem ipsum dolor sit amet.</p>
+      </li>
+      <li>
+        <img src="./roll/img3.png" alt="">
+        <p>Lorem ipsum dolor sit amet.aaa aa aa</p>
+      </li>
+      <li>
+        <img src="./roll/img4.png" alt="">
+        <p>Lorem ipsum dolor sit amet bb bb</p>
+      </li>
+      <li>
+        <img src="./roll/img1.png" alt="">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+      </li>
+      <li>
+        <img src="./roll/img2.png" alt="">
+        <p>Lorem ipsum dolor sit amet.</p>
+      </li>
+      <li>
+        <img src="./roll/img3.png" alt="">
+        <p>Lorem ipsum dolor sit amet.aaa aa aa</p>
+      </li>
+      <li>
+        <img src="./roll/img4.png" alt="">
+        <p>Lorem ipsum dolor sit amet bb bb</p>
+      </li>
+    </ul>
+  </div>
+</body>
+</html>

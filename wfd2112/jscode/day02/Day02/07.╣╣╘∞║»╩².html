@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>构造函数</title>
+  </head>
+  <body>
+    <script>
+      // 构造函数: 快速构建创造 固定结构 的对象 的函数
+
+      // 如果函数的作用是生成对象的, 就叫 构造函数
+      function Student(name, age, phone) {
+        var obj = {}
+
+        obj.name = name
+        obj.age = age
+        obj.phone = phone
+
+        return obj
+      }
+
+      var s1 = Student('格格', 18, '10086')
+      var s2 = Student('振东', 28, '10032')
+      var s3 = Student('东帅', 18, '10036')
+      console.log(s1)
+      console.log(s2)
+      console.log(s3)
+    </script>
+  </body>
+</html>

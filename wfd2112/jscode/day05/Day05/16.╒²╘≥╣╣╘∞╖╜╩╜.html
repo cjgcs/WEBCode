@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>正则的构造方式 17:30</title>
+  </head>
+  <body>
+    <!-- 创建正则对象两种方式: 字面量 /正则/  和 构造 -->
+    <script>
+      var words = '123456 You see see you, one day day! 你看看你,一天天的'
+
+      // /[a-z]/ig
+      // +: 连续的1个以上字符
+      var r = new RegExp('[a-z]+', 'ig')
+
+      // 匹配出数字 \d
+      // 在字符串中 \ 是转义符.  '\d' 转义为 'd'
+      // '\\d',  \\代表普通\, 转义后: '\d'
+      var r = new RegExp('\\d', 'ig')
+
+      console.log(words.match(r))
+    </script>
+  </body>
+</html>

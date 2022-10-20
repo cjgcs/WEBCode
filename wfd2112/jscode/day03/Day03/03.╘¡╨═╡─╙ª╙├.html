@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>原型的应用</title>
+  </head>
+  <body>
+    <script>
+      // new Array(1,2,3,4,4)
+      var nums = [11, 23, 32, 445, 53, 26]
+
+      // max(nums)
+      console.log(nums)
+      // 数组使用的所有方法, 存储在构造函数的原型里
+      console.log(Array.prototype)
+      // 为数组扩充方法: 只需要添加到数组的原型里
+      Array.prototype.max = function () {
+        // this: 方法运行时所在对象, xx.max()
+        // console.log('this:', this)
+        var max_num = this[0] //this是数组, 下标取值
+
+        for (var i = 1; i < this.length; i++) {
+          var value = this[i] // 通过序号获取值
+          // 如果值比最大值大, 则覆盖已有的最大值
+          if (value > max_num) max_num = value
+        }
+        return max_num
+      }
+
+      console.log(nums.max())
+
+      // 只要在数组的构造方法原型中, 添加自定义方法后
+      // 所有的数组对象 都可以使用这个方法
+      // 以后的框架中: 经常会有对系统对象增加方法的场景
+      // var a = [12, 4, 3, 5465, 56]
+      // console.log(a.max())
+
+      console.log([12, 4, 3, 5465, 56].max())
+    </script>
+  </body>
+</html>

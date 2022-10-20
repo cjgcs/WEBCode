@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>事件冒泡机制 10:46</title>
+    <style>
+      .red {
+        width: 500px;
+        height: 500px;
+        background-color: red;
+      }
+      .green {
+        width: 400px;
+        height: 400px;
+        background-color: green;
+      }
+      .blue {
+        width: 300px;
+        height: 300px;
+        background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 事件冒泡机制: 子元素触发的事件, 会通知父元素, 触发父元素相同的事件 -->
+    <div class="red">
+      <div class="green">
+        <div class="blue"></div>
+      </div>
+    </div>
+
+    <script>
+      const red = document.querySelector('.red')
+      const green = document.querySelector('.green')
+      const blue = document.querySelector('.blue')
+
+      red.onclick = function (e) {
+        // 由于冒泡机制的存在, 红色的点击事件 不一定是自己被点击后触发
+        // 有可能是子元素点击后触发的, 如何 分辨触发者?
+        // 事件参数中的 target 属性, 就代表事件直接触发者
+        console.log('red: 点击')
+        console.log('事件触发者:', e.target)
+      }
+
+      green.onclick = function (e) {
+        // 阻止冒泡事件:    stop停止 Propagation传播
+        // e.stopPropagation()
+        console.log('green: 点击')
+      }
+
+      blue.onclick = function () {
+        console.log('blue: 点击')
+      }
+    </script>
+  </body>
+</html>

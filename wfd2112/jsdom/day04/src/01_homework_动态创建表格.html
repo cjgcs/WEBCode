@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1" width="80%">
+        <thead>
+            <tr>
+                <td>姓名</td>
+                <td>成绩</td>
+                <td>操作</td>
+            </tr>
+        </thead>
+        <tbody id="data"></tbody>
+    </table>
+    <script>
+        //任务一：动态创建表格   9：13
+        //1：创建数组保存表格中所有数据
+        var rows = [
+            {name:"弘历",clazz:"javascript"},
+            {name:"嘉庆",clazz:"javascript"}
+        ];
+        //2：获取父元素 ID=DATA
+        var data = document.getElementById("data");
+        //3：创建变量保存表格中字符串   9:21
+        var str = "";
+        //4：创建循环遍历数据
+        for(var i=0;i<rows.length;i++){
+           //   4。1：拼接表格中行字符串   !!!
+           str += `<tr>
+                    <td>${rows[i].name}</td>
+                    <td>${rows[i].clazz}</td>
+                    <td><a href="#" onclick="del(this)">DEL</a></td>
+                   </tr>`; 
+        }
+        //5：将字符串赋值ID=DATA
+        data.innerHTML = str;
+
+        //任务二：动态删除表格中的行
+        function del(item){
+            //a   td         tr
+            item.parentNode.parentNode.innerHTML = "";
+        }
+       
+    </script>
+</body>
+</html>

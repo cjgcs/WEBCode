@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>菜单练习 16:41</title>
+    <style>
+      #menu {
+        user-select: none;
+        width: 140px;
+        /* 弹性盒子: 默认横向排列 */
+        display: flex;
+        /* colomn: 列, 竖向排列;  */
+        flex-direction: column;
+      }
+      #menu > span {
+        border-left: 2px solid lightgray;
+        padding: 8px 0 8px 15px;
+        color: #555;
+      }
+      #menu > span:hover {
+        color: #d84000;
+      }
+      #menu > span.current {
+        border-color: #d84000;
+        font-weight: bold;
+        color: black;
+        background-color: #fdf3ef;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="menu">
+      <span class="current">概览</span>
+      <span>数字</span>
+      <span>字符串</span>
+      <span>其他类型</span>
+      <span>变量</span>
+      <span>运算符</span>
+    </div>
+
+    <script>
+      const titles = document.querySelectorAll('#menu span')
+
+      titles.forEach(title => {
+        title.onclick = function () {
+          // 先删除所有元素的当前样式
+          titles.forEach(title => title.classList.remove('current'))
+
+          // 为当前元素 +当前样式
+          this.classList.add('current')
+        }
+      })
+    </script>
+  </body>
+</html>

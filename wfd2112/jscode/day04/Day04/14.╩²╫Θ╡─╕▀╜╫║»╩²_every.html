@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>数组的高阶函数</title>
+  </head>
+  <body>
+    <script>
+      // 由于JS在网页中的工作, 通常是与数组相关
+      // 通过接口得到的数据通常是 数组类型
+      // 所以ES6 为数组增加了 更加易用的 一些高阶函数
+
+      // 高阶函数: 函数中 使用了其他函数的 函数, 就叫高阶函数
+      // 例如: 带有 回调函数 的函数
+
+      var nums = [11, 22, -33, 44, 55]
+
+      // 要求: 判断数组的每一个元素是否都是正数
+      // every: 每一个, 其参数要求是函数(固定接3参)
+      // 作用: 自动把 数组中的每个元素, 传递给 箭头函数
+      var a = nums.every((value, index, array) => {
+        // 三个参数, 分别为: 值, 下标, 数组
+        console.log('value:', value)
+        console.log('index:', index)
+        console.log('array:', array)
+        console.log('------------------------')
+        // 返回每次判断的结果:  值>0 为真代表正数
+        return value > 0
+      })
+
+      // every: 每个元素都会被箭头函数处理, 如果返回值都是真的, 则最终结果为真;  如果返回值有假的, 则最终结果为假
+      console.log(a ? '都是正数' : '非都是正数')
+
+      var emps = [
+        { name: '亮亮', age: 22 },
+        { name: '涛涛', age: 30 },
+        { name: '格格', age: 17 },
+        { name: '鑫磊', age: 42 },
+      ]
+      // 判断是否都成年  age>17
+      var a = emps.every((value, index, array) => {
+        // value: 是数组的元素, 即对象类型
+        return value.age > 17
+      })
+
+      // 简化1: 函数体中只用了value, 另外两个形参可以省略不写
+      var a = emps.every(value => {
+        return value.age > 17
+      })
+
+      // 简化2: 箭头函数的函数体只有一行, 可以省略 {return }
+      var a = emps.every(value => value.age > 17)
+
+      console.log(a ? '都成年' : '非都成年')
+
+      var nums = [12, 44, 2, 3, 54]
+      // 判断数组中, 是否都是偶数    数字 % 2 == 0   对2取余是0
+      var a = nums.every(value => value % 2 == 0)
+      console.log(a ? '都是偶数' : '非都是偶数')
+
+      var stus = [
+        { name: '凯凯', married: false },
+        { name: '格格', married: false },
+        { name: '梦瑶', married: true },
+        { name: '子文', married: false },
+      ]
+
+      // 判断是否都已婚:  即 married 是真
+      // married本身就是boolean类型, 没必要 == true
+      var a = stus.every(value => value.married)
+      console.log(a ? '都已婚' : '非都已婚')
+    </script>
+  </body>
+</html>

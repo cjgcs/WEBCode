@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>面试题</title>
+  </head>
+  <body>
+    <script>
+      function A() {
+        this.name = 'a'
+        this.color = ['green', 'yellow']
+      }
+      function B() {}
+      B.prototype = new A()
+      var b1 = new B()
+      var b2 = new B()
+      b1.name = 'change' //考点:原型链机制: 是 读属性发动的, 赋值不会触发
+      b1.color.push('black') // push 添加元素到数组末尾
+
+      console.log(b1.name) //change
+      console.log(b2.name) // a
+      console.log(b1.color) // [green, yellow, black]
+      console.log(b2.color) // [green, yellow, black]
+
+      console.log(b1) // 引用类型, 同一个构造函数生成的不同对象,原型相同
+      console.log(b2)
+    </script>
+  </body>
+</html>

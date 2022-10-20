@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>严格模式</title>
+  </head>
+  <body>
+    <!-- 严格模式: 是JS的第5个版本, 称为 ES5  2009年发布, 推出的特性 -->
+    <script>
+      // 在最上方书写固定的如下字符串:  就会开启严格模式
+      'use strict'
+      // 严格模式下: 只有声明(var/let/const/function)过的变量才能用
+
+      // 可以让代码中存在风险的行为: 出现报错.  辅助程序员写出健壮的代码
+      var servername = 'localhost'
+      // 修改服务器名
+      // 默认的前缀: window.
+      // window.servrname = 'xin88.top'  // 对象添加属性写法
+      // 由于写错单词导致了意外的 全局变量声明 -- 全局污染
+      servrname = 'xin88.top'
+
+      console.log(window)
+    </script>
+  </body>
+</html>

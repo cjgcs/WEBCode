@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>函数</title>
+  </head>
+  <body>
+    <!-- 函数: function -->
+    <!-- 函数主要作用: 封装 和 复用 -->
+    <!-- 封装: function 函数名(){ 函数体... }  -->
+    <!-- 封装就是用 {} 把一大段代码放在一起, 然后起个名字(函数名). 以后通过函数名就能触发 {}中的代码 -- 复用 -->
+    <script>
+      function show() {
+        console.log(111)
+        console.log(222)
+        console.log(333)
+        console.log('-------------------------')
+      }
+      // 触发函数的最简单方式: 用()
+      show()
+      show()
+      show()
+      show()
+
+      // 参数: 通过传递参数(变量), 让函数体变化
+      // 习惯 type 称为 形参: 形式参数.  形容此处需要什么样的变量
+      function showDate(type) {
+        const now = new Date()
+
+        if (type == 1) console.log(now.toLocaleString())
+        if (type == 2) console.log(now.toDateString())
+        if (type == 3) console.log(now.toLocaleDateString())
+        if (type == 4) console.log(now.toLocaleTimeString())
+      }
+      // 1 2 3 4 是实际的值,  称为 实参 : 实际参数
+      showDate(1)
+      showDate(2)
+      showDate(3)
+      showDate(4)
+    </script>
+
+    <script>
+      // 返回值: 函数处理后的结果, 返回给调用方
+      function taoge(food) {
+        // return: 返回结果 到外部 -- 屁股
+        return food + '核' //return会终止函数的运行
+        // return 下方的代码不执行
+        console.log(111111)
+      }
+
+      // 从头塞个苹果, 从屁股返回xxx.  利用变量接收
+      var a = taoge('苹果')
+      console.log(a)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>片儿川</li>
+        <li>螃蟹</li>
+        <li>1985</li>
+    </ul>
+    <ol>
+        <li>墙门23号</li>
+        <li>羊肉汤</li>
+        <li>凉拌羊肉</li>
+    </ol>
+    <script>
+       //1:通过标签获取的是一组对象，如果遍历每个对象操作则需要创建循环
+       //获取所有 li    10:19 完成示例
+       var lis = document.getElementsByTagName("li");
+       for(var i=0;i<lis.length;i++){
+          console.log(lis[i].innerHTML);
+       }
+        //2:获取伪数组，伪数组没有数组对象常用API
+        //伪数组：数据API没有（10：10 数组常用API）  length 下标有
+      var ul = document.getElementsByTagName("ul");
+      console.log(ul.length);
+      console.log(ul[0]);
+      //ul.pop();  报错没有函数 not function
+      // 如果没有指定元素返回空数组
+      var div = document.getElementsByTagName("div");
+      console.log(div);   
+
+    </script>
+</body>
+</html>

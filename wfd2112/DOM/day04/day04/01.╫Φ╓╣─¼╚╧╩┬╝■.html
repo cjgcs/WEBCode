@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>阻止默认事件 09:10</title>
+  </head>
+  <body>
+    <a href="http://tmooc.cn">Welcome to Tmooc</a>
+
+    <script>
+      const a = document.querySelector('a')
+      // 如果超链接带有 href 属性: 则默认点击会跳转
+      // 如果添加onclick事件:  先触发事件 再进行默认跳转操作
+      a.onclick = function (e) {
+        // 事件参数的 prevent阻止 Default默认
+        e.preventDefault()
+
+        alert('超链接被点击!')
+      }
+    </script>
+  </body>
+</html>

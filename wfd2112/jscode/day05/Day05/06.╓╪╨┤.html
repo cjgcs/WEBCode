@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>重写 - 11: 30</title>
+  </head>
+  <body>
+    <!-- 
+      考点:
+      面向对象编程 英文缩写: OOP
+      三大特征: 封装 继承 多态
+      - 封装: 利用{}把多个函数放在一起, 形成一个整体
+      - 继承: 子类继承父类, 就能用父类的方法 -- 原型链
+      - 多态: 重写 导致: 同一个方法名 在子类和父类中呈现出多种状态
+     -->
+
+    <script>
+      // 重写: 子类继承父类后, 可以使用父类的方法; 但是子类可以拥有相同名称的方法, 此时优先使用自身的
+      class Father {
+        constructor(w, h) {
+          this.w = w
+          this.h = h
+        }
+        area() {
+          // return this.w * this.h
+          console.log('父类的area')
+        }
+      }
+
+      class Son extends Father {
+        zc() {
+          return (this.w + this.h) * 2
+        }
+        // 父类中有 area 方法, 子类书写相同名称:  重写
+        area() {
+          // 通过 super 关键词, 可以强行调用父类的方法
+          super.area()
+          // this关键词: 用来调用当前类的
+          // this.area()
+
+          // w h 属于值: 存储在对象中 而非原型里
+          // 所以和 super无关
+
+          console.log('area!!!')
+        }
+      }
+
+      var s1 = new Son(10, 5)
+      console.dir(s1)
+      s1.area() // 调用 son 的area方法
+    </script>
+  </body>
+</html>

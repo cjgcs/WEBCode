@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>内联样式 style操作 10:40</title>
+    <style>
+      #box {
+        background-color: #36d;
+        width: 200px;
+        height: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="showBox()">显示</button>
+    <button onclick="hideBox()">隐藏</button>
+    <button onclick="toggleBox()">切换</button>
+    <!-- <div id="box" style="display: none"></div> -->
+    <div id="box"></div>
+
+    <script>
+      const box = document.getElementById('box')
+      console.dir(box)
+      // 隐藏
+      function hideBox() {
+        // 修改box元素的属性
+        box.style.display = 'none'
+      }
+      // 显示
+      function showBox() {
+        box.style.display = '' //默认值是空字符串
+      }
+      // 切换
+      function toggleBox() {
+        if (box.style.display == '') {
+          box.style.display = 'none'
+        } else {
+          box.style.display = '' //默认值是空字符串
+        }
+      }
+    </script>
+  </body>
+</html>

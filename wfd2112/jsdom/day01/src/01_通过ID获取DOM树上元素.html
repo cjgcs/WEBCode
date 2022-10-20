@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <h1>通过ID属性获取DOM TREE上元素</h1>
+     <span id="time">2022-10-08</span>
+     <script>
+        //1:目标通过标签的ID属性获取元素  参数与标签id属性值相同
+        var time = document.getElementById("time");
+        //2：查找元素类型
+        console.log(time); 
+        console.log(typeof time);//?? object
+        //3：语法注意大小写  E  B  I
+        //4：代码顺序重点！！！！
+        //一个完整网页从上向下解析执行，先有标签，再获取  正确
+        //如果标签放在script 底报错  找不到
+     </script>
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>待办事项 11:21 ~ 14:21</title>
+  </head>
+  <body>
+    <div id="box">
+      <div>
+        <input type="text" placeholder="请输入待办事项" />
+        <button disabled>确定</button>
+      </div>
+      <ul>
+        <li>
+          <span>吃饭</span>
+          <button>删除</button>
+        </li>
+        <li>
+          <span>睡觉</span>
+          <button>删除</button>
+        </li>
+        <li>
+          <span>打亮亮</span>
+          <button>删除</button>
+        </li>
+      </ul>
+    </div>
+
+    <script>
+      const [inp, btn] = document.querySelector('#box>div').children
+      const ul = document.querySelector('ul')
+
+      // 实时监听输入框的值, 修改 确定按钮的 不可用状态
+      inp.oninput = function () {
+        // 输入框是空的, 则 == '' 是true,  则按钮不可用 = true
+        // 否则 输入框有值, == '' 是false  则按钮不可用 = false
+        btn.disabled = this.value == ''
+      }
+
+      btn.onclick = function () {
+        // 输入框没有值, 则什么都不做
+        if (inp.value == '') return
+
+        console.log(inp.value)
+
+        const s = `<li>
+          <span>${inp.value}</span>
+          <button>删除</button>
+        </li>`
+
+        ul.innerHTML += s // += 累加拼接到已有内容后
+
+        // 清空输入框内容, 让按钮不可用
+        // 花哨写法: 前面假执行后面的, 可以实现两行代码写在一行
+        // 无用的知识..., 看着高端 实则没啥用, 但是框架里有这么写的
+        // ;(inp.value = '') || (btn.disabled = true)
+        inp.value = ''
+        btn.disabled = true
+      }
+
+      // keyup: 按键抬起
+      inp.onkeyup = function (e) {
+        // keyCode 编号 13 是回车
+        if (e.keyCode == 13) {
+          // 触发和确定按钮相同的操作
+          btn.onclick()
+        }
+      }
+
+      // 事件委托: 适合动态新增的子元素事件处理
+      // e: 事件参数; 系统触发事件时, 自动传递. 存储了事件相关的各种信息
+      ul.onclick = function (e) {
+        // e.target: 触发事件的元素
+        // tagName: 元素的标签名
+        if (e.target.tagName == 'BUTTON') {
+          console.log(e.target)
+          e.target.parentElement.remove()
+        }
+      }
+
+      // 删除
+      // const shans = document.querySelectorAll('#box>ul button')
+      // console.log(shans)
+      // 为什么新增元素不好用: 下方的绑定只是给页面初始时自带的3个删除按钮
+      // 后续新增的按钮, 并没有绑定事件
+      // shans.forEach(shan => {
+      //   shan.onclick = function () {
+      //     // 元素.remove(): 删除自身
+      //     // 读取按钮的父元素, 删除;   parent父母
+      //     console.log(this.parentElement)
+      //     this.parentElement.remove()
+      //   }
+      // })
+    </script>
+  </body>
+</html>

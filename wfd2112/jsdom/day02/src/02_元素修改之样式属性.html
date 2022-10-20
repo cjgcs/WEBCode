@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .admin{background-color: blue;}
+        .base{font-size:59px;}
+    </style>
+</head>
+<body>
+    <div id="msg" class="base">钱塘江</div>
+    <button id="btn">切换文字颜色</button>
+    <button id="btn2">添加背景颜色</button>
+    <script>
+        var msg = document.getElementById("msg");
+        var btn = document.getElementById("btn");
+        var btn2 = document.getElementById("btn2");
+        //1：点击按钮btn 将钱塘江文字修改黄色
+        btn.onclick = function(){
+            msg.style.color = "yellow";
+        }
+        //2：点击按钮btn2 将钱塘江背景修改蓝色10:05 休息一下
+        btn2.onclick = function(){
+            msg.className = msg.className + " admin";
+        }
+    </script>
+</body>
+</html>

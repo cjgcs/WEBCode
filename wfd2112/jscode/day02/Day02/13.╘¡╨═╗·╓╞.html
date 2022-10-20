@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>原型机制</title>
+  </head>
+  <body>
+    <script>
+      function Rect(w, h) {
+        this.w = w
+        this.h = h
+
+        // this.area = prototype.x // 为什么要把函数在外面写? 省内存
+        // this.zc = prototype.y //周长
+        // 写100次赋值 太繁琐了
+
+        // 所以作者才设计的原型机制:
+        // 把外部存储 方法的对象, 赋值给对象的 原型链__proto__
+        // 对象.area()  对象本身没有area属性, 自然到 __proto__ 中查找
+        this.__proto__ = prototype
+      }
+
+      // 最好把属于一个函数的方法, 放在一起存储 -- 规矩
+      // 比喻: 以前家栋的袜子到处扔.. 现在家栋有媳妇了, 袜子要放在一个抽屉里, 干净利索.   这就是为什么用对象保存方法的原因
+      // prototype: 专业称呼 原型.  可以随便起名
+      var prototype = {
+        // 属性名: 值 的语法,  值是函数 所以看着比较长
+        // 作者比较贴心, 允许省略 : function 不用写, 可以自己试试
+        area: function () {
+          console.log(this.w * this.h)
+        },
+        zc: function () {
+          console.log((this.w + this.h) * 2)
+        },
+        //放了100个方法
+      }
+
+      var r1 = new Rect(10, 5)
+
+      console.log(r1)
+      r1.area() // this的功劳: 在哪个对象里, 就算哪个对象的
+      r1.zc()
+    </script>
+  </body>
+</html>

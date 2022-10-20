@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="input" type="text" value="今晚吃什么..">
+    <button id="btn">点击一下修改输入内容</button>
+    <button id="send">发送短信</button>
+    <script>
+        //任务一：点击btn修改input标签中value
+         //1:事件源 btn
+         var btn = document.getElementById("btn");
+         //2:事件   onclick
+         btn.onclick = function(){
+          //3:事件处理函数 奎元馆吃面条
+          var input = document.getElementById("input"); 
+          input.value = input.value+"奎元馆吃面条";
+         }
+        //任务二: 点击send修改input属性 禁用 disabled
+        //1:事件源 send
+        var send = document.getElementById("send");
+        //2:事件   onclick
+        send.onclick = function(){
+         //3:事件处理函数   禁用input
+         var input = document.getElementById("input");
+         input.disabled = true;
+        }
+    </script>
+</body>
+</html>

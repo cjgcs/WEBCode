@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>函数的柯里化</title>
+  </head>
+  <body>
+    <script>
+      // 利用函数的闭包被动: 实现的函数写法
+      // 常见于高端框架中, 面试题中, 但实际开发使用很少
+
+      // 柯里化: 把多参数的函数 转为单参数的函数
+      function add(a, b, c) {
+        console.log(a + b + c)
+      }
+      add(10, 20, 30)
+
+      //柯里化的样子:
+      function ke_add(a) {
+        // a接10
+        var x = function (b) {
+          // b 接20
+          console.log(a + b)
+        }
+        return x
+      }
+      // ke_add(10) -> x -> function(b){ console.log(a + b) }
+      // x(20) -> 20传给参数b,  然后打印了 a+b 的值
+      ke_add(10)(20)
+
+      // 升级: 合写
+      function ke_add1(a) {
+        return function (b) {
+          return function (c) {
+            console.log(a + b + c)
+          }
+        }
+      }
+      // ke_add1(10) -> function (b) {....}
+      // ke_add1(10)(20) -> function (c){}
+      // ke_add1(10)(20)(30) -> 触发最后的函数, 完成打印
+      // 面试题: 实现如下效果, 实现 3个数字的累加
+      ke_add1(10)(20)(30)
+
+      // 练习题: 计算出总和
+      // 中间代表是 两个参数
+      ke_add2(10)(20, 30)(40) //结果: 100
+    </script>
+  </body>
+</html>

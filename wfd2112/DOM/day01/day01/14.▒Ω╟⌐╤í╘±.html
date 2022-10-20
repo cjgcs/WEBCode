@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>标签选择 14:39</title>
+    <style>
+      #tags {
+        user-select: none;
+      }
+      #tags > span {
+        display: inline-block;
+        margin: 0 10px 10px 0;
+        padding: 5px 10px;
+        background-color: lightgray;
+        border-radius: 4px;
+        transition: 0.2s;
+      }
+      #tags > span.on {
+        background-color: orangered;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>选择晚餐:</h3>
+    <div id="tags">
+      <span class="on">黄焖鸡</span>
+      <span class="on">鸭血粉丝汤</span>
+      <span>红烧排骨</span>
+      <span>葱爆羊肉</span>
+      <span>小鸡炖蘑菇</span>
+      <span>烤鱼</span>
+    </div>
+
+    <script>
+      // 先查出所有的 span 的标签, 然后遍历 挨个添加点击事件
+
+      // 查询多个, 用带 All 的方法
+      const tags = document.querySelectorAll('#tags > span')
+      console.log(tags)
+      // tags: 所有的元素;   tag:遍历出来的每一个, 之前变量名叫 value
+      tags.forEach(tag => {
+        console.log('tag:', tag)
+        // toggle: 切换
+        // 单击: 选中;  双击: 取消
+        tag.onclick = function () {
+          // this.classList.toggle('on')
+          this.classList.add('on') //add: 添加
+        }
+        // double: 双倍;   dblclick 双击
+        tag.ondblclick = function () {
+          this.classList.remove('on') //remove: 移除
+        }
+      })
+    </script>
+  </body>
+</html>

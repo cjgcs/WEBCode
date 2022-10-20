@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>阻止静默失败</title>
+  </head>
+  <body>
+    <script>
+      // 静默失败: 有问题但是不报错
+      // 严格模式下: 所有的问题都会暴露出来
+      'use strict'
+
+      var emp = { eid: '10001', ename: 'mike' }
+
+      // freeze: 冻结对象,   对象中的内容不可修改
+      Object.freeze(emp)
+
+      emp.eid = '9999999' //修改
+      console.log(emp)
+    </script>
+  </body>
+</html>

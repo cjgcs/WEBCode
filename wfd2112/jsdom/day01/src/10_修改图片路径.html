@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="ldh">刘德华</button>
+    <button id="zxy">张学友</button>
+    <br>
+    <img id="pic" src="images/ldh.jpg" title="刘德华" style="width:210px;">
+    <script>
+        //1:任务一：点击刘德华按钮 图片切换刘德华并且提示换刘德华
+            //1.1:事件源 按钮
+            var ldh = document.getElementById("ldh");
+            //1.2:事件   点击
+            ldh.onclick = function(){
+              //1.3:将img src 换images/ldh.jpg 并且将title 刘德华
+              var pic = document.getElementById("pic");
+              pic.src = "images/ldh.jpg";
+              pic.title = "刘德华";
+            }
+       // 2:任务二：点击张学友按钮 图片切换张学友并且提示换张学友
+           //2.1:事件源 按钮2
+           var zxy = document.getElementById("zxy");
+           //2.2:事件   点击
+           zxy.onclick = function(){
+           //2.3:将img src 换 images/zxy.jpg 并且将title换张学友
+           var pic = document.getElementById("pic");
+           pic.src = "images/zxy.jpg";
+           pic.title = "张学友";
+           }
+    </script>
+</body>
+</html>

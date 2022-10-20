@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>菜单展开 11:18</title>
+    <style>
+      #menu {
+        /* 用户无法选择文本 */
+        user-select: none;
+      }
+      #menu > div:last-child {
+        display: flex;
+        flex-direction: column;
+        padding-left: 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="menu">
+      <div onclick="toggle()">快速入门</div>
+      <div style="display: none">
+        <span>JavaScript 基础知识</span>
+        <span>JavaScript 高级知识</span>
+        <span>JavaScript 进阶知识</span>
+        <span>JavaScript 框架知识</span>
+      </div>
+    </div>
+
+    <script>
+      const d = document.querySelector('#menu >div:last-child')
+      console.log(d)
+
+      function toggle() {
+        // 显示->隐藏  隐藏->显示
+        // 利用css选择器查出来的元素, 使用时没有代码提示
+        if (d.style.display == '') {
+          d.style.display = 'none'
+        } else {
+          d.style.display = ''
+        }
+      }
+    </script>
+  </body>
+</html>

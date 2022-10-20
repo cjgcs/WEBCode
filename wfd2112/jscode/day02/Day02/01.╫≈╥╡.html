@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>作业</title>
+  </head>
+  <body>
+    <script>
+      // 面试题: 完成如下函数, 实现4个数字的累加
+      ke_add(10)(20, 30)(40)
+
+      function ke_add(a) {
+        // 返回另一个函数, 接收两个参数
+        return function (b, c) {
+          return function (d) {
+            console.log(a + b + c + d)
+          }
+        }
+      }
+    </script>
+
+    <script>
+      // 在脚本中直接声明的 var/function, 存储在全局window对象里
+      function a() {} // window.a = function a(){}
+
+      a = 6 // window.a = 6
+      // 变量 函数 都是 对象的属性, 只是值不同而已
+      console.log(a)
+    </script>
+
+    <script>
+      // 直接写在 script里, 在脚本中
+      let a = 10
+      // 写在 {} 里, 就是块级
+      {
+        let a = 20
+      }
+
+      {
+        let num = 0
+        function show() {
+          // 误区: 书写了 就算声明??
+          // 正确: 用关键词 var/let/const/function 才算声明
+          num++ // 直接写变量, 叫使用
+          // num非当前函数声明的, 所以属于上层的块级作用域
+          // 非自身的变量, 存储在 scopes 里
+          console.log(num, '次')
+        }
+      }
+      console.dir(show)
+      show() // 函数名() 触发的是 show的{} 中的代码 -- 函数体
+      show()
+    </script>
+  </body>
+</html>

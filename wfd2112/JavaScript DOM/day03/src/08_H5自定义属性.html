@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 id="h2" data-index="3" data-name="jack">
+        自定义属性HTML 5.0标准
+    </h2>
+    <script>
+        //1:获取
+        var h2 = document.getElementById("h2");
+        var idx = h2.getAttribute("data-index");
+        alert(idx)
+        //2:修改
+        h2.setAttribute("data-name","james");
+        //3:特殊方便（兼容性不好）
+        alert(h2.dataset.index);
+        alert(h2.dataset["name"]);
+    </script>
+</body>
+</html>

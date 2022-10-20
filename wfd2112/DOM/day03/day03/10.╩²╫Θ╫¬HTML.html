@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>数组转HTML 15:45</title>
+  </head>
+  <body>
+    <ul></ul>
+    <!-- 实际开发时: 页面上的数据通常来源自网络, 把数组转HTML是常见操作 -->
+
+    <script>
+      var data = ['HTML', 'CSS', 'EXPRESS', 'JS', 'VUE']
+      // 把数组的数据, 转换成 HTML代码, 放在li元素里
+
+      // 数组高阶函数: map 映射.  把数组每个元素处理后, 组合成新的数组
+      // elements: 元素们, 简称 els;  也可以随便起变量名
+      const els = data.map(value => {
+        return `<li>${value}</li>`
+      })
+
+      console.log(els)
+      const ul = document.querySelector('ul')
+      // 利用 数组的join方法, 拼接成字符串
+      console.log(els.join('')) // 参数是间隔字符, 默认是 逗号
+
+      ul.innerHTML = els.join('')
+
+      // 数组 -> 映射成HTML数组 -> 拼接成字符串 -> 放到页面上
+    </script>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>正则替换 16:41</title>
+  </head>
+  <body>
+    <script>
+      // 把关键词换成 * : 妈 爸 草
+      // var words = prompt('请说一句话:')
+      // console.log('words:', words)
+      // [] 代表或
+      // replace: 替换
+      // var a = words.replace(/[妈爸草]/g, '*')
+      // console.log(a)
+
+      var phone = '13898897787'
+      // 把手机中间4位换成*,  138****7787
+
+      // \d :1个数字,   \d{n}代表 n个连续的数字
+      // (): 在正则中称为 捕获组
+      // $n: 代表第几个捕获组 中的值
+      var a = phone.replace(/(\d{3})(\d{4})(\d{4})/, '$1****$3')
+      console.log(a)
+
+      var phone = '13877778888'
+      //要求: 中间4个 和 后4个 换位置:   13888887777
+      var a = phone.replace(/(\d{3})(\d{4})(\d{4})/, '$1$3$2')
+      console.log(a)
+    </script>
+  </body>
+</html>

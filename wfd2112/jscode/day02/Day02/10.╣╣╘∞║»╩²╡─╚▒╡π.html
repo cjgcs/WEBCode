@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>构造函数的缺点</title>
+  </head>
+  <body>
+    <script>
+      function Rect(w, h) {
+        this.w = w
+        this.h = h
+
+        // 算面积的方法: 宽x高
+        // function: 声明/创建 函数的关键词
+        this.area = function () {
+          // 为什么要设置一个 多变的 this 关键词: 代表运行时所在对象
+          // 原因: 就是配合 构造函数使用
+          // 在哪个对象中使用, 就服务于所在对象
+          console.log(this.w * this.h)
+        }
+      }
+
+      var r1 = new Rect(10, 5)
+      var r2 = new Rect(100, 51)
+      var r3 = new Rect(107, 15)
+      console.log(r1)
+      r1.area()
+
+      console.log(r2)
+      r2.area()
+
+      console.log(r3)
+      r3.area()
+      // 并非同一个函数
+      console.log('r1.area == r2.area:', r1.area == r2.area) //false
+    </script>
+  </body>
+</html>

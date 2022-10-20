@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>作业: 10:05</title>
+    <style>
+      #box > span {
+        padding: 4px;
+        border-radius: 2px;
+        color: white;
+      }
+      #box > span.info {
+        background-color: #aaa;
+      }
+      #box > span.ok {
+        background-color: #00dd00;
+      }
+      #box > span.err {
+        background-color: red;
+      }
+      #box > input {
+        padding: 10px;
+        font-size: 20px;
+        border-radius: 3px;
+        border: none;
+      }
+      body {
+        background-color: lightblue;
+      }
+      #box > span {
+        display: none;
+      }
+      #box > span.active {
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">
+      <input type="text" />
+      <span class="info">用户名长度在6到9位之间</span>
+      <span class="err">用户名不能为空</span>
+      <span class="ok">用户名可以使用</span>
+    </div>
+
+    <script>
+      const inp = document.querySelector('input')
+      const tips = document.querySelectorAll('#box span')
+      console.log(tips)
+      // 数组解构语法: 把元素绑定给变量
+      const [info, err, ok] = tips
+      // 焦点
+      inp.onfocus = function () {
+        // 如果 当前是正确的, 则终止代码执行, 不执行后续代码
+        // ok这个元素, 含有(contains) active 样式
+        // 如果ok元素 是激活状态, 则停止执行return
+        if (ok.classList.contains('active')) return
+
+        info.classList.add('active')
+        err.classList.remove('active')
+      }
+
+      // 实时变化
+      inp.oninput = function () {
+        console.log(this.value)
+        const l = this.value.length
+        if (l >= 6 && l <= 9) {
+          ok.classList.add('active')
+          info.classList.remove('active')
+        } else {
+          ok.classList.remove('active')
+          info.classList.add('active')
+        }
+      }
+
+      // 失去焦点: 如果输入框空的, 则显示err
+      inp.onblur = function () {
+        if (this.value == '') {
+          err.classList.add('active')
+          info.classList.remove('active')
+        }
+      }
+    </script>
+  </body>
+</html>

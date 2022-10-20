@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>事件委托 11:20</title>
+  </head>
+  <body>
+    <!-- 事件委托: 子元素的事件, 委托给父元素处理 -->
+    <div id="box">
+      <button>HTML</button>
+      <button>CSS</button>
+      <button>JS</button>
+      <button>Vue</button>
+      <p>Hello</p>
+    </div>
+
+    <script>
+      // 监听按钮的点击事件:
+      // 以前: 先查询到所有的按钮, 挨个遍历添加点击事件
+      box.onclick = function (e) {
+        // 由于冒泡机制: 点击子元素一样会触发父元素box的点击事件
+        // 利用标签名 过滤出按钮的点击
+        if (e.target.tagName == 'BUTTON') {
+          console.log('box:被点击')
+        }
+
+        console.dir(e.target)
+      }
+    </script>
+  </body>
+</html>

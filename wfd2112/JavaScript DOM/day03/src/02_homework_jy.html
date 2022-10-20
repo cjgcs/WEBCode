@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世纪佳缘作业</title>
+    <style>
+        *{padding:0;margin:0;}
+    </style>
+</head>
+<body>
+    <div class="main">
+       <span>婚恋网站</span>
+       <input type="text" value="邮箱/ID/手机" id="uname">
+       <input type="password" value="密码" id="upwd">
+    </div>
+    <script>
+       //针对用户名 获得焦点  失去焦点
+       //获得焦点 如果value="邮箱/ID/手机" value=""            onfoucs
+       //失去焦点 如果value=""            value="邮箱/ID/手机" onblur
+       //1:获取用户名输入框
+       var uname = document.getElementById("uname");
+       //2:为用户名输入框添加事件 onfoucs
+       uname.onfocus = function(){
+          if(this.value === "邮箱/ID/手机"){
+            this.value = "";
+          }
+         //  2.1:如果当前是默认值 value=""
+       }
+       //3:为用户名输入框添加事件 onblur
+       uname.onblur = function(){
+        //  3.1:  如果当前是默认值 value="邮箱/ID/手机"
+        if(this.value==""){
+            this.value = "邮箱/ID/手机"
+        }
+       }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>创建DOM元素 09:17</title>
+  </head>
+  <body>
+    <!-- 
+      常规情况下: 设计了HTML语法, 让程序员能够快速书写网页代码
+      真正工作时: 浏览器需要把HTML代码转换成 document 对象, 再展现出来
+      转换操作会消耗 极小的性能
+
+      但是: 如果追求极致的性能, 则可以抛弃HTML代码 直接用JS来创建DOM对象
+      -- 非常有名的 Facebook公司 的 React 框架 就是这么做的 -- 第五阶段
+     -->
+
+    <div id="box">
+      <!-- HTML写法: 方便快捷, 内部会转换成DOM对象 -->
+      <button id="b1" class="danger" title="哈哈">点我</button>
+    </div>
+
+    <script>
+      // 用纯DOM方式创建对象   create创建  Element元素
+      const b2 = document.createElement('button') // 参数是标签名
+      b2.innerHTML = 'Click Me'
+      b2.id = 'b2'
+      b2.className = 'danger'
+      b2.title = '啦啦啦'
+      console.log(b2)
+
+      const box = document.getElementById('box')
+      // append添加 child子元素
+      box.appendChild(b2)
+    </script>
+  </body>
+</html>

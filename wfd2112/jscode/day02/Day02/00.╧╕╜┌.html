@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>细节</title>
+  </head>
+  <body>
+    <script>
+      var a = { num: 11, a: 1111, b: 3333, c: 4444, d: 44444, e: 444444 }
+      // 打印出来的: 是当前状态的 缩影
+      console.log(a)
+
+      // 当后台中点击 三角 展开时:  会临时读取对象中的最新状态
+      a.num = 22
+    </script>
+  </body>
+</html>

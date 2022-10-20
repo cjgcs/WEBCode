@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>购物车cell 14:36</title>
+    <style>
+      table {
+        width: 500px;
+        /* 边框合并 */
+        border-collapse: collapse;
+      }
+
+      table > thead {
+        background-color: #eee;
+      }
+
+      table td,
+      table th {
+        border: 1px solid gray;
+        padding: 4px;
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- table>(thead>tr>th*4)+(tbody>tr>td*4) -->
+    <table>
+      <thead>
+        <tr>
+          <th>商品名</th>
+          <th>单价</th>
+          <th>数量</th>
+          <th>小计</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>iPhone14</td>
+          <td>¥9999</td>
+          <td>
+            <button disabled>-</button>
+            <span>1</span>
+            <button>+</button>
+          </td>
+          <td>¥9999</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script>
+      // 任务1: 实现 + 和 - 按钮的效果
+      // 1. 先找到 3个元素: 减按钮  数量  加按钮
+      // 2. 实现加按钮的点击效果
+      // 3. 实现减按钮的点击效果
+      const td = document.querySelector('tbody>tr>td:nth-child(3)')
+      console.log(td)
+      const [btn1, num, btn2] = td.children
+
+      btn2.onclick = function () {
+        num.innerHTML++
+        btn1.disabled = false // 不 不可用
+        updateTotal()
+      }
+
+      btn1.onclick = function () {
+        num.innerHTML--
+        // 减到1 , 减按钮不可点
+        if (num.innerHTML == 1) btn1.disabled = true
+        updateTotal()
+      }
+
+      // 任务2: 查询出单价, 在数量变化时算出 小计, 更新到后面的小计元素
+      // 复用: + 和 - 都要更新小计, 所以更新操作封装成函数
+      function updateTotal() {
+        const n = num.innerHTML //数量
+        // 获取计数器所在元素的 上一个元素
+        // previous前一个 Element元素 Sibling兄弟
+        const td_price = td.previousElementSibling
+        console.log(td_price.innerHTML) // 截取字符串 去掉¥ 可以
+        // 用字符串替换, 把¥换成空的: replace(目标字符, 替换成什么)
+        const price = td_price.innerHTML.replace('¥', '')
+        console.log('price:', price)
+        // 下一个兄弟元素
+        const td_total = td.nextElementSibling
+        console.log(td_total)
+        // 小计元素的 内容 赋值为  计算出来的新数据
+        td_total.innerHTML = '¥' + n * price
+      }
+    </script>
+  </body>
+</html>

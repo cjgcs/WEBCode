@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>鼠标点击坐标 10:13</title>
+    <style>
+      body {
+        background-color: lightblue;
+      }
+      #box {
+        width: 800px;
+        height: 800px;
+        background-color: #eee;
+        user-select: none;
+        /* 子绝父相 */
+        position: relative;
+      }
+      #box > span {
+        /* display: inline-block; */
+        position: absolute;
+        width: 80px;
+        line-height: 80px;
+        text-align: center;
+        background-color: violet;
+        color: white;
+        border-radius: 50%;
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box"></div>
+
+    <script>
+      let num = 1
+
+      box.onclick = function (e) {
+        console.log(e) //点开看看, 能否找到坐标值?
+        // 三类坐标:
+        // x,y: 鼠标点击位置距离页面左上角的偏移量; 相对body
+        // screenX, screenY: 点击位置距离屏幕左上角; 相对显示器
+        // offsetX, offsetY: 点击位置距离 所点元素的左上角; 相对点击的元素
+        const s = document.createElement('span') //生成span元素
+        s.innerHTML = num++ //设置内容
+
+        const { offsetX, offsetY } = e
+        // 默认左上角生成, 上下减一半的宽高, 则会移动到中间
+        s.style.left = offsetX - 40 + 'px'
+        s.style.top = offsetY - 40 + 'px'
+        // pointerEvents: 不接受点击事件. 相当于穿透过去
+        // 如果不加: 则点击在粉色区域, 坐标值是相对粉色的, 位置会错误
+        s.style.pointerEvents = 'none'
+
+        this.appendChild(s) //添加到盒子里
+      }
+    </script>
+  </body>
+</html>

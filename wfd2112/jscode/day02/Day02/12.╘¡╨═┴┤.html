@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>原型链机制</title>
+  </head>
+  <body>
+    <script>
+      // 其他语言:java php c...  继承机制,  自己没有则找 父类要
+
+      // 原型链机制: JS引擎自带的机制.
+      // 当读取对象的属性时:   对象.属性名
+      // 如果对象有: 读取出来
+      // 如果对象没有: 则到对象的__proto__(系统隐式提供的原型链属性)属性中查找
+      //   如果找的到, 就用
+      //   如果找不到, 就是undefined
+
+      var a = { name: '凯凯' }
+      a.__proto__.name = 'mike'
+      a.__proto__.age = 19
+      console.log(a)
+      console.log(a.name) // 凯凯
+      console.log(a.age) // 19
+      console.log(a.salary) // undefined
+
+      // 官方规定: 隐式提供的原型链属性应该 美化后显示(谷歌浏览器.火狐浏览器)
+      // 360浏览器: 没有遵循官方规定, 是原样显示的
+    </script>
+  </body>
+</html>

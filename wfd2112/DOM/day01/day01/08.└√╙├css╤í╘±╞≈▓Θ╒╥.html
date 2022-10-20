@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>利用css选择器查找 10:26</title>
+  </head>
+  <body>
+    <div>
+      <p>Hello</p>
+      <p>World</p>
+    </div>
+
+    <script>
+      // 最万能的 css 选择器
+      // querySelector : 查单个元素
+      // querySelectorAll : 查多个元素
+
+      var p1 = document.querySelector('p:last-child')
+      console.log(p1)
+
+      // 所有的p标签
+      // 类数组类型, 原型里有 forEach 可用来遍历
+      var ps = document.querySelectorAll('p')
+      console.log(ps)
+    </script>
+  </body>
+</html>

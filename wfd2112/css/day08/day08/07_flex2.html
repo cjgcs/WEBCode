@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.baba1 {
+				width: 500px;
+				background-color: red;
+				/* 作为容器属性 */
+				display: flex;
+				/* 主轴方向 */
+				/* 默认 x轴从左向右排列*/
+				flex-direction: row;
+				/* x轴从右向左排列 */
+				/* flex-direction: row-reverse; */
+				/* y轴从上向下排列 */
+				/* flex-direction: column; */
+				/* y轴从下向上排列 */
+				/* flex-direction: column-reverse; */
+				/* 项目换行 */
+				/* 默认不换行 */
+				flex-wrap: nowrap;
+				/* 换行 */
+				flex-wrap:wrap;
+				/* 反向换行 */
+				flex-wrap: wrap-reverse;
+				/* 以上两个属性的简写 第一个是排列方向的值,第二个是换行的值 */
+				flex-flow: row wrap;
+				/* 主轴上项目的对齐方式 */
+				/* 起点对齐(默认) */
+				justify-content: flex-start;
+				/* 终点对齐 */
+				justify-content: flex-end;
+				/* 居中对齐 */
+				justify-content: center;
+				/* 两端对齐 */
+				justify-content: space-between;
+				/* 笔记描述 */
+				justify-content: space-around;
+			}
+			.baba1 div,.baba2 div {
+				width: 100px;
+				height: 100px;
+				background-color: #00FF00;
+				border: 5px solid black;
+				font-size: 40px;
+			}
+			.baba2 {
+				background-color: blue;
+				width: 500px;
+				height: 500px;
+				display: flex;
+				/* 交叉轴对齐方式 */
+				/* 起点对齐 */
+				align-items: flex-start;
+				/* 终点对齐 */
+				/* align-items: flex-end; */
+				/* 居中对齐 */
+				/* align-items: center; */
+			}
+			.baba3 {
+				background: aqua;
+				display: flex;
+				width: 600px;
+				height: 600px;
+				justify-content: space-between;
+				/* 交叉轴对齐方式 */
+				align-items: stretch;
+			}
+			.baba3 div {
+				width: 180px;
+				background-color: #008000;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="baba1">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+			<div>6</div>
+		</div>
+		<div class="baba2">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+		</div>
+		<div class="baba3">
+			<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione alias ad! Nihil laudantium dicta soluta inventore consectetur veritatis odit omnis quaerat impedit minima dolores odio molestiae deserunt rem beatae. Tenetur.</div>
+			<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam qui nihil nam officia accusamus rem minima </div>
+			<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit totam pariatur .</div>
+		</div>
+	</body>
+</html>

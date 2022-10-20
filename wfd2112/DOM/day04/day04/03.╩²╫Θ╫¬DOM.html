@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>数组转DOM 09:31</title>
+  </head>
+  <body>
+    <div id="box"></div>
+
+    <script>
+      var data = ['HTML', 'CSS', 'JS', 'EXPRESS', 'VUE', 'REACT']
+
+      // 文档片段: 一个虚拟的容器, 用来存储零散的dom元素
+      // create创建 Document文档 Fragment片段
+      var frag = document.createDocumentFragment()
+
+      // 遍历生成 button 放到box里
+      data.forEach(value => {
+        const btn = document.createElement('button')
+        btn.innerHTML = value
+        // 当前做法的弊端: 每次循环 生成一个元素,然后加入到box里
+        // 如果100次循环, 则要添加100次
+        // box.appendChild(btn)
+
+        // 把遍历生成的元素 存储在片段容器里
+        frag.appendChild(btn)
+      })
+
+      // 消耗性能操作: 是把元素渲染到页面上
+      // 之前: 1个1个画到页面上: 先准备颜料 ->打开画布 -> 画完-> 关闭画布->清理
+      //      如果画100次, 就要重复进行100次操作
+      // 现在: 先放到一起, 然后一起画
+
+      console.log(frag)
+      console.dir(frag)
+      // 把 片段中存储的内容  一起 放到box里
+      box.appendChild(frag)
+    </script>
+  </body>
+</html>

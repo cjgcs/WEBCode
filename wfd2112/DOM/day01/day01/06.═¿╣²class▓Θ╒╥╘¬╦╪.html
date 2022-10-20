@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>通过class查找元素 10:15</title>
+  </head>
+  <body>
+    <div>
+      <div class="ok">111111</div>
+      <div class="err">22222</div>
+      <div class="err">33333</div>
+      <div class="ok">44444</div>
+    </div>
+
+    <script>
+      // 返回值: 类数组.  因为通过class可以有多个
+      var a = document.getElementsByClassName('ok')
+      console.log(a)
+
+      // 利用下标取值, 找到具体元素
+      console.log(a[1])
+    </script>
+  </body>
+</html>

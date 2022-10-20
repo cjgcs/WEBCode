@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>对象的精确配置</title>
+  </head>
+  <body>
+    <script>
+      'use strict'
+
+      var emp = { eid: '10001', ename: '涛涛' }
+
+      Object.defineProperty(emp, 'eid', {
+        writable: false, //不可写/只读
+        configurable: false, //可重新配置: false代表不能删
+      })
+
+      // 希望eid 不可写 + 不可删除
+      // Cannot delete property 'eid'
+      delete emp.eid
+
+      console.log(emp)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>作业 09:10</title>
+    <style>
+      #box {
+        user-select: none;
+      }
+      #box > div:first-child {
+        padding: 10px;
+        display: flex;
+      }
+      #box > div:first-child > span {
+        margin: 10px;
+        padding: 6px 10px;
+      }
+      #box > div:first-child > span.active {
+        background-color: #00a1d6;
+        color: white;
+        border-radius: 50px;
+      }
+      #box > div:last-child > div {
+        width: 400px;
+        border: 1px solid red;
+        display: none;
+      }
+      #box > div:last-child > div.cur {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HTML -> CSS -> JS -->
+    <div id="box">
+      <div>
+        <!-- 利用自定义属性: 标题中存储 对应的 详情元素的id -->
+        <span data-id="tab1" class="active">电影</span>
+        <span data-id="tab2">电视剧</span>
+        <span data-id="tab3">综艺</span>
+        <span data-id="tab4">原创</span>
+        <span data-id="tab5">新人</span>
+      </div>
+      <div>
+        <div class="cur" id="tab1">
+          <img src="./imgs/pj1.png" alt="" />
+        </div>
+        <div id="tab2">
+          <img src="./imgs/pj2.png" alt="" />
+        </div>
+        <div id="tab3">
+          <img src="./imgs/pj3.png" alt="" />
+        </div>
+        <div id="tab4">
+          <img src="./imgs/pj4.png" alt="" />
+        </div>
+        <div id="tab5">
+          <img src="./imgs/pj5.png" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const titles = document.querySelectorAll('#box>div:first-child>span')
+
+      titles.forEach(title => {
+        title.onclick = function () {
+          titles.forEach(v => v.classList.remove('active'))
+
+          this.classList.add('active')
+
+          // 搜索到之前带有 cur 样式的元素, 删除其样式
+          const c = document.querySelector('#box .cur')
+          c.classList.remove('cur')
+
+          // 读取点击标题的 自定义属性存储的id
+          const id = this.dataset.id
+          console.log('详情id:', id)
+          // 通过id 找到对应的详情元素
+          const detail = document.getElementById(id)
+          detail.classList.add('cur') //添加cur样式
+        }
+      })
+    </script>
+  </body>
+</html>

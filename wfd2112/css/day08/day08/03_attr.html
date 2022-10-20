@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			[type="text"] {background-color: red;}
+			[type="password"]{background-color: yellow;}
+			div a {color:green}
+			[href^="http"] {color: red;}
+			/* 以什么字符结尾 */
+			/* 图片后的所有span元素消失 */
+			img~span {display: none;}
+			/* 找到图片路径以.gif结尾的标签,再让他后面的span元素出来 */
+			[src$=".gif"]+span {display: block;}
+			
+		</style>
+	</head>
+	<body>
+		<!-- [属性名=属性值] -->
+		<input type="text">
+		<input type="password"/> <br>
+		<!-- [属性名^=开头字符] -->
+		<div>
+			<a href="https://www.baidu.com">去百度</a>
+			<a href="./01_text.html">去01案例</a>
+		</div>
+		<!--  -->
+		<img src="./1.jpeg" alt="" width="200"><span>动图</span>
+		<br>
+		<img src="./2.gif" alt="" width="200"><span>动图</span>
+	</body>
+</html>

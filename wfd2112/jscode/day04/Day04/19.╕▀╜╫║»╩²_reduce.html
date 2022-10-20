@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>高阶函数_reduce</title>
+  </head>
+  <body>
+    <script>
+      // reduce: 合并归纳 -- 把数组每个元素组合在一起, 得到一个结果
+
+      var nums = [12, 4343, 546, 7676, 6, 23, 454, 656, 767]
+      // 求数组元素总和
+      // let total = 0
+      // nums.forEach(value => (total += value))
+      // console.log(total)
+
+      // reduce: 把上方的写法 合并到一个函数里, 合完的结构只能死记硬背
+      // 参数2: 是total的默认初始值, 如果不写,则默认为数组的第一个元素
+      var a = nums.reduce((total, value) => {
+        return total + value
+      }, 0)
+
+      console.log(a)
+    </script>
+
+    <script>
+      var products = [
+        { name: '苹果1', price: 22, count: 10 },
+        { name: '苹果2', price: 12, count: 120 },
+        { name: '苹果3', price: 42, count: 13 },
+        { name: '苹果4', price: 3, count: 10 },
+      ]
+
+      // 计算商品总和
+      // 如果不写参数2, 默认是数组的第一个值, 一定要写参数2
+      var a = products.reduce((total, value) => {
+        //单价x数量:
+        return total + value.price * value.count
+      }, 0)
+      console.log(a)
+    </script>
+  </body>
+</html>

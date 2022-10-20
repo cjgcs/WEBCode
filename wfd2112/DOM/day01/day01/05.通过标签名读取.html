@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>通过标签名读取 09:51</title>
+  </head>
+  <body>
+    <div>
+      <p>Hello</p>
+      <p>World!</p>
+    </div>
+
+    <script>
+      // 读取所有的p标签
+      // get获取 Elements元素们 By通过 Tag标签 Name名
+      var a = document.getElementsByTagName('p')
+      // 查询结果 是 类数组类型, 原型非数组
+      console.log(a)
+      // 然后: 利用序号精确读取 某一个
+      var p1 = a[1]
+      console.log(p1)
+    </script>
+  </body>
+</html>

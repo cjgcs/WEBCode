@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>勾选操作 17:21</title>
+  </head>
+  <body>
+    <div id="box">
+      <label>
+        <input type="checkbox" />
+        <span>我已阅读并同意用户注册协议</span>
+      </label>
+      <br />
+      <br />
+      <!-- disabled: 不可用 -->
+      <button disabled>提交注册</button>
+    </div>
+
+    <script>
+      const chb = document.querySelector('#box input')
+      const btn = document.querySelector('#box button')
+
+      // change: 变更.  勾选状态变化时触发
+      chb.onchange = function () {
+        console.dir(this) // checked: 此属性代表勾选状态
+        console.log(this.checked)
+
+        // 勾选时  不可用属性 -- true 还是 false
+        // if (this.checked) {
+        //   btn.disabled = false // 勾选时, 不 不可用 -- 表示可用
+        // } else {
+        //   btn.disabled = true
+        // }
+
+        btn.disabled = !this.checked // ! 取反即可
+      }
+    </script>
+  </body>
+</html>

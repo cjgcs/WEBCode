@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>高阶函数_forEach</title>
+  </head>
+  <body>
+    <script>
+      // JS遍历数组 有4种方式
+      var nums = ['mike', 'lucy', 'lily', 'tom']
+
+      // 基础方式: for
+      for (let i = 0; i < nums.length; i++) {
+        console.log(i, nums[i])
+      }
+
+      // for...in: 本意是遍历对象, 获取属性名
+      for (let key in nums) {
+        console.log(key, nums[key])
+      }
+
+      // ES6提供 for...of: 专门遍历数组
+      for (let value of nums) {
+        console.log(value) //直接得到值, 没有序号
+      }
+
+      // 数组的高阶函数: forEach
+      // 不同于之前学习的高阶函数, forEach 单纯的遍历, 没有返回值
+      nums.forEach((value, index, array) => {
+        console.log(index, value)
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>函数增强</title>
+  </head>
+  <body>
+    <!-- ES6中: 对函数进行了 增强, 添加了新特性 -->
+    <script>
+      // 参数的默认值:  参数=值
+      // 触发函数时, 如果没有传入参数, 则使用默认值
+      function show(name = 'mike') {
+        console.log('name:', name);
+      }
+
+      show();
+      show('亮亮');
+    </script>
+
+    <script>
+      // 剩余参数: 代替 arguments(类数组,callee禁用)
+      // ... 多功能运算符
+      // 形参中书写: 代表接收所有剩余参数
+      // ...形参名: 剩余参数存储在 形参中, 名字随意
+      function show(a, ...args) {
+        // a 接收了 11
+        // 剩下的 22 33 放在args里
+        console.log(args);
+        // args是数组类型, 可以用数组的方法
+        args.push('mike', '33');
+      }
+
+      show(11, 22, 33);
+    </script>
+  </body>
+</html>

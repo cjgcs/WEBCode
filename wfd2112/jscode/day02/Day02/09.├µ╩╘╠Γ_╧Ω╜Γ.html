@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>面试题详解</title>
+  </head>
+  <body>
+    <script>
+      var a = 10
+
+      // 函数触发时: this代表其所在对象
+      function test() {
+        // window.a = 90
+        // this 就是 window, 所以此处就是 window.a
+        this.a = 90
+      }
+      // 对象.属性名() : 属性名 在 前面的对象里
+      test() // window.test()  //考点:JS到底隐式做了哪些
+      console.log(a)
+    </script>
+
+    <script>
+      var a = 10
+
+      function test() {
+        // this关键词被 多用了:  作者把 this 作为空对象的默认变量名
+        // 恰好 和 之前讲的 关键词this同名 -- 造成误解
+        // var this = {}
+        this.a = 90 // 这里的this和window毫无关系
+        // return this
+      }
+      // new 隐式完成 对象的生成 + 返回
+      var t = new test()
+      console.log(t.a) // 90
+      console.log(a) // window.a
+    </script>
+  </body>
+</html>

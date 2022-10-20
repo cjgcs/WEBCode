@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>自定义节点读取 09:24</title>
+  </head>
+  <body>
+    <div>Hello</div>
+    <p>World!</p>
+    <div>DOM666</div>
+
+    <script>
+      console.log(document.body)
+      console.dir(document.body) // 后台展开看, 能不能找到3个子节点
+
+      // 节点的子元素存储在 children(孩子们) 属性里
+      console.log(document.body.children)
+
+      // ES6提供的 数组解构 语法: 快速把数组的值放在不同的变量里
+      // children: 所有子元素, 利用下标取值, 就可以获取指定序号的子元素
+      // 例如 children[1] 就是序号1的元素
+      const [d1, p, d2] = document.body.children
+      console.log(d1)
+      console.log(p)
+      console.log(d2)
+
+      // 提供了固定方法 来读取 指定元素
+      // 例如: 第一个子元素
+
+      //第一个子元素: 文本或标签都能读取出来, 只要是第一个子
+      console.log(document.body.firstChild)
+      //第一个元素类型的子元素: 只读取 第一个 标签元素
+      console.log(document.body.firstElementChild)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>标签栏 15:08</title>
+    <style>
+      #tabs {
+        user-select: none;
+        width: 400px;
+      }
+      #tabs > div:first-child {
+        padding: 10px;
+        background-color: #eee;
+        display: flex;
+      }
+      #tabs > div:first-child > span {
+        /* 自动拉伸: 平分空间 */
+        flex: 1;
+        text-align: center;
+      }
+      #tabs > div:first-child > span.cur {
+        color: tomato;
+      }
+      #tabs > div:last-child > div {
+        height: 200px;
+        border: 1px solid gray;
+        padding: 5px;
+        display: none;
+      }
+      /* 带有cur样式的 显示 */
+      #tabs > div:last-child > div.cur {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="tabs">
+      <div>
+        <!-- 自定义属性: 保存对应的详情元素的序号 -->
+        <span data-index="0" class="cur">精选</span>
+        <span data-index="1">美食</span>
+        <span data-index="2">百货</span>
+        <span data-index="3">个护</span>
+      </div>
+      <div>
+        <div class="cur">精选...</div>
+        <div>美食...</div>
+        <div>百货...</div>
+        <div>个护...</div>
+      </div>
+    </div>
+
+    <script>
+      const tabs = document.querySelectorAll('#tabs>div:first-child>span')
+      const contents = document.querySelectorAll('#tabs>div:last-child>div')
+      console.log(contents)
+
+      tabs.forEach(tab => {
+        tab.onmouseover = function () {
+          tabs.forEach(v => v.classList.remove('cur'))
+          this.classList.add('cur')
+
+          // 获取自定义属性: index
+          const index = this.dataset.index
+          console.log('index:', index)
+
+          // 相同做法: 先删除之前元素的cur样式, 再加新的
+          contents.forEach(v => v.classList.remove('cur'))
+          // 通过标签的序号, 找到对应的内容元素
+          const a = contents[index] //下标取值, 看后台contents 和 index 的值
+          console.log('a:', a)
+          a.classList.add('cur')
+        }
+      })
+    </script>
+  </body>
+</html>

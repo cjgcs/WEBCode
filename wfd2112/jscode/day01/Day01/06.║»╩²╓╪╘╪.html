@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>函数重载</title>
+  </head>
+  <body>
+    <script>
+      // 函数重载: 函数可以根据参数的 个数 or 类型不同, 来进行不同的逻辑处理
+      // 函数重载是 利用 arguments 实现的 1个函数多用
+
+      // max 升级:
+      function max() {
+        console.log('arguments:', arguments)
+
+        // 如果数量 > 1 个, 就认为是多个数字
+        // 不能写 >= 1 ; 因为 = 1 是传数组的场景
+        if (arguments.length > 1) {
+          // 注释详见 05 练习
+          var max_num = arguments[0]
+          for (var i = 1; i < arguments.length; i++) {
+            var val = arguments[i]
+            if (val > max_num) max_num = val
+          }
+          return max_num
+        }
+
+        // isArray: 判断值是否为数组类型
+        // 此处利用 长度 == 1 也可以;  仅是为了教学所以演示类型判断
+        if (Array.isArray(arguments[0])) {
+          var nums = arguments[0]
+          var max_num = nums[0]
+          for (var i = 1; i < nums.length; i++) {
+            var val = nums[i]
+            // 如果遍历出来的元素, 比临时最大值大, 则 覆盖临时最大值
+            if (val > max_num) {
+              max_num = val
+            }
+          }
+          return max_num
+        }
+      }
+
+      var nums = [123, 43, 12]
+      max(nums)
+
+      console.log(max(nums))
+
+      console.log(max(11, 43, 6, 56, 76))
+      console.log('---------------------------------')
+
+      // 系统的max函数: 只能接收 1个1个数字做参数, 无法处理数组
+      console.log(Math.max(11, 22, 3))
+
+      var nums = [123, 43, 12]
+      console.log(Math.max(nums))
+    </script>
+  </body>
+</html>

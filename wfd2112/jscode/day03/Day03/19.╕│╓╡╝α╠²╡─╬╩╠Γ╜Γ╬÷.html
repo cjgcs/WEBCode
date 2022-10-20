@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // define新增的属性所有配置项都是假, 即 不可遍历/浅色
+      // 如果在 对象中书写了age, 则默认是可遍历
+      // 如果没有写age, 用define添加的get/set, 则是不可遍历
+      var emp = { age: 10 }
+
+      Object.defineProperty(emp, '_age', { value: 10, writable: true })
+      console.log(emp)
+
+      Object.defineProperty(emp, 'age', {
+        get() {
+          return this._age
+        },
+        set(value) {
+          this._age = value
+        },
+      })
+
+      // 属性分 读 和 写 两种操作, 区别在于是否有 = 赋值
+      console.log(emp.age) //读 -- 如果有get配置,会触发
+      emp.age = 50 //写 -- 如果有set配置项, 则触发set
+
+      console.log(emp.age)
+    </script>
+  </body>
+</html>

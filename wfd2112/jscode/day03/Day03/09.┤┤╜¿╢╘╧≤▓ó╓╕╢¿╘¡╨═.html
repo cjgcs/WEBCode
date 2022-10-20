@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>创建对象并指定原型</title>
+  </head>
+  <body>
+    <script>
+      // var a = new Object()
+
+      // create: 创建
+      // 参数: 自定义创建出的对象的原型
+      var a = Object.create(Array.prototype)
+
+      console.dir(Object)
+      // 函数是个对象类型
+
+      console.log(a)
+
+      function b() {}
+      b.age = 33
+      console.dir(b)
+
+      // 语法糖: 作者提供的固定语法, 用来简化代码的
+      // 糖: 甜的 -- 让用户像吃了糖一样甜蜜..幸福..
+      var obj = {
+        a: function () {
+          console.log('aaa')
+        },
+        // 允许省略 : function
+        b() {
+          console.log('bbb')
+        },
+      }
+      obj.a()
+      obj.b()
+    </script>
+  </body>
+</html>

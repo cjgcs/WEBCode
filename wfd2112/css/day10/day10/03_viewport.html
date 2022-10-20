@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 媒体查询 */
+    /* 使用媒体查询规则 查询媒体screen(手机\pc\pad等) */
+    @media screen and (min-width:700px){
+      body{background-color: red;}
+    }
+    @media (max-width:900px) {
+      body{background-color: blue;}
+    }
+    /* 在任何终端都相同的属性完全可以写在外面,不写在媒体查询中 */
+    .box {height: 100px;}
+    /* 屏幕小于500的时候全屏宽 */
+    @media (max-width:500px) {
+      .box{
+        width: 100%;
+        background-color: aqua;
+      }
+    }
+    /* 屏幕500-700宽度60%宽 注意and两侧都要有空格*/
+    @media (min-width:500px) and (max-width:700px) {
+      .box {
+        width: 60%;
+        background-color: yellow;
+      }
+    }
+    /* 屏幕700-1200宽度40%宽 注意and两侧都要有空格*/
+    @media (min-width:700px) and (max-width:1200px) {
+      .box {
+        width: 40%;
+        background-color: green;
+      }
+    }
+    /* 屏幕大于1200的时候25%宽 */
+    @media (min-width:1200px) {
+      .box {
+        width: 25%;
+        background-color: purple;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+</body>
+</html>

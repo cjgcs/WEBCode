@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>同时配置多个属性</title>
+  </head>
+  <body>
+    <script>
+      var emp = { eid: '10001' }
+
+      // 参数2: 对象类型, 多个属性的配置
+      // defineProperties: 新函数, 配置多个
+      Object.defineProperties(emp, {
+        eid: { writable: false },
+        ename: { value: '认真的格格' },
+        salary: { value: '****' },
+      })
+      console.log(emp)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>参数解构</title>
+  </head>
+  <body>
+    <script>
+      // 如果传入的实参是 对象类型, 则形参位置可以直接用解构语法
+      function show({ name, age }) {
+        // 值从形参中解构出来
+        // const { name, age } = args
+
+        console.log(name, age)
+      }
+
+      var obj = { name: 'mike', age: 18 }
+
+      show(obj)
+    </script>
+  </body>
+</html>

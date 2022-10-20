@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 数组解构的使用场景:
+      var a = 10
+      var b = 20
+
+      // 希望互换 a 和  b 的值
+      //       [b,a] 是个数组, [20, 10]
+      // 必须用分号前缀, 与上一句代码分割,
+      // 否则会认为是 20[a,b] 报错
+      ;[a, b] = [b, a]
+
+      // var [a, b] = [20, 10]
+
+      console.log(a, b)
+    </script>
+
+    <script>
+      var r1 = {
+        w: 10, //宽
+        h: 20, //高
+        len: 30, //长
+        // get: 计算属性, 使用时不用() 就能触发
+        get area() {
+          // 面积= (长x宽 + 长x高 + 宽x高)*2
+          const { w, h, len } = this
+          // 相当于
+          // const w = this.w
+          // const h = this.h
+          // const len = this.len
+
+          return (w * h + w * len + h * len) * 2
+        },
+      }
+
+      console.log(r1.area)
+    </script>
+  </body>
+</html>

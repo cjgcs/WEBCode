@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>作业 10:15</title>
+    <style>
+      #box {
+        user-select: none;
+        border: 1px solid gray;
+        width: 450px;
+      }
+      #box img {
+        width: 100px;
+        height: 100px;
+      }
+      #box > div:first-child {
+        padding: 10px;
+        display: flex;
+        /* 空白间隔 */
+        justify-content: space-between;
+      }
+      #box > div:last-child {
+        display: none;
+      }
+      #box > div:last-child.open {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">
+      <div>
+        <span>lol46版本强势英雄</span>
+        <span>展开</span>
+      </div>
+      <div>
+        <img src="./imgs/pj4.png" alt="" />
+        <img src="./imgs/pj4.png" alt="" />
+        <img src="./imgs/pj4.png" alt="" />
+        <img src="./imgs/pj4.png" alt="" />
+      </div>
+      <div>
+        <img src="./imgs/pj3.png" alt="" />
+        <img src="./imgs/pj3.png" alt="" />
+        <img src="./imgs/pj3.png" alt="" />
+        <img src="./imgs/pj3.png" alt="" />
+        <img src="./imgs/pj3.png" alt="" />
+        <img src="./imgs/pj3.png" alt="" />
+        <img src="./imgs/pj3.png" alt="" />
+        <img src="./imgs/pj3.png" alt="" />
+      </div>
+    </div>
+
+    <script>
+      const btn = document.querySelector('#box>div:first-child>span:last-child')
+      console.log(btn)
+
+      btn.onclick = function () {
+        // 最后一个div
+        const d = document.querySelector('#box>div:last-child')
+        d.classList.toggle('open')
+
+        // 标签的内容: innerHTML
+        // 含有open->收起.  不含open->展开
+        // contains: 判断是否拥有 某个样式
+        this.innerHTML = d.classList.contains('open') ? '收起' : '展开'
+      }
+    </script>
+  </body>
+</html>

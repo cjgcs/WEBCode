@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>面试题</title>
+  </head>
+  <body>
+    <script>
+      var a = 10
+
+      function test() {
+        this.a = 90
+      }
+
+      // new运算符会在函数中, 隐式声明 var this = {}
+      // this.a 就是 {}.a = 90, 会在{}中添加 {a:90}, 没有影响到全局的a
+      new test()
+      console.log(a) // 10
+
+      // 默认不写,前缀是 window.test(),  所以 test() 中的this是window
+      // 其中的 this.a 修改的就是 window.a = 90
+      test() // 运行时所在对象: window
+      console.log(a) // 90 //没有前缀: 所以是 window.a
+    </script>
+  </body>
+</html>

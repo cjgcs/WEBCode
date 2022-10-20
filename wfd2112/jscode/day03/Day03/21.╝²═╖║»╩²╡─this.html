@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>箭头函数的this</title>
+  </head>
+  <body>
+    <script>
+      // 面试最常见问题: 区分 this 的指向
+      // function: 指向 `运行时` 所在 `对象`
+      // 箭头函数: 指向 `声明时` 所在 `作用域` 的this
+      var a = function () {
+        console.log('a:', this)
+      }
+      // 声明/书写: 在全局中写的, this永远都是全局的this
+      var b = () => console.log('b:', this)
+
+      // 语法糖: { 属性名: 变量名 } 恰好一样, 可以合一
+      var obj = { name: 'OBJ', a, b }
+      obj.a() // a运行时, 在 obj 里, 所以this就是obj
+      obj.b()
+    </script>
+
+    <script>
+      var emp = {
+        name: 'mike',
+        // emp.show():  所以show的this是 emp
+        show: function () {
+          console.log('show:', this) // emp
+          // 声明/书写: 在show函数中书写的, 使用的是show中的this
+
+          window.aa = () => {
+            console.log('aa:', this) // emp
+          }
+        },
+      }
+
+      emp.show()
+      aa() //??
+    </script>
+  </body>
+</html>

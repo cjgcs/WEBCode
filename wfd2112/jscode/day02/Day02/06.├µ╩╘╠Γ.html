@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>面试题</title>
+  </head>
+  <body>
+    <script>
+      var length = 10
+
+      function a() {
+        // this: 代表函数触发时所在对象
+        // 误区(考点): 和声明/书写时 所在位置无关
+        console.log(this.length)
+      }
+
+      var gege = {
+        show: function (a) {
+          // a函数触发时,没有前缀, 则属于哪个对象?
+          // 只有window可以省略不写,  window.a()
+          a() // window.length 10
+
+          // arguments 保存了函数收到的所有参数
+          // show 触发时, 传递了3个实参
+          arguments[0]()
+          // arguments[0] : 保存在arguments中序号0 的函数
+          // arguments[0](): 此时 函数中的this 就是arguments
+          // arguments.length 代表参数的个数
+
+          console.log(arguments)
+        },
+      }
+
+      gege.show(a, 10, 20)
+    </script>
+  </body>
+</html>

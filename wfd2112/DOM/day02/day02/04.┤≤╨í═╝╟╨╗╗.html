@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>大小图切换 11:11</title>
+    <style>
+      body {
+        background-color: lightblue;
+      }
+      #box > div:last-child > img {
+        /* transparent: 透明色 */
+        border: 2px solid transparent;
+        /* 如果不提前添加边框, 悬浮时再添加, 元素大小变化, 会动 */
+      }
+      #box > div:last-child > img.cur {
+        border-color: #e53e41;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">
+      <div>
+        <!-- lg: large 大 -->
+        <img src="./imgs/1_lg.jpg" alt="" />
+      </div>
+      <div>
+        <!-- small小 -> sm -->
+        <!-- 自定义属性: 可以在元素上利用自定义属性 保存任何的值 -->
+        <!-- 格式: data-属性名=值 -->
+        <img data-lg="1_lg.jpg" class="cur" src="./imgs/1.sm.jpg" alt="" />
+        <img data-lg="2.lg.jpg" src="./imgs/2.sm.jpg" alt="" />
+        <img data-lg="3.lg.jpg" src="./imgs/3.sm.jpg" alt="" />
+        <img data-lg="4.lg.jpg" src="./imgs/4.sm.jpg" alt="" />
+        <img data-lg="5.lg.jpg" src="./imgs/5.sm.jpg" alt="" />
+      </div>
+    </div>
+
+    <script>
+      const imgs = document.querySelectorAll('#box>div:last-child>img')
+
+      const img_lg = document.querySelector('#box>div:first-child>img')
+      console.dir(img_lg) // 展开对象, 找src属性
+
+      imgs.forEach(img => {
+        img.onmouseover = function () {
+          imgs.forEach(v => v.classList.remove('cur'))
+
+          this.classList.add('cur')
+          console.dir(this) //看看其中的 dataset 属性
+          // dataset属性: 存储了元素的自定义属性的值
+          // data-key=value :存在 dataset:{key:value}
+          // data-lg = xxx : dataset: {lg: xxx}
+          const lg = this.dataset.lg
+          // 把小图上存储的大图, 设置给 大图的 src
+          img_lg.src = `./imgs/${lg}` //大图名 拼接到路径里, 再赋值
+        }
+      })
+    </script>
+  </body>
+</html>

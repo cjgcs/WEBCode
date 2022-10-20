@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>apply</title>
+  </head>
+  <body>
+    <script>
+      // 函数的apply
+      // apply 和 call 一样
+      function show(a, b) {
+        console.log(a + b + this.c);
+      }
+
+      var x = { c: 100 };
+      show.call(x, 10, 20);
+      // 唯一差异: 参数用数组类型
+      show.apply(x, [10, 20]);
+
+      // 用途: 在ES6之前用, 由于书写过于繁琐, ES6中有了新语法
+      var max = Math.max(11, 22, 33, 44, 5);
+      console.log(max);
+
+      var nums = [12, 324, 54, 65, 76, 7];
+      // max函数无法处理数组类型, 只接受 1个1个传递的
+      // var max = Math.max(nums);
+      // max中没有用到this关键词, 所以参数1 写什么都行,不影响
+      var max = Math.max.apply(null, nums);
+
+      //ES6中:  ...展开符
+      var max = Math.max(...nums);
+
+      console.log(max);
+    </script>
+  </body>
+</html>

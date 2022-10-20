@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>面试题</title>
+  </head>
+  <body>
+    <script>
+      console.log(a) //undefined
+      console.log(b) // 报错:  函数b在表达式里, 不提升
+
+      // 函数书写在表达式中: 函数表达式
+      // 并非单纯的函数, 则 不 提升!
+      var a = function b() {}
+    </script>
+  </body>
+</html>

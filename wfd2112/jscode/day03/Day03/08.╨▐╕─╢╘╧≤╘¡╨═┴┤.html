@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>修改对象的原型链</title>
+  </head>
+  <body>
+    <script>
+      // 对象类型的 __proto__ 默认指向其 构造函数的prototype
+      // 但是我们可以修改 其指向其他的原型对象
+
+      function show() {
+        // 类数组: 原型非数组的原型, 没有数组方法
+        // 强制把 原型链 指向 数组的原型
+
+        // 官方不推荐直接操作 __proto__ 属性
+        // arguments.__proto__ = Array.prototype
+        // 官方提供了专门的方法来修改
+        // 参数1: 要改的对象   参数2: 要指向的原型
+        Object.setPrototypeOf(arguments, Array.prototype)
+
+        arguments.push(999)
+        console.log(arguments)
+      }
+
+      show(11, 22, 33, 44, 55)
+    </script>
+  </body>
+</html>

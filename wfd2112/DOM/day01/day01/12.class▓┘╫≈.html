@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>class操作 11:48</title>
+    <style>
+      #box {
+        width: 200px;
+        height: 200px;
+        border: 1px solid gray;
+      }
+      /* 代表 元素是 id='box' 同时带有 class='danger' */
+      #box.danger {
+        background-color: red;
+      }
+      #box.success {
+        background-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 真正开发时, 内联样式的书写过于复杂, 更常用 class 修改样式 -->
+    <button>危险</button>
+    <button>安全</button>
+    <div id="box"></div>
+
+    <script>
+      // body的子元素中, 解构前两个
+      const [btn0, btn1] = document.body.children
+      const box = document.getElementById('box')
+      // 属性 className 就是class属性. 因为class是JS关键词, 所以不能叫class
+      console.dir(box)
+
+      btn0.onclick = function () {
+        box.className = 'danger'
+      }
+      btn1.onclick = function () {
+        box.className = 'success'
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>面试题</title>
+  </head>
+  <body>
+    <script>
+      // 1. 函数触发后才能运行函数体的代码  函数名() 触发
+      // 2. 作用域链: 优先使用自身内部声明的变量
+      console.log(a) //undefined
+      var a = 6
+
+      function b() {
+        a = 10 // 修改的是函数中var 的a; 作用域链的就近原则
+        console.log(a) //10
+        var a
+      }
+      console.log(a) //6
+      b() // 触发函数体, 打印出10
+      console.log(a) //6
+    </script>
+  </body>
+</html>

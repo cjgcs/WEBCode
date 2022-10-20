@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>面试题</title>
+  </head>
+  <body>
+    <script>
+      function A() {
+        this.name = 'a'
+        this.color = ['green', 'yellow']
+      }
+      function B() {
+        // var this = {}
+        // this.__proto__ = B.prototype
+        // return this
+      }
+
+      // new A() 得到的对象 {name:"a", color:['green', 'yellow']}
+      B.prototype = new A()
+
+      // b1.__proto__ = B.prototype = {name:"a", color:['green', 'yellow']}
+      var b1 = new B()
+      var b2 = new B()
+
+      console.log(b1 == b2) //false: 不是同一个
+      // 都是 B.prototype 原型属性
+      console.log(b1.__proto__ == b2.__proto__) //true
+
+      console.log(b1)
+
+      // = :赋值符号
+      //考点: 原型链机制: 是 读属性发动的, 赋值不会触发
+      b1.name = 'change' // 赋值: 为对象添加属性 name:'change'
+      // 没有 = , 非赋值, 是读操作 -- 触发原型链
+      b1.color.push('black') // push 添加元素到数组末尾
+
+      console.log(b1.name) //change
+      console.log('b2:', b2)
+      console.log(b2.name) // a  -- 原型里的
+
+      // b1 和 b2 对象 的原型链__proto__ 都是 构造函数B的prototype属性
+      // 属于引用类型,
+      console.log(b1.color) // [green, yellow, black]
+      console.log(b2.color) // [green, yellow, black]
+
+      console.log(b1) // 引用类型, 同一个构造函数生成的不同对象,原型相同
+      // console.log(b2)
+    </script>
+
+    <script>
+      // 数组是对象类型的一种, 在堆内存
+      // 考点: 地址传递/引用类型,  a和b是同一个
+      var a = [11, 22]
+      var b = a
+      b.push(33)
+      console.log(a)
+    </script>
+  </body>
+</html>

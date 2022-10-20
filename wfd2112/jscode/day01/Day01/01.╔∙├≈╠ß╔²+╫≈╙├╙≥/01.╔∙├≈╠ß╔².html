@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>声明提升</title>
+  </head>
+  <body>
+    <!-- 
+      什么叫声明?
+      方式: var const let function 
+     -->
+    <script>
+      // 声明一个变量a, 把数字6 存储
+      var a = 6 //合写
+      // 拆分成两步:
+      var a // 开辟一个内存空间, 起名为 a;   var代表开辟内存空间
+      a = 6 // 把 6 放入 名字是a 的内存空间
+    </script>
+
+    <script>
+      // 声明提升: JS引擎的运行机制, 使用者不可见, 非常 `垃圾` 的机制
+      // 广受诟病! -- 书写的/看见的 和 真正运行的 是不同的!
+      // 程序员阅读JS代码时, 经常被眼睛所蒙蔽.. 看见的并非真正运行的样子
+      //
+      // JS代码在运行时, 分两个阶段:
+      // 阶段1: 查找到所有的声明操作(var/let/const/function) 移动到作用域顶部
+      // 阶段2: 然后执行变动后的代码
+
+      console.log(a)
+      a()
+
+      function a() {
+        console.log(111)
+      }
+    </script>
+  </body>
+</html>

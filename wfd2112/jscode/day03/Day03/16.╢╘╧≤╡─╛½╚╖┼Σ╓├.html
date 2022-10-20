@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>对象的精确配置</title>
+  </head>
+  <body>
+    <!-- 利用 define 方式新增计算属性 -->
+    <script>
+      var r1 = { w: 10, h: 40 }
+
+      Object.defineProperty(r1, 'area', {
+        // get: function () {},
+        get() {
+          return this.w * this.h
+        },
+      })
+      console.log(r1)
+      // area: 有 get 配置项, 直接自动触发get获取值
+      console.log(r1.area)
+    </script>
+
+    <script>
+      var p = {
+        price: 100,
+        count: 45,
+      }
+      // 利用define 新增属性:  total 计算出总价格
+      Object.defineProperty(p, 'total', {
+        get() {
+          return this.price * this.count
+        },
+      })
+
+      console.log(p.total) //不需要()就能触发
+    </script>
+  </body>
+</html>

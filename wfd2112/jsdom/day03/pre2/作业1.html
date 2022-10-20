@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .box {
+        width: 400px;
+        margin: 100px auto 0;
+      }
+      table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: 1px solid #4c4c4c;
+        width: 400px;
+      }
+      th,
+      td {
+        border: 1px solid #4c4c4c;
+        text-align: center;
+      }
+      th {
+        background-color: #cccccc;
+        padding: 5px 0;
+      }
+      a {
+        color: #464797;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="box">
+      <table>
+        <thead>
+          <tr>
+            <th>姓名</th>
+            <th>科目</th>
+            <th>成绩</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>魏璎珞</td>
+            <td>JavaScript</td>
+            <td>100</td>
+            <td><a class="del">删除</a></td>
+          </tr>
+          <tr>
+            <td>弘历</td>
+            <td>JavaScript</td>
+            <td>90</td>
+            <td><a class="del">删除</a></td>
+          </tr>
+          <tr>
+            <td>傅恒</td>
+            <td>JavaScript</td>
+            <td>99</td>
+            <td><a class="del">删除</a></td>
+          </tr>
+          <tr>
+            <td>明玉</td>
+            <td>JavaScript</td>
+            <td>89</td>
+            <td><a class="del">删除</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <script>
+      // var del=document.querySelectorAll("a")
+      var alis = document.getElementsByTagName("a");
+      // console.log(alis[0]);
+      var trs = document.querySelectorAll("tbody tr");
+      // console.log(trs[0]);
+      // console.log(trs);
+      console.log(trs.ls);
+      
+      alis[0].onclick = function () {
+        trs[0].remove();
+        alert("删除成功");
+      };
+      alis[1].onclick = function () {
+        trs[1].remove();
+        alert("删除成功");
+      };
+      alis[2].onclick = function () {
+        trs[2].remove();
+        alert("删除成功");
+      };
+      alis[3].onclick = function () {
+        trs[3].remove();
+        alert("删除成功");
+      };
+    </script>
+  </body>
+</html>

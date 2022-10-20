@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promise - 11:52 ~ 14:00</title>
+  </head>
+  <body>
+    <script>
+      // Promise: 承诺
+      // 是 ES6 中提供的一个构造函数, 可以从语法上解决回调地狱问题
+
+      // 固定语法:
+      new Promise((resolve, reject) => {
+        // 只能触发一种状态, reject 和 resolve 二选一
+
+        // resolve: 解决, 调用时会触发 then 中的箭头函数
+        // 在异步操作成功时 调用
+        // resolve('resolve被触发') // 参数会传给then中的 res
+
+        // reject: 拒绝, 调用时触发 catch 中的箭头函数
+        // 在异步操作失败时 调用
+        reject('reject触发')
+      })
+        .then(res => {
+          console.log('res:', res)
+        })
+        .catch(err => {
+          console.log('err:', err)
+        })
+    </script>
+
+    <script>
+      const promise = new Promise((resolve, reject) => {
+        resolve('success1') // 执行后变为 fulfilled 状态
+        // 内部会在执行前, 判断状态是否为pending, 是才会执行
+        reject('error')
+        resolve('success2')
+      })
+
+      promise
+        .then(res => {
+          console.log('then:', res)
+        })
+        .catch(err => {
+          console.log('catch:', err)
+        })
+    </script>
+  </body>
+</html>

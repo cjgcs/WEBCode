@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>reduce - 09:20</title>
+  </head>
+  <body>
+    <script>
+      var nums = [12, 3, 54, 65, 7, 67]
+
+      // reduce: 两个参数
+      // 参数1: 回调函数, 返回值是每次累加的和
+      // 参数2: total首次遍历的初始值, 默认不写是数组的第一个元素
+      var a = nums.reduce((total, value) => {
+        return total + value
+      }, 0)
+
+      console.log('a:', a)
+
+      var products = [
+        { name: 'iPhone13', price: 9999, count: 4 },
+        { name: 'S22+', price: 8999, count: 5 },
+        { name: 'Find X5', price: 6999, count: 14 },
+        { name: 'MATE40', price: 7999, count: 3 },
+      ]
+      // 练习: 计算出商品的总价格  pirce单价  count数量
+      var a = products.reduce((total, value) => {
+        // 利用解构语法: 先拿出来, 再用
+        // var let const 使用的优先级: const > let > var
+        // 如果变量赋值后 只是用, 不会改 则 const
+        // 如果变量后期会变: 用let
+        // var: 考虑兼容性的场景中使用 -- 兼容旧版本
+        const { price, count } = value
+        return total + price * count
+      }, 0)
+
+      console.log(a)
+    </script>
+
+    <script>
+      // checked: 是否勾选, 常见于购物车场景
+      var products = [
+        { name: 'iPhone13', price: 9999, count: 4, checked: true },
+        { name: 'S22+', price: 8999, count: 5, checked: true },
+        { name: 'Find X5', price: 6999, count: 14, checked: false },
+        { name: 'MATE40', price: 7999, count: 3, checked: true },
+      ]
+      // 计算出 checked属性为true的元素的总和: 即 勾选的物品
+      var a = products.reduce((total, value) => {
+        const { price, count, checked } = value
+        // 简化写法:
+        // 隐式类型转换: 在数学计算中, true->1  false->0
+        // 小学知识: 乘0 是0, 乘1 是自身checked
+        return total + price * count * checked
+
+        // if (checked) {
+        //   return total + price * count
+        // } else {
+        //   // 不累加, 则直接返回当前的总和
+        //   return total
+        // }
+      }, 0)
+
+      console.log(a)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>输入框相关事件 16:05</title>
+  </head>
+  <body>
+    <input type="text" name="" id="inp" />
+
+    <script>
+      const inp = document.getElementById('inp')
+      console.dir(inp)
+
+      // 获得焦点 focus
+      inp.onfocus = function () {
+        console.log('focus: 获得焦点')
+      }
+
+      // 失去焦点 blur
+      inp.onblur = function () {
+        console.log('blur: 失去焦点')
+      }
+
+      // 输入框内容变化 change:  有改动 -> 回车或失去焦点
+      // 事件参数: 事件触发的函数, 会接受事件参数--保存了事件相关的内容
+      inp.onchange = function (e) {
+        // 形参名随便写.  event事件, 简称习惯写 e
+        console.log('change: 内容变化')
+        // 事件中的target属性: 当前触发事件的元素.  相当于this关键词
+        console.log(e)
+        // 输入框的值存储在其 value 属性里
+        console.log(e.target.value)
+        console.log(this.value) //此场景中 this 和 e.target 是相同的元素
+      }
+
+      // 实时内容变化  input
+      inp.oninput = function (e) {
+        // 输入框内容的读取操作分两个方案:
+        // 1. 利用事件参数读取
+        console.log('input:', e.target.value)
+        // 2. 利用this 读
+        console.log('input:', this.value)
+      }
+
+      // 键盘事件 keyup 按键抬起
+      inp.onkeyup = function (e) {
+        console.log('keyup:', e)
+        // 事件中: key 和 keyCode 可以用于辨别按钮是什么
+        // key: 按键的名字   keyCode: 按钮的编号
+        if (e.keyCode == 13) {
+          alert('回车被点击了!')
+        }
+      }
+    </script>
+  </body>
+</html>

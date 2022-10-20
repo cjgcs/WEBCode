@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>new运算符</title>
+  </head>
+  <body>
+    <script>
+      // 构造函数是 JS中最常见的一种函数用法
+      // 可以说是固定写法:
+      // 1. 先制作一个空对象
+      // 2. 向对象中添加属性
+      // 3. 返回制作的对象
+
+      // 制作一个构造函数, 创建出矩形对象
+      function Rect(w, h) {
+        // 作者提供new运算符: 默认隐式完成两行代码 (暂时)
+        // var this = {}
+        console.log('this:', this)
+
+        this.w = w
+        console.log(this)
+        this.h = h
+        console.log(this)
+
+        // return this
+      }
+
+      var r1 = new Rect(10, 5)
+      console.log(r1) //希望得到 {w:10, h:5} 这样的对象
+    </script>
+  </body>
+</html>

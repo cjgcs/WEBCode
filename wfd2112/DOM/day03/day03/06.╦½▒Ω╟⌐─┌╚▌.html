@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>双标签内容 11:54</title>
+  </head>
+  <body>
+    <div id="box">
+      <a href="http://tmooc.cn">Welcome to Tmooc</a>
+    </div>
+
+    <div id="app">Hello</div>
+
+    <script>
+      // innerHTML 读取内容中: HTML+文本
+      // innerText 读取内容中: 文本
+      // 如果内容中只有文本的场景: 则读取结果相同, 即 文本
+      console.log(app.innerHTML)
+      console.log(app.innerText)
+
+      const box = document.getElementById('box')
+      console.dir(box) // 查看其属性: innerHTML 和 innerText
+
+      // inner: 内部的
+      console.log(box.innerHTML) // 标签内容中的 HTML代码
+      console.log(box.innerText) // 标签内容中的 文本, 不含HTML标签
+
+      // 修改时的差异:
+      // innerHTML: 把值当做是 html 代码来解析
+      box.innerHTML = '<h1>Hello</h1>'
+      // innerText: 把值作为普通文本进行显示, 不会当做HTML来解析
+      box.innerText = '<h1>Hello</h1>'
+    </script>
+  </body>
+</html>

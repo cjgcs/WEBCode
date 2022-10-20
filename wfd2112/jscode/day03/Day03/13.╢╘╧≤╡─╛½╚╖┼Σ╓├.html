@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>对象的精确配置</title>
+  </head>
+  <body>
+    <script>
+      var emp = { eid: '10001', ename: '涛涛' }
+
+      // 区别:
+      // 普通方式声明的属性: 所有配置都是真 - 可写, 可遍历, 可删
+      // 用 define 方式声明: 所有配置都是假 - 不可写, 不可遍历, 不可删
+
+      // 新增 age 属性
+      Object.defineProperty(emp, 'age', {
+        value: 40, //值: 赋值
+        // configurable: true, //可以手动配置
+      })
+
+      delete emp.ename //普通方式声明: 可以删
+      delete emp.age //define方式声明: 不可以删除
+
+      console.log(emp)
+    </script>
+  </body>
+</html>

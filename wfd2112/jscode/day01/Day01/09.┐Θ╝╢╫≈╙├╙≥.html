@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>块级作用域</title>
+  </head>
+  <body>
+    <script>
+      // ES6之前: 全局作用域 和 函数|局部作用域
+      // ES6之后: 脚本作用域 和 块级作用域
+
+      // 新增2个作用域都是伴随: let/const 而生
+      // 在脚本中,直接用 let/const 声明的变量, 就会存在脚本区
+      let a = 10
+      const b = 20
+      console.log(a, b)
+
+      // 块级作用域: {} 配合 let/const 使用
+      // 哪些语法带{} 能形成块级作用域: if for switch while
+      // function 带{}, 但是是函数作用域
+      // 对象{}: 其中不能写let, 所以不会形成块级作用域
+      // var c = {name:'mike', age:'44', let k=33}
+
+      {
+        let a = 30
+        const b = 50
+        console.log(a, b)
+      }
+
+      // ES6之前: 全局window + 局部 函数
+      // ES6之后: 脚本(新的全局)  + 块级(局部作用域)
+    </script>
+  </body>
+</html>

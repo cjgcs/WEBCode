@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dom</title>
+  </head>
+  <body>
+    <!-- 可以把HTML理解成语法糖: 快速创建出 JS的DOM元素 -->
+    <!-- 真正运行时, 会解析成JS的代码 -->
+    <!-- 学习DOM之后, 就可以通过 JS 灵活操作页面 -->
+    <div>Hello</div>
+    <div>World</div>
+
+    <script>
+      console.log(window)
+      // HTML代码真正运行时, 会转换成 window的document对象
+      // 页面上显示的内容, 实际上是document对象
+      console.log(window.document)
+
+      setInterval(() => {
+        var t = new Date().toLocaleTimeString()
+        //
+        document.title = t
+      }, 1000)
+    </script>
+  </body>
+</html>

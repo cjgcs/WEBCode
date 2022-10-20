@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html {
+        font-size: 30px;
+      }
+      div {
+        font-size: 12px;
+      }
+      div p {
+        /* 1:em是相对于父元素的字体大小来说的 */
+        width: 10em; /*12px=1em 10em*12px=120px*/
+        height: 10em;
+        background-color: pink;
+        /* 2:rem 相对于html元素字体大小来说的 */
+        width: 10rem; /*1rem=30px 10rem=10*30px=300px*/
+        height: 10rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <p></p>
+    </div>
+  </body>
+</html>

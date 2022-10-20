@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>通过id读取元素 09:40</title>
+  </head>
+  <body>
+    <div>
+      <div>
+        <div>
+          <!-- id: 唯一标识 -->
+          <p id="p1">Hello</p>
+          <p>全普兄弟</p>
+        </div>
+        <div>World</div>
+      </div>
+    </div>
+
+    <script>
+      // 按照id查找元素
+      const p1 = document.getElementById('p1')
+
+      // 浏览器默认把 id 的元素, 自动读取; 绑定在同名的属性, 可以直接用
+      console.log(p1)
+
+      // 不推荐直接用id 属性
+      // 1. 使用时没有代码提示
+      // 2. 兼容性: 旧版本浏览器不支持此用法
+      // 3. 猪队友: 你的小伙伴可能不知道能直接用
+    </script>
+  </body>
+</html>

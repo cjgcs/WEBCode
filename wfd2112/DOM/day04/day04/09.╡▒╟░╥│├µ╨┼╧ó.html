@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>当前页面信息 15:11</title>
+  </head>
+  <body>
+    <button onclick="location.reload()">reload:重载 刷新</button>
+    <button onclick="location.replace('http://tmooc.cn')">replace:替换</button>
+
+    <script>
+      // location: 当前页面浏览器的地址相关信息
+      console.log(location)
+
+      // url传参语法:   路径?参数=值&参数=值
+      // 参数部分存储在 search 属性里
+      // URLSearchParams: 专门用于 从 search 中提取 数据
+      const params = new URLSearchParams(location.search)
+      // 读取name的值
+      console.log(params.get('name'))
+      console.log(params.get('age'));
+    </script>
+  </body>
+</html>

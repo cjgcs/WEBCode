@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/bootstrap.js"></script>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+        }
+        .d1{
+            height: 1000px;
+        }
+        .d1 div{
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        基础类：必写的类
+        边框：border-0去除边框
+        border-0/1/2/3/4/5设置边框线的宽度 单位px
+        设置圆角：rounded，弧度0-3  0是没有圆角
+        <img src="../img/1.jpg" alt="" class="rounded-pill">胶囊
+        flex：必须设置d-flex==display：flex
+        flex-row默认从左往右
+
+    -->
+     <div class="container">
+        <!-- <div class="border-top">boot</div> -->
+        <!-- <div class="border-top">boot</div> -->
+        <!-- <div class="border-right">boot</div> -->
+        <!-- <div class="border-bottom">boot</div> -->
+        <!-- <span class="border border-4">boot</span>
+        <span class="border border-primary">boot</span>
+        <span class="border border-3 rounded-3">boot</span>
+        <div class="border rounded">111
+           <img src="../img/1.jpg" alt="" class="rounded-pill">
+        </div>-->  
+    </div> 
+        <!-- 主轴对齐方式 -->
+        <!-- <div class="d-flex border flex-sm-column-reverse justify-content-evenly">
+            <div class="border border-danger bg-info">1</div>
+            <div class="border border-danger bg-info">2</div>
+            <div class="border border-danger bg-info">3</div>
+            <div class="border border-danger bg-info">4</div>
+        </div> -->
+        <!-- 交叉轴对齐方式 -->
+        <!-- <div class="d-flex border d1 align-items-start">
+            <div class="border border-danger bg-info">1</div>
+            <div class="border border-danger bg-info">2</div>
+            <div class="border border-danger bg-info">3</div>
+            <div class="border border-danger bg-info">4</div>
+        </div> -->
+        <!-- 
+        内边距 pt(上) ps(左) pe(下) pb(下)
+        外边距 mt(上) ms(左) me(下) mb(下)
+        范围0-5
+        浮动：
+        float-start 左浮动
+        float-end 右浮动
+        float-none 不浮动
+        clearfix 清除浮动
+        -->
+        <div class="pt-2 ps-2">666</div>
+
+        <div class="border float-start bg-success"></div>
+        <div class="float-end"></div>
+        <div class="float-none"></div>
+    
+</body>
+</html>

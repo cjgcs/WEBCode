@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bind</title>
+  </head>
+  <body>
+    <!-- bind：绑定 -->
+    <!-- 为函数绑定 this指向 和 相关参数, 返回绑定好的新函数 -->
+    <script>
+      function show(a, b) {
+        console.log(a + b + this.c);
+      }
+
+      var x = { c: 100 };
+
+      var show_b = show.bind(x, 10, 20);
+      console.dir(show_b);
+      console.log(show_b == show);
+
+      // 后期随时都可以触发
+      show_b();
+    </script>
+
+    <!-- 
+      函数的触发方式 有 4 种:
+      - 普通() : 最常用,  this自动指向触发时所在对象
+      - call: 手动指定this, 框架底层常见, 面试常考
+      - apply: 在ES6中有替代方案, 数组转换成参数
+      - bind: 绑定好参数和this, 以后触发 -- 5阶段才用到
+     -->
+  </body>
+</html>

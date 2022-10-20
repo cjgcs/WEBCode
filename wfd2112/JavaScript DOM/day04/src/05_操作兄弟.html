@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>苹果</li>
+        <li id="li">梨</li>
+        <li>桃子</li>
+    </ul>
+    <script>
+      var li = document.getElementById("li");
+      //前一个兄弟1  空格换行
+      var li2 = li.previousSibling;
+      console.log(li2);
+      //前一个兄弟2  靠谱 苹果      11:27 完成任务
+      var li3 = li.previousElementSibling;
+      console.log(li3);
+      //下一个兄弟    空格换行
+      var li4 = li.nextSibling;
+      console.log(li4);
+      //下一个兄弟
+      var li5 = li.nextElementSibling;
+      console.log(li5);
+
+      
+    </script>
+</body>
+</html>

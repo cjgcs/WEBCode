@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>历史操作 15:31</title>
+  </head>
+  <body>
+    <!-- 历史操作的万能属性: go -->
+    <button onclick="history.go(-1)">后退</button>
+    <button onclick="history.go(0)">刷新</button>
+    <!-- 正数: 代表前几的次数 -->
+    <button onclick="history.go(1)">前进1</button>
+    <button onclick="history.go(2)">前进2</button>
+    <br />
+    <!-- 先点击tmooc, 在返回当前页, 才能点前进按钮 -->
+    <a href="http://tmooc.cn">tmooc</a>
+
+    <script>
+      console.log(history)
+    </script>
+  </body>
+</html>

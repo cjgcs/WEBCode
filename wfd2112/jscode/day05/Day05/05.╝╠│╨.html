@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>继承 - 11:07</title>
+  </head>
+  <body>
+    <!-- 继承:  -->
+    <!-- JS中: 自己没有, 从原型链中查找 -->
+    <!-- JAVA: 类自身没有, 则到父类中查找 -->
+    <script>
+      class Father {
+        constructor(w, h) {
+          this.w = w
+          this.h = h
+        }
+        area() {
+          return this.w * this.h
+        }
+      }
+      // Son类 继承(extends) Father类
+      // extends: 本质就是 把Father 作为 Son 的原型链
+      class Son extends Father {
+        zc() {
+          return (this.w + this.h) * 2
+        }
+      }
+
+      var s1 = new Son(10, 5)
+      console.dir(s1) //看看原型链
+      s1.zc()
+      s1.area()
+    </script>
+  </body>
+</html>

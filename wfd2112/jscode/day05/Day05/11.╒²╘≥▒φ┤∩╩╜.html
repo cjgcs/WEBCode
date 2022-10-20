@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>正则表达式 16:00</title>
+  </head>
+  <body>
+    <!-- 正则表达式: Regular Expression  简称 RegExp -->
+    <!-- 一套 模糊匹配 字符串的方案 -->
+    <!-- 正则提供一套固定的元字符, 来完成匹配操作 -->
+    <!-- MDN: JS最标准的网站 -->
+
+    <script>
+      var words = '亮亮欠我500元, Such a'
+      // 查找出 字符串中的 所有数字
+      // 正则字符: \d 代表1个数字, 等价于 [0-9]
+
+      // 把 正则字符 转换成 JS的 正则对象, 才能使用.
+      // 转换方式分: 字面量(/正则/) 和 构造写法
+      // []数组; {}对象; ''字符串; //正则
+
+      // 正则默认: 匹配出第一个符合条件的
+      // 正则修饰符: g - global全局, 改为全局匹配
+      var r = /\d/g
+      console.dir(r) //用dir打印,看本质
+
+      // 字符串的方法: match(正则对象)
+      // match: 匹配,  把满足正则对象要求的内容匹配出来
+      console.log(words.match(r))
+    </script>
+  </body>
+</html>

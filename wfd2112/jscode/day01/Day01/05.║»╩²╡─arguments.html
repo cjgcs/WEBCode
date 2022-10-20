@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>函数的arguments属性</title>
+  </head>
+  <body>
+    <script>
+      // 函数默认带有一个 隐藏变量: arguments, 会保存函数收到的所有参数
+      // 内容类似数组,但原型不是数组, 所谓称为: 类数组 类型 -- 类似数组的类型
+      function show() {
+        console.log('arguments:', arguments)
+      }
+
+      show(11, 22, 33, 44, 55)
+
+      // 系统提供的求最大值 Math.max()
+      console.log(Math.max(11, 22))
+      console.log(Math.max(11, 22, 434, 143))
+      console.log(Math.max(11, 22, 434, 143, 43, 435))
+
+      //制作接收不固定数量参数的函数:
+      function max() {
+        console.log(arguments)
+        // 暂时把数组中的 第一个元素 作为最大值
+        var max_num = arguments[0]
+        // 循环对比剩余的值
+        for (var i = 1; i < arguments.length; i++) {
+          // 如果遍历出来的值 > 临时的最大值, 则覆盖最大值
+          var val = arguments[i] //下标取值
+          // if的语法糖: if(){}  {}中只有一行,可以省略{}
+          if (val > max_num) max_num = val
+        }
+
+        return max_num
+      }
+
+      console.log(max(11, 22))
+      console.log(max(11, 22, 4, 23))
+    </script>
+  </body>
+</html>

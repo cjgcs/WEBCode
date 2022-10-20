@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>京东作业</title>
+    <style>
+        *{padding:0;margin:0;}
+        .main{
+            width:990px;
+            height:66px;
+            margin: 0 auto;/*外边距 上下0 左右居中auto*/
+            position: relative;/*相对定位*/
+        }
+        .main img{
+            width:100%;
+            height:100%;
+        }
+        .main button{
+            position: absolute;
+            right:15px;
+            top:5px;
+        }
+        /*9:05 完成任务*/
+    </style>
+</head>
+<body>
+    <div class="main">
+       <img src="images/2.jpg" id="pic">
+       <button id="close">X</button>
+    </div>
+    <script>
+        //关闭广告    9:09 
+        //1:获取按钮与父元素
+        var close  = document.getElementById("close");
+        var main = document.querySelector(".main");
+        //2:为按钮绑定点击事件
+        close.onclick = function(){
+          //3:在事件处理函数中隐藏父元素
+          main.style.display = "none";
+        }
+    </script>
+</body>
+</html>

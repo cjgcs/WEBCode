@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>对象的精确配置</title>
+  </head>
+  <body>
+    <script>
+      // 拦截/监听赋值操作
+      var emp = {
+        ename: '亮亮',
+        age: 35,
+      }
+
+      // 提前为 age 声明 _age 这个辅助属性
+      // 默认是不可写的状态, 必须手动配置成可写, 后续的
+      // this._age = value;  才能正常赋值
+      Object.defineProperty(emp, '_age', {
+        writable: true, //可写
+        value: 35, //默认值
+      })
+
+      Object.defineProperty(emp, 'age', {
+        // emp.age  读取属性时, 如果get配置项, 则返回此函数的返回值
+        get() {
+          return this._age
+        },
+        // set: 设置
+        // 当对属性age赋值时, 如果发现 set 配置项, 则赋值被拦截
+        set: function (value) {
+          console.log('age赋值为:', value)
+          if (value > 1 && value < 110) {
+            // 正确时: 赋值给age
+            // 此写法: 会再次触发 age 的set, 造成无限循环
+            // this.age = value
+            // 习惯上创建 辅助属性 _age,  _是一个标识, 代表是辅助的
+            this._age = value
+          } else {
+            throw Error('亮亮活不到:' + value)
+          }
+        },
+      })
+
+      // 设定: 1-110
+      // emp.age = 200
+      emp.age = 50
+      console.log(emp)
+      // 虽然 年龄真正存储在 _age 属性里, 但是用户不知道
+      // console.log(emp._age)
+      console.log(emp.age) //触发 get 配置项
+    </script>
+
+    <!-- 
+      拦截器: 属性在赋值时, 排除一些明显不合法的赋值
+      - 给age属性添加 set 配置项, 拦截属性的赋值操作 = 
+      - 判断值不合理 - throw 抛出错误
+      - 判断值合理 - 把值保存下来
+        -- this.age = value;  会再次触发set 造成无限循环
+        -- 解决方案: 做一个辅助属性 _age 来存储值, 打破循环
+        -- 辅助属性应该是幕后的, 所以做成不可遍历 -- 浅色 更合适
+          -- 利用 define 方式为 emp 增加_age; 默认此方式新增的属性 所有配置都是假
+              必须手动设置为 writable:true;  运行赋值
+      - 读取属性的值: 
+        - 由于值存在 _age 里,  通过 emp._age 可以读取 但是 对用户不合理
+        - 存 emp.age = 50; 凭什么要写 emp._age才能读;  应该实现 emp.age 也能读取
+        -- emp.age 读操作, 会触发 计算属性 get 配置, 在get配置项中,返回_age 的值即可
+      - 如果一个属性 age, 同时具有 get/set 两个配置项, 就是深色的
+     -->
+  </body>
+</html>

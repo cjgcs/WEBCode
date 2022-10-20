@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        li {
+            list-style-type: none;
+        }
+        
+        .box {
+            width: 250px;
+            margin: 100px auto;
+        }
+        
+        .box li {
+            float: left;
+            width: 24px;
+            height: 24px;
+            background-color: pink;
+            margin: 15px;
+            background: url(images/sprite.png) no-repeat;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script>
+        //任务：移动精灵位置使用li准确显示指定图片
+        //1:获取所有LI元素   12   每个都需指定background-position
+        var lis = document.querySelectorAll(".box li");
+        //2:创建循环遍历所有LI元素   13：53 完成任务
+        for(var i=0;i<lis.length;i++){
+           //2.1:为每个LI指定背景图位置background-position
+           //        0  0   0   -44      0 -88   0 -132...
+           //i*44 y  [0]0   [1] -44     [2] -88  [3] -132
+           lis[i].style.backgroundPosition="0 -"+(i*44)+"px";
+        }
+    </script>
+</body>
+
+</html>

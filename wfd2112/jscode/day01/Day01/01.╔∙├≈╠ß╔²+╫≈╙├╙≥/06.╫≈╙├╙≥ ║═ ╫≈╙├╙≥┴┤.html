@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 作用域: JS中存在4种作用域
+      // 全局作用域
+      // 函数作用域
+      // 块级作用域
+      // 脚本作用域
+      var a = 10
+      var d = 20
+
+      function b() {
+        // 函数内声明的, 属于函数作用域
+        var a = 33
+        // 作用域链: 就近原则, 自己有用自己的, 自己没有到外层查找
+        console.log(a, d) // 33 20
+        console.log(c) // 报错: 未定义
+      }
+
+      b()
+    </script>
+  </body>
+</html>

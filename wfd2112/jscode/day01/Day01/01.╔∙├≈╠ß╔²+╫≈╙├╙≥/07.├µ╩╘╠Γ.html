@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>面试题</title>
+  </head>
+  <body>
+    <script>
+      // 函数体中的代码, 必须调用函数才能触发
+      function e() {
+        console.log(111)
+        console.log(222)
+        console.log(333)
+      }
+
+      // 函数必须触发 才能运行函数体中的代码
+      e() //用()触发函数
+    </script>
+
+    <script>
+      console.log(a) // undefined
+      var a = 6
+
+      function b() {
+        a = 10
+        console.log(a) //10
+      }
+      console.log(a) //6
+      b() //触发b函数内的代码: 打印出10
+      console.log(a) //10
+    </script>
+  </body>
+</html>

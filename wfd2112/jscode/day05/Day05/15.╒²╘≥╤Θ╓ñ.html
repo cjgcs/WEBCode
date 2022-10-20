@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>正则验证 17:15</title>
+  </head>
+  <body>
+    <script>
+      // 正则大全: http://www.codece.com/archives/270
+      var phone = '13988889998'
+      // 手机号特点: 1开头 第二位3-9  共11位
+      // ^ 开头;  $ 结尾;
+      var r = /^1[3-9]\d{9}$/
+
+      // 正则验证: 不是字符串的方法, 是正则对象的
+      // 与之前的 match replace 不一样, 这两个是字符串的方法
+      console.log(r.test(phone)) // 正则对象.test(字符串)
+      // test: 验证, 测试
+    </script>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>new运算符</title>
+  </head>
+  <body>
+    <script>
+      function Rect(w, h) {
+        // new运算符: 作者提供的, 用于省略构造函数的固定代码的
+        // var this = {}
+        this.w = w
+        this.h = h
+
+        // __proto__: 原型链 -- 对象的属性
+        // prototype: 原型 -- 构造函数的属性
+        // this.__proto__ = Rect.prototype
+        // return this
+      }
+
+      // 全局中声明的, 存储在全局中: window里
+      // prototype 是为 Rect 函数而生的, 放在全局区会造成全局污染
+      // 所以放在 Rect函数中 更合适
+      // 函数是对象类型: 函数体只是函数的一部分
+      console.dir(Rect)
+
+      // 函数抽离到外部的方法, 应该保存到
+      // 函数的 prototype 属性里:  作者专门准备的属性
+      Rect.prototype.area = function () {
+        console.log(this.w * this.h)
+      }
+
+      Rect.prototype.zc = function () {
+        console.log((this.w + this.h) * 2)
+      }
+
+      var r1 = new Rect(10, 20)
+      console.log(r1)
+
+      // 面试常考:
+      // 对象的 原型链 就是 构造函数的原型
+      console.log(r1.__proto__ == Rect.prototype) //true
+
+      var r2 = new Rect(220, 300)
+      // r1.__proto__ = Rect.prototype
+      // r2.__proto__ = Rect.prototype
+      // 同一个构造函数 创建的对象, 原型是相同的
+      console.log(r1.__proto__ == r2.__proto__) // true
+    </script>
+  </body>
+</html>

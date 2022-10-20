@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>页数指示 16:06</title>
+
+    <style>
+      #pages {
+        background-color: #f5f5f6;
+        padding: 10px;
+        /* 用户无法选中文本 */
+        user-select: none;
+      }
+      #pages > span {
+        display: inline-block;
+        width: 40px;
+        text-align: center;
+        /* 1行文字, 竖向居中的写法 */
+        line-height: 40px;
+        background-color: white;
+        border-radius: 3px;
+        color: #36d;
+      }
+      #pages > span:hover {
+        background-color: rgba(51, 102, 221, 0.1);
+      }
+      #pages > span.current {
+        background-color: #36d;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="pages">
+      <!-- current: 当前 -->
+      <span class="current">1</span>
+      <span>2</span>
+      <span>3</span>
+      <span>4</span>
+      <span>5</span>
+      <span>6</span>
+    </div>
+
+    <script>
+      const pages = document.querySelectorAll('#pages > span')
+      console.log(pages)
+
+      pages.forEach(page => {
+        page.onclick = function () {
+          // 1.找到当前高亮的, 删除其样式
+          // var c = document.querySelector('#pages .current')
+          // c.classList.remove('current')
+
+          // 思路2: 遍历删除每个元素的样式, 不管有没有
+          pages.forEach(page => page.classList.remove('current'))
+
+          // 2. 为当前点击项 添加样式
+          this.classList.add('current')
+        }
+      })
+    </script>
+  </body>
+</html>

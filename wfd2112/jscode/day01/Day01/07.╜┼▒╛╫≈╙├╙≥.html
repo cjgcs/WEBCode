@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>脚本作用域</title>
+  </head>
+  <body>
+    <script>
+      // 4种作用域:
+      // 全局作用域
+      // 函数作用域/局部作用域
+      //
+      // 脚本作用域
+      // 块级作用域
+
+      // var : 声明提升+全局变量污染
+      // 浏览器中 window 就是全局对象 -> 全局作用域
+      // window: 本身是存储系统属性的;
+      // var 声明的变量也会存储在window里, 导致 自定义变量 和 系统变量混合在一起 -- 称为 全局变量污染
+      var a = 10
+      console.log(window)
+
+      // ES6提供 let 和 const
+      // let/const :没有全局污染, 因为声明的变量存储在 脚本作用域 中
+      let aa = 10
+      console.log(aa)
+    </script>
+  </body>
+</html>

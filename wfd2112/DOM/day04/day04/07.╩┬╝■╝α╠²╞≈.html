@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>事件监听器 14:21</title>
+  </head>
+  <body>
+    <button>Click Me!</button>
+
+    <script>
+      // 事件监听器: 可以为同一个事件 绑定多个方法
+      const btn = document.querySelector('button')
+
+      btn.onclick = function () {
+        console.log(11111)
+      }
+      // onclick属性的值, 被后写的覆盖了
+      btn.onclick = function () {
+        console.log(22222)
+      }
+      // 团队合作时: 由于是多人操作, 很有可能出现  一个按钮 被不同的人 绑定不同的事件
+      // 事件监听器:
+      // add添加 Event事件 Listener监听器
+      // 参数1: 事件名   参数2: 对应的函数
+      // onclick : on当...时   click:事件名
+      btn.addEventListener('click', function () {
+        console.log(33333)
+      })
+
+      btn.addEventListener('click', function () {
+        console.log(44444)
+      })
+
+      // 要想删除事件, 必须掌握事件绑定的函数的地址
+      const a = function () {
+        console.log(5555)
+        // 场景: 希望打印555操作, 只执行一次
+        // 通用说法: 希望绑定的事件只执行一次, 后续不再执行
+        btn.removeEventListener('click', a)
+      }
+
+      btn.addEventListener('click', a)
+    </script>
+  </body>
+</html>

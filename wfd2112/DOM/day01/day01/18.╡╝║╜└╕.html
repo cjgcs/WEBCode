@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>导航栏</title>
+    <style>
+      #nav {
+        user-select: none;
+        /* 弹性盒子: 最常用, 后续的App开发更常用 */
+        display: flex;
+        width: 800px;
+        background-color: #002c69;
+        justify-content: center;
+      }
+      #nav > span {
+        width: 130px;
+        text-align: center;
+        line-height: 40px;
+        color: white;
+      }
+      #nav > span:hover {
+        background-color: #194788;
+      }
+      #nav > span.current {
+        background-color: #f39700;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="nav">
+      <span class="current">首页</span>
+      <span>关于净美仕</span>
+      <span>公司动态</span>
+      <span>产品中心</span>
+      <span>联系我们</span>
+    </div>
+
+    <script>
+      const titles = document.querySelectorAll('#nav span')
+
+      titles.forEach(title => {
+        title.onclick = function () {
+          titles.forEach(title => title.classList.remove('current'))
+
+          this.classList.add('current')
+        }
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>滚动监听 10:45</title>
+    <style>
+      #box {
+        height: 1500px;
+        background-color: lightcoral;
+      }
+      button {
+        position: fixed;
+        top: 0;
+        left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">
+      <button style="display: none">返回顶部</button>
+    </div>
+    <script>
+      // 返回顶部按钮: 刚开始不显示, 滚动距离达到一定值 才显示
+      //逻辑或: 从左向右首个 真值, 没有真的 就是最后一个
+      const a = null || 0 || false || undefined || 0
+      console.log(a) //??
+
+      const btn = document.querySelector('button')
+
+      // scroll: 滚动;   window可以不写
+      window.onscroll = function () {
+        console.log('滚动...')
+        // 由于版本兼容性等问题: 滚动距离有两种读法, 不一定哪个好用
+        // 所以用 逻辑或 来读,  读取首个存在的值
+        const y = document.documentElement.scrollTop || document.body.scrollTop
+        console.log(y)
+
+        if (y > 400) {
+          btn.style.display = 'inline-block'
+        } else {
+          btn.style.display = 'none'
+        }
+      }
+
+      // 按钮点击后, 回到顶部
+      btn.onclick = function () {
+        // 由于兼容性问题: 同时给两种写法赋值0, 距离顶部为0
+        document.documentElement.scrollTop = document.body.scrollTop = 0
+      }
+    </script>
+  </body>
+</html>

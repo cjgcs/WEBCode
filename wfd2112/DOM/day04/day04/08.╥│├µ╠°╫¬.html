@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>页面跳转 14:45</title>
+  </head>
+  <body>
+    <a href="http://tmooc.cn" target="blank">Tmooc</a>
+    <!-- 需求: 看5秒广告, 然后再跳转 -->
+    <button>5</button>
+
+    <script>
+      const btn = document.querySelector('button')
+
+      btn.onclick = function () {
+        setInterval(() => {
+          btn.innerHTML--
+          if (btn.innerHTML == 0) {
+            // 跳转到tmooc;  open(url地址, 打开方式)
+            // _blank:新标签  _self:当前标签
+            open('http://tmooc.cn', '_self')
+          }
+        }, 1000)
+      }
+    </script>
+  </body>
+</html>

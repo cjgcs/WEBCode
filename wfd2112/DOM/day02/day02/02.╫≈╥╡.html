@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>作业 09:40</title>
+    <style>
+      #tabs {
+        user-select: none;
+        background-color: lightgray;
+      }
+      #tabs > span {
+        display: inline-block;
+        padding: 10px;
+        font-weight: bold;
+        color: #555;
+      }
+      #tabs > span.cur {
+        color: black;
+        border-bottom: 2px solid #0aa1ed;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="tabs">
+      <span class="cur">商品详情</span>
+      <span>商品评价</span>
+    </div>
+
+    <script>
+      const tabs = document.querySelectorAll('#tabs span')
+
+      tabs.forEach(tab => {
+        tab.onclick = function () {
+          tabs.forEach(v => v.classList.remove('cur'))
+          this.classList.add('cur')
+        }
+      })
+    </script>
+  </body>
+</html>

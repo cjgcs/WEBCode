@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      li {
+        list-style-type: none;
+        padding-top: 5px;
+        /* display: none; */
+      }
+      #l1 {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <b id="b">微博﹀</b>
+      <div id="l1">
+        <li>私信</li>
+        <li>频率</li>
+        <li>@我</li>
+      </div>
+    </ul>
+
+    <script>
+      var b = document.getElementById("b");
+      var lis = document.getElementById("l1");
+      console.log(lis);
+      b.onmouseover = function () {
+        lis.style.display = "block";
+        if (lis.onmouseover) {
+          lis.style.display = "block";
+        }
+      };
+      b.onmouseout = function () {
+        lis.style.display = "none";
+        if (lis.onmouseover) {
+          lis.style.display = "block";
+        }
+      };
+    </script>
+  </body>
+</html>

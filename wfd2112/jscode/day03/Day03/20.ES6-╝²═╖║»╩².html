@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ES6</title>
+  </head>
+  <body>
+    <!-- ES6: JS的第六个版本, 在2015年6月发布.  是JS升级最大的版本, 提供了大量的新特性 和 各种语法糖 -->
+    <!-- 参考网站: https://es6.ruanyifeng.com/ -->
+    <script>
+      // 箭头函数, 解决两个问题:
+      // 1. 简化匿名函数写法
+      // 2. 提供新的this指向
+
+      var a = function () {}
+      // 作者: 很讨厌关键词  function
+      var a = () => {}
+
+      // 提供两个语法糖写法
+      // 1. 参数只有一个, ()可以省略
+      var a = name => {
+        console.log(name)
+      }
+
+      a('mike')
+
+      // 2. 函数体中只有一行代码, 可以省略  {return }
+      var a = (x, y) => {
+        return x + y
+      }
+
+      var a = (x, y) => x + y
+
+      console.log(a(10, 20))
+
+      // 坑:
+      var a = () => {
+        return { x: 10, y: 30 }
+      }
+
+      // 省略后: 对象的{} 被误认为是 函数的{}
+      // 用() 包围对象, 解决歧义
+      var a = () => ({ x: 10, y: 30 })
+    </script>
+  </body>
+</html>

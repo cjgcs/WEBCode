@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>通过class名称通过CSS选择器获取DOM 树上元素</h3>
+    <ul>
+        <li>苹果</li>
+        <li>桃子</li>
+        <li>梨</li>
+    </ul>
+    <h1 class="cc">榴莲</h1>
+    <script>
+        //1:通过class名称获取元素，一组对象
+        var cc = document.getElementsByClassName("cc");
+        console.log(cc);
+        //2:通过选择器（CSS选择器）获取一个对象
+        var cc2 = document.querySelector(".cc");
+        console.log(cc2);
+        //3:通过选择器（CSS选择器）获取多个对象
+        var lis = document.querySelectorAll("li");
+        console.log(lis);
+
+        
+
+    </script>
+</body>
+</html>

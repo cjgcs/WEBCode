@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>复杂解构</title>
+  </head>
+  <body>
+    <script>
+      var gege = {
+        name: '格格',
+        age: 18,
+        skills: ['js', 'html', 'css'],
+        phone: {
+          name: 'iPhone 13 pro',
+          price: 12999,
+        },
+      }
+
+      // 解构出所有的属性
+      var {
+        name,
+        age,
+        skills: [s1, s2, s3],
+        phone: { name: pname, price },
+      } = gege
+
+      console.log(name, age, s1, s2, s3, pname, price)
+
+      var game = {
+        gname: 'LOL',
+        maker: '腾讯',
+        teams: ['WBG', 'V5', 'RNG'],
+        desc: {
+          year: 2007,
+          maker: 'Rock',
+        },
+      }
+
+      // 解构出所有的值, 保存到变量里
+      var {
+        gname,
+        maker,
+        teams: [t1, t2, t3],
+        desc: { year, maker: d_maker },
+      } = game
+
+      console.log(gname, maker, t1, t2, t3, year, d_maker)
+    </script>
+  </body>
+</html>

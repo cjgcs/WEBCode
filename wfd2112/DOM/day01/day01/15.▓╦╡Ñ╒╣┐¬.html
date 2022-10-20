@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>菜单展开 15:15</title>
+    <style>
+      #menu {
+        user-select: none;
+        width: 300px;
+      }
+      #menu > div {
+        border: 1px solid gray;
+        margin-bottom: 5px;
+      }
+      #menu > div > div:first-child {
+        background-color: aquamarine;
+        padding: 5px;
+        background-image: url('./imgs/zhankai.png');
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+        background-position: left center;
+        padding-left: 25px;
+      }
+      #menu > div > div:last-child {
+        background-color: lightgray;
+        padding: 10px;
+        display: none;
+      }
+      /* 兄弟选择器 + */
+      #menu div.open + div {
+        display: block;
+      }
+      #menu > div > div.open {
+        background-image: url('./imgs/shouqi.png');
+      }
+    </style>
+  </head>
+  <body>
+    <div id="menu">
+      <div>
+        <!-- open:代表打开 -->
+        <div>阶段1</div>
+        <div>
+          <div>SQL</div>
+          <div>node.js</div>
+          <div>express</div>
+          <div>js</div>
+        </div>
+      </div>
+
+      <div>
+        <!-- open:代表打开 -->
+        <div>阶段2</div>
+        <div>
+          <div>SQL</div>
+          <div>node.js</div>
+          <div>express</div>
+          <div>js</div>
+        </div>
+      </div>
+
+      <div>
+        <!-- open:代表打开 -->
+        <div>阶段3</div>
+        <div>
+          <div>SQL</div>
+          <div>node.js</div>
+          <div>express</div>
+          <div>js</div>
+        </div>
+      </div>
+      <div>
+        <!-- open:代表打开 -->
+        <div>阶段4</div>
+        <div>
+          <div>SQL</div>
+          <div>node.js</div>
+          <div>express</div>
+          <div>js</div>
+        </div>
+      </div>
+      <div>
+        <!-- open:代表打开 -->
+        <div>阶段5</div>
+        <div>
+          <div>SQL</div>
+          <div>node.js</div>
+          <div>express</div>
+          <div>js</div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // DOM的核心操作之一: 切换样式class
+      // 只要提前准备好不同的class, 利用js切换, 就可以实现页面变化
+      // 难点: 主要在于css..
+
+      const titles = document.querySelectorAll('#menu>div>div:first-child')
+      console.log(titles)
+
+      titles.forEach(title => {
+        title.onclick = function () {
+          this.classList.toggle('open')
+        }
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>let 与 const 的提升</title>
+  </head>
+  <body>
+    <!-- 
+      var : 声明提升
+      let/const: 
+        -- 有人说: 没有声明提升
+        -- let/const有提升, 但是 提升后处于 `暂存死区` 状态:  在代码运行到 声明代码之前, 无法使用
+     -->
+    <script>
+      // Cannot access 'a' before initialization
+      // 不能访问 a 在初始化之前:  知道存在a 但是a不能用
+      // console.log(a)
+
+      // var a
+      let a
+      console.log(a)
+      // var缺点: 没执行到声明代码, 就能使用变量
+      // let优点: 代码一定是按顺序执行, 提前使用变量会报错
+
+      // 实际工作时, 基本不用var 除非是考虑低版本兼容 才用var
+      // 因为 let/const 是 2015年出品的
+    </script>
+  </body>
+</html>

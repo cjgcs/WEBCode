@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>用途</title>
+  </head>
+  <body>
+    <script>
+      // 高端的知识点通常是 框架中使用 -- 底层知识
+      // 为数组原型中添加新的方法
+      var nums = [11, 22, 33, 44, 55]
+
+      // 为了保障原型中的属性不被遍历到, 所以用 define 方式新增属性
+      Object.defineProperty(Array.prototype, 'sum', {
+        value: function () {
+          let total = 0
+          for (let key in this) {
+            console.log('key:', key)
+            total += this[key] //下标取值: key是序号
+          }
+          return total
+        },
+      })
+
+      // Array.prototype.sum = function () {
+      //   for (let key in this) {
+      //     console.log('key:', key)
+      //   }
+      // }
+
+      console.log(nums)
+
+      console.log(nums.sum()) //得到总和
+    </script>
+  </body>
+</html>
