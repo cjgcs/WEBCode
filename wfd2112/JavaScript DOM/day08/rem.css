@@ -1,0 +1,14 @@
+@media screen and (min-width: 320px) {
+  html {
+    font-size: 21.33px;
+  }
+}
+@media screen and (min-width: 750px) {
+  html {
+    font-size: 50px;
+  }
+}
+div {
+  width: 1.62rem;
+  height: 1.62rem;
+}

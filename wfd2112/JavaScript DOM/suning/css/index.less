@@ -1,0 +1,91 @@
+/*1:公共样式*/
+@import "common";
+body {
+    max-width: 750px;
+    width: 15rem;
+    min-width: 320px;
+    margin: 0 auto;
+    font: normal 14px/1.5 Tahoma, "Lucida Grande", Verdana,
+      "Microsoft Yahei", STXihei, hei;
+    color: #000;
+    background: #f2f2f2;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+  }
+  //1:第一层搜索框
+@baseFont:50;
+.search-content{
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 15rem;           //相当于宽度100%
+  height: 88rem ./ @baseFont;
+  background-color: #ffc001;
+  //左侧图标
+  .classify{
+    width: 44rem ./ @baseFont;
+    height: 70rem ./ @baseFont;
+    margin: 11rem ./ @baseFont 25rem ./ @baseFont 7rem ./ @baseFont 24rem ./@baseFont;
+    background:url(../images/classify.png) no-repeat;
+    background-size:44rem ./ @baseFont 70rem ./ @baseFont ;
+  }
+  //输入框
+  .search{
+    flex:1; //将剩余空间分配给 输入框
+    input{
+      outline: 0; //去除默认 外围方格
+      width: 100%;
+      border: 0;   //去除默认黑边
+      height: 66rem ./ @baseFont;
+      border-radius: 33rem ./ @baseFont;
+      background-color:#fff2cc;
+      margin-top:12rem ./ @baseFont;
+      font-size:25rem ./ @baseFont;
+      padding-left:55rem ./ @baseFont;
+      color:#757575;
+      
+    }
+  }
+  //登录按钮
+  .logo{
+    width: 75rem ./ @baseFont;
+    height: 70rem ./ @baseFont;
+    line-height:70rem ./ @baseFont;
+    margin:10rem ./ @baseFont;
+    font-size:25rem ./ @baseFont;
+    text-align:center;
+    color:#fff;
+  }
+}
+
+//第二层
+.banner{
+  width: 750rem ./ @baseFont;
+  height: 368rem ./ @baseFont;
+  img{
+    width: 100%;
+    height: 100%;
+  }
+}
+//第三层
+.ad{
+  display: flex;
+  a{
+    flex: left;
+    width: 150rem ./ @baseFont;
+    height: 140rem ./ @baseFont;
+    text-align:center;
+    img{
+      display: block;
+      width: 82rem ./ @baseFont;
+      height: 82rem ./ @baseFont;
+      margin:10rem ./ @baseFont auto 0;
+    }
+    span{
+      font-size: 25rem ./ @baseFont;
+      color:#333;
+    }
+  }
+}

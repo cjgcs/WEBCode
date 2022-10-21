@@ -1,0 +1,22 @@
+.header{
+  width: 200px;
+  height: 200px;
+  background-color: pink;
+  //1.less 嵌套 子元素的样式直接写到父元素里面即可
+  a{
+    color: red;
+    //2:如果伪类,交集选择器,伪元素选择器在内层选择器前加 &
+    //&表示前面 a标签
+    &:hover{      //==a:hover
+      color: blue;
+    }
+  }
+}
+.nav{
+  .log{
+    color: green;
+  }
+  &::before{
+    content: "";
+  }
+}
