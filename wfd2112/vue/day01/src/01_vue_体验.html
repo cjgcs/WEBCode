@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 1:希望VUE能够控制下面的这个DIV,并且帮我们把数据填充到DIV内部 -->
+    <div id="app">{{username}}
+      <button @click="username=1">变</button>
+    </div>
+    <!-- 2:导入VUE库文件,在window全局就有Vue构造函数 -->
+    <script src="lib/vue-2.6.12.js"></script>
+    <!-- 3:一定要重新创建script创建vue实例对象 -->
+    <script>
+      //创建Vue实例
+      const vm = new Vue({
+        //el 属性是固定写法,接收的是一个选择器
+        //意思:控制页面上哪个区域
+        el: "#app",
+        //data 对象就是要渲染到页面的数据
+        data: {
+          username: "牛魔王",
+        },
+      });
+    </script>
+  </body>
+</html>

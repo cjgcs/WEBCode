@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 1:下面的区域,希望VUE能够控制下面的这个DIV,帮我们把数据渲染到DIV内部 -->
+    <div id="app">
+      <p>用户的名字是:{{username}}</p>
+      <!-- 属性绑定:单向(数据--页面) -->
+      <input type="text" :value="username" />
+      <!-- 双向绑定:双向(数据--页面) -->
+      <hr />
+      <input type="text" v-model="username" />
+      <hr />
+      <select v-model="city">
+        <option value="-1">请选择城市</option>
+        <option value="0">北京</option>
+        <option value="1">上海</option>
+        <option value="2">深圳</option>
+        <option value="3">广州</option>
+        <option value="4">杭州</option>
+      </select>
+    </div>
+    <script src="lib/vue-2.6.12.js"></script>
+    <script>
+      //创建Vue实例对象
+      const vm = new Vue({
+        //vue实例对象控制页面上哪个区域  表达式#app
+        el: "#app",
+        data: {
+          username: "zhangsan",
+          city: 2,
+        },
+      });
+    </script>
+  </body>
+</html>

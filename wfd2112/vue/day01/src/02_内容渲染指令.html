@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 1:下面的区域,希望VUE能够控制下面的这个DIV,帮我们把数据渲染到DIV内部 -->
+    <div id="app">
+      <!-- vue 指令或其他功能一定放在 #app中才能生效 -->
+      <!-- 原因:#app区域中的内容,归vue实例对象管理 -->
+      <p v-text="username"></p>
+      <p v-text="gender">性别:</p>
+      <hr />
+      <p>姓名:{{username}}</p>
+      <p>性别:{{gender}}</p>
+      <hr />
+      <div v-text="info"></div>
+      <div>{{info}}</div>
+      <div v-html="info"></div>
+    </div>
+    <!-- 2:引入库文件后,在全局window对象就Vue构造函数 -->
+    <script src="lib/vue-2.6.12.js"></script>
+    <script>
+      //创建Vue实例对象
+      const vm = new Vue({
+        //vue实例对象控制页面上哪个区域  表达式#app
+        el: "#app",
+        //data 就是渲染到页面上的数据
+        data: {
+          username: "zhangsan",
+          gender: "女",
+          info: '<h4 style="color: red;">欢迎大家来学习 vue.js</h4>',
+        },
+      });
+    </script>
+  </body>
+</html>

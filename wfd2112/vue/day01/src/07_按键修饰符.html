@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 1:下面的区域,希望VUE能够控制下面的这个DIV,帮我们把数据渲染到DIV内部 -->
+    <div id="app">
+      <!-- 1:任务一: 如果用户按下了esc键清除用户输入内容 -->
+      <!-- 2:任务二: 如果用户按钮enter 键发送ajax请求-->
+      <input type="text" @keyup="clearInput" value="" />
+      <!-- vue修饰符 -->
+      <input type="text" @keyup.esc="clearInput2" @keyup.enter="commitAjax" />
+    </div>
+    <!-- 2:引入库文件后,在全局window对象就Vue构造函数 -->
+    <script src="lib/vue-2.6.12.js"></script>
+    <script>
+      //创建Vue实例对象
+      const vm = new Vue({
+        //vue实例对象控制页面上哪个区域  表达式#app
+        el: "#app",
+        methods: {
+          clearInput(e) {
+            //方法一:DOM如果用户按钮 esc清除内容 27 esc 13 enter
+            console.log(e);
+            if (e.keyCode == 27) {
+              e.target.value = "";
+              console.log(e.target);
+            }
+            if (e.keyCode == 13) {
+              alert("触发了ajax请求");
+            }
+          },
+          clearInput2(e) {
+            e.target.value = "";
+          },
+          commitAjax() {
+            alert("触发ajax请求");
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

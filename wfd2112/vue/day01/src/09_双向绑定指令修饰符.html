@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 1:下面的区域,希望VUE能够控制下面的这个DIV,帮我们把数据渲染到DIV内部 -->
+    <div id="app">
+      <input type="text" v-model.number="n1" />
+      +
+      <input type="text" v-model.number="n2" />
+      =
+      <span>{{n1+n2}}</span>
+      <hr />
+      <input type="text" v-model="username" />
+      <button @click="showName">获取用户名</button>
+      <!-- lazy高效,当修改结束时触发更新 (失去焦点才会更改)-->
+      <input type="text" v-model.lazy="username" />
+    </div>
+    <script src="lib/vue-2.6.12.js"></script>
+    <script>
+      //创建Vue实例对象
+      const vm = new Vue({
+        //vue实例对象控制页面上哪个区域  表达式#app
+        el: "#app",
+        data: {
+          n1: 1,
+          n2: 2,
+          username: "zhangsan",
+        },
+        methods: {
+          showName() {
+            console.log(`用户名是` + this.username);
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

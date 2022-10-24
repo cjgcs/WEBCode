@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 1:下面的区域,希望VUE能够控制下面的这个DIV,帮我们把数据渲染到DIV内部 -->
+    <div id="app">
+      <!-- vue 指令或其他功能一定放在 #app中才能生效 -->
+      <!-- 原因:#app区域中的内容,归vue实例对象管理 -->
+      <input type="text" v-bind:placeholder="tips" />
+      <hr />
+      <img v-bind:src="photo" style="width: 150px" />
+      <!-- 简写:v-bind指令可以简写 -->
+      <hr />
+      <input type="text" :placeholder="tips" />
+      <hr />
+      <img :src="photo" alt="" style="width: 150px" />
+      <hr />
+      <div>1+2 的结果是:{{1+2}}</div>
+      <div>{{tips}} 反转的结果是:{{tips.split("").reverse().join("")}}</div>
+      <div>{{tips.length >3?'长字符串':'短字符串'}}</div>
+      <div :title="'box'+index">这是一个div</div>
+    </div>
+    <!-- 2:引入库文件后,在全局window对象就Vue构造函数 -->
+    <script src="lib/vue-2.6.12.js"></script>
+    <script>
+      //创建Vue实例对象
+      const vm = new Vue({
+        //vue实例对象控制页面上哪个区域  表达式#app
+        el: "#app",
+        //data 就是渲染到页面上的数据
+        data: {
+          tips: "请输入用户名",
+          photo:
+            "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
+          index: 3,
+        },
+      });
+    </script>
+  </body>
+</html>
