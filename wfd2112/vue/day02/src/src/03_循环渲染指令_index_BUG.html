@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./lib/bootstrap.css" />
+  </head>
+  <body>
+    <!-- 2:vue 管理控制区域:vue指令在此处生效 -->
+    <div id="app">
+      <div>
+        <input type="text" v-model="name" />
+        <button @click="addNewUser">添加</button>
+      </div>
+      <ul>
+        <li v-for="(item,index) in userlist">姓名:{{item.name}}</li>
+      </ul>
+    </div>
+    <!-- 1:引入vue.js 库文件 -->
+    <script src="lib/vue-2.6.12.js"></script>
+    <!-- 当入库文件在全局 Vue 构造函数 -->
+    <!-- 3:创建Vue实例对象 -->
+    <script>
+      const vm = new Vue({
+        el: "#app", //vue控制区域
+        data: {
+          //vue数据
+          name: "",
+          userlist: [
+            { id: 1, name: "zs" },
+            { id: 2, name: "ls" },
+          ],
+          nextId: 3,
+        },
+        methods: {
+          addNewUser() {
+            // 1:创建新对象添加到数组开头
+            this.userlist.unshift({ id: this.nextId, name: this.name });
+            // 2:清空用户输入用户名
+            this.name = "";
+            // 3:nextId加1
+            this.nextid++;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

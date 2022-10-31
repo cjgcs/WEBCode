@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 2:vue 管理控制区域:vue指令在此处生效 -->
+    <div id="app">
+      {{msg}}
+      <p v-if="age==19">v-if</p>
+      <p v-show="age==19">v-show</p>
+      <hr />
+      <div v-if="type=='A'">优秀</div>
+      <div v-else-if="type=='B'">良好</div>
+      <div v-else-if="type=='C'">及格</div>
+      <div v-else>不及格</div>
+    </div>
+    <!-- 1:引入vue.js 库文件 -->
+    <script src="lib/vue-2.6.12.js"></script>
+    <!-- 当入库文件在全局 Vue 构造函数 -->
+    <!-- 3:创建Vue实例对象 -->
+    <script>
+      const vm = new Vue({
+        el: "#app",
+        data: {
+          msg: "进入校园72小时核酸",
+          age: 19,
+          type: "A",
+        },
+      });
+    </script>
+  </body>
+</html>

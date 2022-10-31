@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./lib/bootstrap.css" />
+  </head>
+  <body>
+    <!-- 2:vue 管理控制区域:vue指令在此处生效 -->
+    <div id="app">
+      <table class="table table-bordered table-hover">
+        <thead>
+          <th>索引</th>
+          <th>ID</th>
+          <th>姓名</th>
+        </thead>
+        <tbody>
+          <!-- 官方建议:只要用到了v-for指令,
+          一定要绑定一个:key属性,尽量要把id作为key值
+          官方对key的值类型,是有要求的,字符串或数字类型
+          key的值千万不能重复,否则报错 Duplicate keys detected -->
+          <tr v-for="(item,index) in list" :key="item.id">
+            <td>{{index}}</td>
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- 1:引入vue.js 库文件 -->
+    <script src="lib/vue-2.6.12.js"></script>
+    <!-- 当入库文件在全局 Vue 构造函数 -->
+    <!-- 3:创建Vue实例对象 -->
+    <script>
+      const vm = new Vue({
+        el: "#app", //vue控制区域
+        data: {
+          //vue数据
+          list: [
+            { id: 1, name: "张三" },
+            { id: 2, name: "李四" },
+            { id: 3, name: "王五" },
+            { id: 4, name: "赵六" },
+          ],
+        },
+      });
+    </script>
+  </body>
+</html>

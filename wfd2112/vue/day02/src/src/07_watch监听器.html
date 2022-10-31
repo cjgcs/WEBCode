@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./lib/bootstrap.css" />
+  </head>
+  <body>
+    <!-- 2:vue 管理控制区域:vue指令在此处生效 -->
+    <div id="app">
+      <input type="text" v-model="username" />
+    </div>
+    <!-- 1:引入vue.js 库文件 -->
+    <script src="lib/vue-2.6.12.js"></script>
+    <script src="lib/jquery-v3.6.0.js"></script>
+    <script>
+      const vm = new Vue({
+        el: "#app",
+        data: {
+          username: "",
+        },
+        watch: {
+          //所有监听器放在这
+          username(newVal) {
+            //监听器本质上是一个函数,要监视哪个数据的变化
+            //就把数据名作为方法名
+            //1:如果用户输入空字符串停止
+            if (newVal == "") return;
+            //2:如果有数据发送ajax请求
+            var url = "https://www.escook.cn/api/finduser/" + newVal;
+            $.get(url, (result) => {
+              console.log(result);
+              this.msg = result.message;
+            });
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
