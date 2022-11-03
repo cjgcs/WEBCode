@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const arr = [
+            {id:1,name:"桃",state:true,price:20,count:1},
+            {id:2,name:"苹果",state:false,price:10,count:1},
+            {id:3,name:"梨",state:true,price:210,count:1}
+        ];
+        //把所有状态===true累加
+        //let amt = 0;
+        //arr.forEach(item=>{
+        //    if(item.state){
+        //        amt += item.price * item.count
+        //    }
+        //})
+        //console.log(amt);
+        //第二种
+        //let amt = 0;
+        //arr.filter(item=>item.state).forEach(item=>{
+        //    amt += item.price * item.count
+       // })
+        //console.log(amt);
+        //第三种
+        const result = arr.filter(item=>item.state).reduce(
+            (amt,item)=>
+            amt += item.price * item.count
+        ,0)
+        console.log(result);
+    </script>
+</body>
+</html>
