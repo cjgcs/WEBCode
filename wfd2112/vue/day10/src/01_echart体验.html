@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 420px;
+        height: 370px;
+        background-color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 2:准备一个具备宽度和高度的盒子 -->
+    <div class="box"></div>
+    <!-- 1:下载并引入echarts.js 文件 -->
+    <script src="./js/echarts.min.js"></script>
+    <script>
+      //3:创建echarts实例对象
+      var box = document.querySelector(".box");
+      var myChart = echarts.init(box);
+      //4:!! 创建配置对象
+      var option = {
+        title: {
+          text: "echarts入门示例", //标题
+          subtext: "子标题", //子标题
+          textAlign: "center", //位置
+          left: "20%", //title 组件离容器左侧的距离
+          borderColor: "#f00", //边框颜色
+          borderWidth: 5, //边框宽度
+          borderRadius: 3, //边框圆角
+          textStyle: {
+            //文本样式
+            color: "#00f", //文本颜色
+            fontSize: 12, //文字大小
+          },
+        },
+        tooltip:{//提示框组件
+          trigger:'axis',//触发类型
+          textStyle:{
+            color:'#f1e'
+          }
+        },
+        legend: { data: ["销量"] },
+        xAxis: { data: ["一季", "二季", "三季", "四季"] },
+        yAxis: {},
+        series: [{ name: "销量", type: "bar", data: [5, 20, 36, 10] }],
+      };
+      //5:将配置对象添加echarts 实例对象
+      myChart.setOption(option);
+    </script>
+  </body>
+</html>

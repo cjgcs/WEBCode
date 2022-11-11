@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 620px;
+        height: 470px;
+        background-color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 2:准备一个具备宽度和高度的盒子 -->
+    <div class="box"></div>
+    <!-- 1:下载并引入echarts.js 文件 -->
+    <script src="./js/echarts.min.js"></script>
+    <script>
+      //3:创建echarts实例对象
+      var box = document.querySelector(".box");
+      var myChart = echarts.init(box);
+      //4:!! 创建配置对象
+      var option = {
+        //创建一个颜色盘
+        color: ["green", "blue", "red", "yellow"],
+        grid: {
+          //网格属性
+          left: "6%",
+          right: "3%",
+          buttom: "5%",
+        },
+        title: { text: "折线图" }, //标题
+        tooltip: { trigger: "axis" }, //提示内容
+        toolbox: {
+          //工具箱
+          feature: {
+            saveAsImage: {},
+          },
+        },
+        xAxis: {
+          //X轴数据 周一---周日
+          type: "category",
+          //坐标轴两边留白策略
+          //true刻度只是作为分隔线,
+          //标签和数据点都会在两个刻度中间
+          //false
+          //在刻度点显示标签
+          boundaryGap: false,
+          data: [
+            "星期一",
+            "星期二",
+            "星期三",
+            "星期四",
+            "星期五",
+            "星期六",
+            "星期日",
+          ],
+        },
+        yAxis: {
+          type: "value",
+        },
+        series: [
+          {
+            data: [150, 230, 224, 218, 135, 147, 260],
+            type: "line",
+            name: "直播营销",
+
+            // lineStyle: {
+            //   color: "#fc0",
+            // },
+            // color: "#5470c6",
+            // label: {
+            //   fontWeight: "bolder",
+            // },
+          },
+          {
+            data: [10, 30, 84, 118, 145, 167, 240],
+            type: "line",
+            name: "B站营销",
+            // color: "#ee6666",
+            label: {
+              fontWeight: "bolder",
+            },
+          },
+          {
+            data: [180, 270, 254, 358, 465, 147, 360],
+            type: "line",
+            name: "YouTube营销",
+            // color: "#ea7ccc",
+          },
+          {
+            data: [250, 340, 384, 178, 235, 357, 490],
+            type: "line",
+            name: "twitter营销",
+            // color: "#fc8452",
+          },
+        ],
+      };
+
+      //5:将配置对象添加echarts 实例对象
+      myChart.setOption(option);
+    </script>
+  </body>
+</html>
