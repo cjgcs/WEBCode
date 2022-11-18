@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>数据可视化项目</title>
+    <link rel="stylesheet" href="./fonts/icomoon.css" />
+    <script src="js/echarts.min.js"></script>
+    <!--修改分割份份数-->
+    <script src="js/flexible.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <style>
+      /*1:公共样式*/
+      /*清除元素默认的内外边距  */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /*让所有斜体 不倾斜*/
+      em,
+      i {
+        font-style: normal;
+      }
+
+      /*去掉列表前面的小点*/
+      li {
+        list-style: none;
+      }
+
+      /*图片没有边框   去掉图片底侧的空白缝隙*/
+      img {
+        border: 0;
+        /*ie6*/
+        vertical-align: middle;
+      }
+
+      /*让button 按钮 变成小手*/
+      button {
+        cursor: pointer;
+      }
+
+      /*取消链接的下划线*/
+      a {
+        color: #666;
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: #e33333;
+      }
+
+      h4 {
+        font-weight: 400;
+      }
+
+      body {
+        background: url(./images/bg.jpg) no-repeat 0 0 / cover;
+        /* background-size: cover; */
+      }
+
+      /*2:媒体查询完成rem适配*/
+      /*2.1:如果网页小于1024 font-size:42.66px*/
+      @media screen and (max-width: 1024px) {
+        html {
+          font-size: 42.66px !important;
+        }
+      }
+
+      /*2.2:如果网页大于1920 font-size:80px*/
+      @media screen and (min-width: 1920px) {
+        html {
+          font-size: 80px !important;
+        }
+      }
+
+      /*按功能:完成每块功能*/
+      .viewport {
+        display: flex;
+        min-width: 1024px;
+        max-width: 1920px;
+        min-height: 780px;
+        margin: 0 auto;
+        padding: 1.1rem 0.25rem 0;
+        /*88 20*/
+        background: url(./images/logo.png) no-repeat 0 0 / contain;
+      }
+
+      .viewport .column {
+        flex: 3;
+        border: 1px solid red;
+      }
+
+      .viewport .column:nth-child(2) {
+        flex: 4;
+        margin: 0.4rem 0.25rem 0;
+      }
+
+      /*公共panel样式  边框图片*/
+      .panel {
+        position: relative;
+        /*相对定位*/
+        border: 15px solid transparent;
+        border-width: 0.6375rem 0.475rem 0.25rem 1.65rem;
+        border-image-source: url(./images/border.png);
+        border-image-slice: 51 38 20 132;
+        margin-bottom: 0.25rem;
+      }
+
+      .inner {
+        position: absolute;
+        top: -0.6375rem;
+        left: -1.65rem;
+        right: -0.475rem;
+        bottom: -0.25rem;
+        padding: 0.3rem 0.45rem;
+      }
+
+      .panel h3 {
+        font-size: 0.25rem;
+        color: #fff;
+        font-weight: 400;
+      }
+
+      /*概览区域模块制作   14:18完成任务*/
+      .overview {
+        height: 1.375rem;
+      }
+
+      .overview ul {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .overview ul li h4 {
+        font-size: 0.35rem;
+        color: #fff;
+        margin: 0 0 0.1rem 0.06rem;
+      }
+
+      .overview ul li span {
+        font-size: 0.2rem;
+        color: #4c9bfd;
+      }
+
+      /*监控区域模块制作*/
+      .monitor {
+        height: 6rem;
+      }
+
+      .monitor .inner {
+        padding: 0.3rem 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .monitor .tabs {
+        padding: 0 0.45rem;
+        margin-bottom: 0.225rem;
+        display: flex;
+      }
+
+      .monitor .tabs a {
+        color: #1950c4;
+        font-size: 0.225rem;
+        padding: 0 0.3375rem;
+      }
+
+      .monitor .tabs a:first-child {
+        padding-left: 0;
+        border-right: 0.025rem solid #00f2f1;
+      }
+
+      .monitor .tabs a.active {
+        color: #fff;
+      }
+
+      .monitor .content {
+        flex: 1;
+        position: relative;
+        display: none;
+      }
+
+      .monitor .head {
+        display: flex;
+        justify-content: space-between;
+        line-height: 1.05;
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 0.15rem 0.45rem;
+        color: #68d8fe;
+        font-size: 0.175rem;
+      }
+
+      .monitor .marquee-view {
+        position: absolute;
+        top: 0.5rem;
+        bottom: 0;
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .monitor .row {
+        display: flex;
+        justify-content: space-between;
+        line-height: 1.05;
+        font-size: 0.15rem;
+        color: #61a8ff;
+        padding: 0.15rem 0.45rem;
+      }
+
+      .monitor .row .icon-dot {
+        position: absolute;
+        left: 0.2rem;
+        opacity: 0;
+      }
+
+      .monitor .row:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #68d8fe;
+      }
+
+      .monitor .row:hover .icon-dot {
+        opacity: 1;
+      }
+
+      .monitor .col:first-child {
+        width: 1rem;
+      }
+
+      .monitor .col:nth-child(2) {
+        width: 2.5rem;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+
+      .monitor .col:nth-child(3) {
+        width: 1rem;
+      }
+
+      /*通过css3 完成动画滚动效果 第二步 15:59*/
+      .marquee-view .marquee {
+        animation: move 15s linear infinite;
+      }
+
+      @keyframes move {
+        0% {
+        }
+
+        100% {
+          transform: translateY(-50%);
+        }
+      }
+
+      /*鼠标移动区域则动画暂停   第三步*/
+      .marquee-view .marquee:hover {
+        animation-play-state: paused;
+      }
+
+      /*点位区域*/
+      .point {
+        height: 4.25rem;
+      }
+
+      .point .chart {
+        display: flex;
+        margin-top: 0.3rem;
+        justify-content: space-between;
+      }
+
+      .point .pie {
+        width: 3.9rem;
+        height: 3rem;
+        margin-left: -0.125rem;
+        /* background-color: pink; */
+      }
+
+      .point .data {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 2.1rem;
+        padding: 0.45rem 0.375rem;
+        box-sizing: border-box;
+        background-image: url(../images/rect.png);
+        background-size: cover;
+      }
+
+      .point h4 {
+        margin-bottom: 0.15rem;
+        font-size: 0.35rem;
+        color: #fff;
+      }
+
+      .point span {
+        display: block;
+        color: #4c9bfd;
+        font-size: 0.2rem;
+      }
+      /* 地图模块制作 */
+      .map {
+        height: 7.225rem;
+        margin-bottom: 0.25rem;
+        display: flex;
+        flex-direction: column;
+        background-color: #666;
+      }
+      .map .geo {
+        width: 100%;
+        height: 100%;
+      }
+
+      /* 用户统计模块 */
+      .users {
+        height: 4.25rem;
+        display: flex;
+      }
+      .users .chart {
+        display: flex;
+        margin-top: 0.3rem;
+      }
+      .users .bar {
+        width: 7.35rem;
+        height: 3rem;
+      }
+      .users .data {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 2.1rem;
+        padding: 0.45rem 0.375rem;
+        box-sizing: border-box;
+        background-image: url(../images/rect.png);
+        background-size: cover;
+      }
+      .users h4 {
+        margin-bottom: 0.15rem;
+        font-size: 0.35rem;
+        color: #fff;
+      }
+      .users span {
+        display: block;
+        color: #4c9bfd;
+        font-size: 0.2rem;
+      }
+      /* 订单模块制作 */
+      .order {
+        height: 1.875rem;
+      }
+      .order .filter {
+        display: flex;
+      }
+      .order .filter a {
+        display: block;
+        height: 0.225rem;
+        line-height: 1;
+        padding: 0 0.225rem;
+        color: #1950c4;
+        font-size: 0.225rem;
+        border-right: 0.025rem solid #00f2f1;
+      }
+      .order .filter a:first-child {
+        padding-left: 0;
+      }
+      .order .filter a:last-child {
+        border-right: none;
+      }
+      .order .filter a.active {
+        color: #fff;
+        font-size: 0.25rem;
+      }
+      .order .data {
+        display: flex;
+        margin-top: 0.25rem;
+      }
+      .order .item {
+        width: 50%;
+      }
+      .order h4 {
+        font-size: 0.35rem;
+        color: #fff;
+        margin-bottom: 0.125rem;
+      }
+      .order span {
+        display: block;
+        color: #4c9bfd;
+        font-size: 0.2rem;
+      }
+      /* 销售区域 */
+      .sales {
+        height: 3.1rem;
+      }
+      .sales .caption {
+        display: flex;
+        line-height: 1;
+      }
+      .sales h3 {
+        height: 0.225rem;
+        padding-right: 0.225rem;
+        border-right: 0.025rem solid #00f2f1;
+      }
+      .sales a {
+        padding: 0.05rem;
+        font-size: 0.2rem;
+        margin: -0.0375rem 0 0 0.2625rem;
+        border-radius: 0.0375rem;
+        color: #0bace6;
+      }
+      .sales a.active {
+        background-color: #4c9bfd;
+        color: #fff;
+      }
+      .sales .inner {
+        display: flex;
+        flex-direction: column;
+      }
+      .sales .chart {
+        flex: 1;
+        padding-top: 0.1875rem;
+        position: relative;
+      }
+      .sales .label {
+        position: absolute;
+        left: 0.525rem;
+        top: 0.225rem;
+        color: #4996f5;
+        font-size: 0.175rem;
+      }
+      .sales .line {
+        width: 100%;
+        height: 100%;
+        /* background-color: pink; */
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="viewport">
+      <div class="column">
+        <!--概览-->
+        <div class="overview panel">
+          <div class="inner">
+            <ul>
+              <li>
+                <h4>2,190</h4>
+                <span>
+                  <i class="icon-dot" style="color: #006cff"></i>
+                  设备总数
+                </span>
+              </li>
+              <li class="item">
+                <h4>190</h4>
+                <span>
+                  <i class="icon-dot" style="color: #6acca3"></i>
+                  季度新增
+                </span>
+              </li>
+              <li>
+                <h4>3,001</h4>
+                <span>
+                  <i class="icon-dot" style="color: #6acca3"></i>
+                  运营设备
+                </span>
+              </li>
+              <li>
+                <h4>108</h4>
+                <span>
+                  <i class="icon-dot" style="color: #ed3f35"></i>
+                  异常设备
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!--监控-->
+        <div class="monitor panel">
+          <div class="inner">
+            <div class="tabs">
+              <a href="javascript:;" class="active">故障设备监控</a>
+              <a href="javascript:;">异常设备监控</a>
+            </div>
+            <div class="content" style="display: block">
+              <div class="head">
+                <span class="col">故障时间</span>
+                <span class="col">设备地址</span>
+                <span class="col">异常代码</span>
+              </div>
+              <div class="marquee-view">
+                <div class="marquee">
+                  <div class="row">
+                    <span class="col">20180701</span>
+                    <span class="col">11北京市昌平西路金燕龙写字楼</span>
+                    <span class="col">1000001</span>
+                    <span class="icon-dot"></span>
+                  </div>
+                  <div class="row">
+                    <span class="col">20190601</span>
+                    <span class="col">北京市昌平区城西路金燕龙写字楼</span>
+                    <span class="col">1000002</span>
+                    <span class="icon-dot"></span>
+                  </div>
+                  <div class="row">
+                    <span class="col">20190704</span>
+                    <span class="col">北京市昌平区建材城西路金燕龙写字楼</span>
+                    <span class="col">1000003</span>
+                    <span class="icon-dot"></span>
+                  </div>
+                  <div class="row">
+                    <span class="col">20180701</span>
+                    <span class="col">北京市昌平区建路金燕龙写字楼</span>
+                    <span class="col">1000004</span>
+                    <span class="icon-dot"></span>
+                  </div>
+                  <div class="row">
+                    <span class="col">20190701</span>
+                    <span class="col">北京市昌平区建材城西路金燕龙写字楼</span>
+                    <span class="col">1000005</span>
+                    <span class="icon-dot"></span>
+                  </div>
+                  <div class="row">
+                    <span class="col">20190701</span>
+                    <span class="col">北京市昌平区建材城西路金燕龙写字楼</span>
+                    <span class="col">1000006</span>
+                    <span class="icon-dot"></span>
+                  </div>
+                  <div class="row">
+                    <span class="col">20190701</span>
+                    <span class="col">北京市昌平区建西路金燕龙写字楼</span>
+                    <span class="col">1000007</span>
+                    <span class="icon-dot"></span>
+                  </div>
+                  <div class="row">
+                    <span class="col">20190701</span>
+                    <span class="col">北京市昌平区建材城西路金燕龙写字楼</span>
+                    <span class="col">1000008</span>
+                    <span class="icon-dot"></span>
+                  </div>
+                  <div class="row">
+                    <span class="col">20190701</span>
+                    <span class="col">北京市昌平区建材城西路金燕龙写字楼</span>
+                    <span class="col">1000009</span>
+                    <span class="icon-dot"></span>
+                  </div>
+                  <div class="row">
+                    <span class="col">20190710</span>
+                    <span class="col">北京市昌平区建材城西路金燕龙写字楼</span>
+                    <span class="col">1000010</span>
+                    <span class="icon-dot"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="content">
+              <div class="head">
+                <span class="col">异常时间</span>
+                <span class="col">设备地址</span>
+                <span class="col">异常代码</span>
+              </div>
+              <div class="marquee-view">
+                <div class="marquee">
+                  <div class="row">
+                    <span class="col">20190701</span>
+                    <span class="col">北京市昌平区建材城西路金燕龙写字楼</span>
+                    <span class="col">1000001</span>
+                    <span class="icon-dot"></span>
+                  </div>
+                  <div class="row">
+                    <span class="col">20190701</span>
+                    <span class="col">北京市昌平区建材城西路金燕龙写字楼</span>
+                    <span class="col">1000002</span>
+                    <span class="icon-dot"></span>
+                  </div>
+                  <div class="row">
+                    <span class="col">20190703</span>
+                    <span class="col">北京市昌平区建材城西路金燕龙写字楼</span>
+                    <span class="col">1000002</span>
+                    <span class="icon-dot"></span>
+                  </div>
+                  <div class="row">
+                    <span class="col">20190704</span>
+                    <span class="col">北京市昌平区建材城西路金燕龙写字楼</span>
+                    <span class="col">1000002</span>
+                    <span class="icon-dot"></span>
+                  </div>
+                  <div class="row">
+                    <span class="col">20190705</span>
+                    <span class="col">北京市昌平区建材城西路金燕龙写字楼</span>
+                    <span class="col">1000002</span>
+                    <span class="icon-dot"></span>
+                  </div>
+                  <div class="row">
+                    <span class="col">20190706</span>
+                    <span class="col">北京市昌平区建材城西路金燕龙写字楼</span>
+                    <span class="col">1000002</span>
+                    <span class="icon-dot"></span>
+                  </div>
+                  <div class="row">
+                    <span class="col">20190707</span>
+                    <span class="col">北京市昌平区建材城西路金燕龙写字楼</span>
+                    <span class="col">1000002</span>
+                    <span class="icon-dot"></span>
+                  </div>
+                  <div class="row">
+                    <span class="col">20190708</span>
+                    <span class="col">北京市昌平区建材城西路金燕龙写字楼</span>
+                    <span class="col">1000002</span>
+                    <span class="icon-dot"></span>
+                  </div>
+                  <div class="row">
+                    <span class="col">20190709</span>
+                    <span class="col">北京市昌平区建材城西路金燕龙写字楼</span>
+                    <span class="col">1000002</span>
+                    <span class="icon-dot"></span>
+                  </div>
+                  <div class="row">
+                    <span class="col">20190710</span>
+                    <span class="col">北京市昌平区建材城西路金燕龙写字楼</span>
+                    <span class="col">1000002</span>
+                    <span class="icon-dot"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--点位-->
+        <div class="point panel">
+          <div class="inner">
+            <h3>点位分布统计</h3>
+            <div class="chart">
+              <div class="pie"></div>
+              <div class="data">
+                <div class="item">
+                  <h4>320,11</h4>
+                  <span>
+                    <i class="icon-dot" style="color: #ed3f35"></i>
+                    点位总数
+                  </span>
+                </div>
+                <div class="item">
+                  <h4>418</h4>
+                  <span>
+                    <i class="icon-dot" style="color: #eacf19"></i>
+                    本月新增
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <!--地图-->
+        <div class="map">
+          <h3>
+            <span class="icon-cube"></span>
+            设备数据统计
+          </h3>
+          <div class="chart">
+            <div class="geo"></div>
+          </div>
+        </div>
+        <!--用户-->
+        <div class="users panel">
+          <div class="inner">
+            <h3>全国用户总量统计</h3>
+            <div class="chart">
+              <div class="bar"></div>
+              <div class="data">
+                <div class="item">
+                  <h4>120,899</h4>
+                  <span>
+                    <i class="icon-dot" style="color: #ed3f35"></i>
+                    用户总量
+                  </span>
+                </div>
+                <div class="item">
+                  <h4>248</h4>
+                  <span>
+                    <i class="icon-dot" style="color: #eacf19"></i>
+                    本月新增
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <!--订单-->
+        <div class="order panel">
+          <div class="inner">
+            <!-- 筛选 -->
+            <div class="filter">
+              <a href="javascript:;" data-key="day365" class="active">365天</a>
+              <a href="javascript:;" data-key="day90">90天</a>
+              <a href="javascript:;" data-key="day30">30天</a>
+              <a href="javascript:;" data-key="day1">24小时</a>
+            </div>
+            <!-- 数据 -->
+            <div class="data">
+              <div class="item">
+                <h4>20,301,987</h4>
+                <span>
+                  <i class="icon-dot" style="color: #ed3f35"></i>
+                  订单量
+                </span>
+              </div>
+              <div class="item">
+                <h4>99834</h4>
+                <span>
+                  <i class="icon-dot" style="color: #eacf19"></i>
+                  销售额(万元)
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--销售-->
+        <div></div>
+        <div>
+          <!--渠道-->
+          <div></div>
+          <!--季度-->
+          <div></div>
+        </div>
+        <!--排行-->
+        <div></div>
+      </div>
+    </div>
+    <script>
+      //1:监控区域模块制作  匿名函数自调
+      //优点:没名字调用完后，内容会立好释放，不会影响其它程序
+      //其中定义的变量或者函数名称也不影响其它区块程序
+      (function () {
+        $(".monitor .tabs").on("click", "a", function () {
+          //1.1:点击监控制标签完成高度标签切换 15:05
+          //当前元素加class active 兄弟删除class active
+          $(this).addClass("active").siblings("a").removeClass("active");
+          //1.2:选取与标签对应下标签 .content元素显示
+          //获取当前元素下标 如果与.content 下标相同 显示
+          //兄弟隐藏
+          $(".monitor .content")
+            .eq($(this).index())
+            .show()
+            .siblings(".content")
+            .hide();
+        }); //点击事件
+
+        //功能二:完成项目动画 第一步克隆所有row 15:45
+        $(".marquee-view .marquee").each(function () {
+          //console.log(this);
+          var rows = $(this).children().clone();
+          $(this).append(rows);
+        });
+      })();
+
+      //2:点位分布统计模块--新匿名函数
+      //16:15 完成任务
+      (function () {
+        //1:创建echarts实例对象
+        var dom = document.querySelector(".pie");
+        var myChart = echarts.init(dom);
+        //2:指定配置项
+        option = {
+          color: [
+            "#006cff",
+            "#60cda0",
+            "#ed8884",
+            "#ff9f7f",
+            "#0096ff",
+            "#9fe6b8",
+            "#32c5e9",
+            "#1d9dff",
+          ],
+          tooltip: {
+            trigger: "item",
+            formatter: "{a} <br/>{b} : {c} ({d}%)",
+          },
+          series: [
+            {
+              label: {
+                fontSize: 10,
+              },
+              labelLine: {
+                length: 6,
+                length2: 8,
+              },
+              name: "点位统计",
+              type: "pie",
+              radius: ["10%", "70%"],
+              center: ["50%", "50%"],
+              roseType: "radius",
+              data: [
+                { value: 30, name: "云南" },
+                { value: 28, name: "北京" },
+                { value: 26, name: "山东" },
+                { value: 24, name: "河北" },
+                { value: 22, name: "江苏" },
+                { value: 20, name: "浙江" },
+                { value: 18, name: "四川" },
+                { value: 16, name: "湖北" },
+              ],
+            },
+          ],
+        };
+        //3:将配置项添加echarts实例对象中  16:24
+        myChart.setOption(option);
+        //4:当网页大小(浏览器缩放)发生变化，图表也随之变化大小
+        window.addEventListener("resize", function () {
+          myChart.resize();
+        });
+      })();
+
+      //3:用户柱状图
+      (function () {
+        var item = {
+          name: "",
+          value: 1200,
+          // 1. 修改当前柱形的样式
+          itemStyle: {
+            color: "#254065",
+          },
+          // 2. 鼠标放到柱子上不想高亮显示
+          emphasis: {
+            itemStyle: {
+              color: "#254065",
+            },
+          },
+          // 3. 鼠标经过柱子不显示提示框组件
+          tooltip: {
+            extraCssText: "opacity: 0",
+          },
+        };
+        // 1. 实例化对象
+        var myChart = echarts.init(document.querySelector(".bar"));
+        // 2. 指定配置和数据
+        var option = {
+          color: new echarts.graphic.LinearGradient(
+            // (x1,y2) 点到点 (x2,y2) 之间进行渐变
+            0,
+            0,
+            0,
+            1,
+            [
+              { offset: 0, color: "#00fffb" }, // 0 起始颜色
+              { offset: 1, color: "#0061ce" }, // 1 结束颜色
+            ]
+          ),
+          tooltip: {
+            trigger: "item",
+          },
+          grid: {
+            left: "0%",
+            right: "3%",
+            bottom: "3%",
+            top: "3%",
+            //  图表位置紧贴画布边缘是否显示刻度以及label文字 防止坐标轴标签溢出跟grid 区域有关系
+            containLabel: true,
+            // 是否显示直角坐标系网格
+            show: true,
+            //grid 四条边框的颜色
+            borderColor: "rgba(0, 240, 255, 0.3)",
+          },
+          xAxis: [
+            {
+              type: "category",
+              data: [
+                "上海",
+                "广州",
+                "北京",
+                "深圳",
+                "合肥",
+                "",
+                "......",
+                "",
+                "杭州",
+                "厦门",
+                "济南",
+                "成都",
+                "重庆",
+              ],
+              axisTick: {
+                alignWithLabel: false,
+                // 把x轴的刻度隐藏起来
+                show: false,
+              },
+              axisLabel: {
+                color: "#4c9bfd",
+              },
+              // x轴这条线的颜色样式
+              axisLine: {
+                lineStyle: {
+                  color: "rgba(0, 240, 255, 0.3)",
+                  width: 1,
+                },
+              },
+            },
+          ],
+          yAxis: [
+            {
+              type: "value",
+              axisTick: {
+                alignWithLabel: false,
+                // 把y轴的刻度隐藏起来
+                show: false,
+              },
+              axisLabel: {
+                color: "#4c9bfd",
+              },
+              // y轴这条线的颜色样式
+              axisLine: {
+                lineStyle: {
+                  color: "rgba(0, 240, 255, 0.3)",
+                  // width: 3
+                },
+              },
+              // y轴分割线的颜色样式
+              splitLine: {
+                lineStyle: {
+                  color: "rgba(0, 240, 255, 0.3)",
+                },
+              },
+            },
+          ],
+          series: [
+            {
+              name: "直接访问",
+              type: "bar",
+              barWidth: "60%",
+              data: [
+                2100,
+                1900,
+                1700,
+                1560,
+                1400,
+                item,
+                item,
+                item,
+                900,
+                750,
+                600,
+                480,
+                240,
+              ],
+            },
+          ],
+        };
+        // 3. 把配置给实例对象
+        myChart.setOption(option);
+        // 4. 当我们浏览器缩放的时候，图表也等比例缩放
+        window.addEventListener("resize", function () {
+          // 让我们的图表调用 resize这个方法
+          myChart.resize();
+        });
+      })();
+
+      //4:订单图形
+      (function () {
+        console.log(123);
+        //1:准备数据
+        var data = {
+          day365: { order: "20,301,987", amount: "999654" },
+          day90: { order: "301,987", amount: "23999" },
+          day30: { order: "1,987", amount: "2354" },
+          day1: { order: "987", amount: "324" },
+        };
+        //2:获取订单数量容器(dom元素)
+        var h4o = $(".order h4:eq(0)");
+        //3:获取显示金额数量容器(dom元素)
+        var h4a = $(".order h4:eq(1)");
+        //4:为所与标签a添加点击事件
+        $(".order").on("click", ".filter a", function () {
+          //4.1:排他策略 自己a加class active 其他兄弟删class active
+          $(this).addClass("active").siblings().removeClass("active");
+          //4.2:点击切换数据
+          var currdata = data[this.dataset.key];
+          h4o.html(currdata.order);
+          h4a.html(currdata.amount);
+        });
+        //5:开启定时器切换数据
+        //5.1:获取所有a下标
+        var allTab = $(".odrer .filter a");
+        var idx = 0;
+        //5.2:创建定时器
+        var timer = setInterval(function () {
+          //5.3:下标加加
+          idx++;
+          //5.4:下标大于等于4下标赋值 0
+          if (idx >= 4) idx = 0;
+          //5.5:触发等于下标的a点击事件
+          allTab.eq(idx).click();
+        }, 500);
+      })();
+    
+    
+    </script>
+  </body>
+</html>
