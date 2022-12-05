@@ -1,0 +1,45 @@
+<view class="cover">
+  <van-image
+    round
+    fit="cover"
+    width="180rpx"
+    height="180rpx"
+    bindtap="handleTapAvatar"
+    src="{{userInfo.avatarUrl}}"/> 
+  <view bindtap="handleTapLogin">
+    {{userInfo.nickName}}
+  </view>
+</view>
+
+<van-grid>
+  <van-grid-item icon="certificate" dot text="立即签到" />
+  <van-grid-item icon="gift-o" badge="2" text="我的福利" />
+  <van-grid-item icon="clock-o" text="观看历史" />
+  <van-grid-item icon="shop-o" text="积分商城" />
+</van-grid>
+
+<van-cell icon="like-o" title="我喜欢的" is-link />
+<van-cell icon="star-o" title="我的收藏" is-link />
+<van-cell icon="setting-o" title="设置" is-link />
+
+
+
+
+<!--pages/me/me.wxml
+<van-button type="default">默认按钮</van-button>
+<van-button type="primary">主要按钮</van-button>
+<van-button type="info">信息按钮</van-button>
+<van-button type="warning">警告按钮</van-button>
+<van-button type="danger">危险按钮</van-button>
+
+<my-button></my-button>
+<my-button title="登录" color="#36D"></my-button>
+<my-button title="注册"></my-button>
+<my-button 
+  round
+  title="点击购买" 
+  color="#61f"></my-button>
+
+<my-button 
+  title="双击么么哒"
+  bind:doubletap="handleDoubletap"></my-button>-->
